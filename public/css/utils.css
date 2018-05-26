@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway|Bangers');
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 ul {
@@ -21,20 +21,54 @@ a {
 
 header {
   background: #666A86;
-  font-family: 'Fjalla One', sans-serif;
-  text-transform: lowercase;
+  font-family: 'Bangers', cursive;
 }
+
+.just-center {
+  justify-content: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.center {
+  justify-content: center;
+  align-items:center;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+ /*  NAVIGATION*/
 
 .nav li {
   display: inline-block;
 }
 
+.nav h1 {
+  color:#666A86;
+  font-family: 'Raleway',
+  sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: .5em;
+  font-size:2rem;
+}
+
 .navigation a {
-  color:white;
+  color:#333;
   display:block;
   text-align:center;
   font-size: 2rem;
-  padding: 1em 1em 1em 0;
+  padding: .7em 1em .7em 0;
   margin-right: 1em;
 }
 
@@ -52,52 +86,35 @@ header {
   position: absolute;
   width: 70%;
   height: 5px;
-  background: white;
+  background: #333;
   content: "";
-  transform: translateY(10px);
+  transform: translateY(11px);
   transition: transform ease .3s;
 }
 
 .navigation ul li:hover:after {
-  transform: translateY(5px);
+  transform: translateY(6px);
 }
 
-.just_center {
-  justify-content: center;
-}
-.flex_col {
-  display:flex;
-  flex-flow: column wrap;
-}
-
-.flex_end {
-  align-items: center;
-}
-
-.flex_row {
-  display:flex;
-  flex-flow: row wrap;
-}
-
-.log_reg {
+.log-reg {
   background:#333333;
   width:100%;
-  padding:3em;
+  padding:2em;
 }
 
-.log_reg ul {
+.log-reg ul {
   margin-left: auto;
 }
 
-.log_reg a {
-  font-size:1.5rem;
+.log-reg a {
+  font-size:1.4rem;
   padding: .7em;
   margin-left: 1em;
   color:#666A86;
   border: 2px solid #666A86;
 }
 
-.log_reg a:hover, .log_reg a:focus {
+.log-reg a:hover, .log-reg a:focus {
   background:#666A86; 
   color:#333;
 }
