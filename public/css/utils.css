@@ -8,6 +8,10 @@
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  color:#333;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -21,6 +25,10 @@ a {
 
 header {
   background: #666A86;
+  font-family: 'Bangers', cursive;
+}
+
+h1, h2 {
   font-family: 'Bangers', cursive;
 }
 
@@ -39,7 +47,7 @@ header {
 
 .center {
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
 .flex-row {
