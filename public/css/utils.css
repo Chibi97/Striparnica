@@ -78,7 +78,7 @@ h1, h2 {
 }
 
 .navigation a {
-  color:#333;
+  color:white;
   display:block;
   text-align:center;
   font-size: 2rem;
@@ -101,7 +101,7 @@ h1, h2 {
   left: 1em;
   width: 70%;
   height: 5px;
-  background: #333;
+  background: white;
   content: "";
   transform: translateY(11px);
   transition: transform ease .3s;
@@ -146,7 +146,11 @@ h1, h2 {
   color:#333;
 }
 
+.bs-white:hover, .bs-white:focus {
+  color:white;
+}
 
+/* ----- FOOTER ----- */
 
 footer {
   background:#333;
@@ -158,7 +162,9 @@ footer {
   padding: 8em 0;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-position-y: 15%;
+  flex-wrap:wrap;
 }
 
 .footer-picture strong {
@@ -167,7 +173,7 @@ footer {
 
 .disclaimer {
   color:white;
-  font-size:1.5rem;
+  font-size:1.6rem;
   width:12em;
   margin-left: 5em;
   align-self: flex-start;
@@ -176,6 +182,10 @@ footer {
 .links a {
   color:white;
   font-size:2rem;
+}
+
+.links a:hover, .links a:focus {
+  color:#7680c9;
 }
 
 .links li {
@@ -192,5 +202,14 @@ footer {
   padding-right: .5em;
 }
 
+@media only screen and (max-width: 475px) {
+  .disclaimer {
+    margin: 1em 2.5em;
+  }
+}
 
-
+@media only screen and (max-width:700px) {
+  .sf-article {
+    margin: 0 2em;
+  }
+}

@@ -87,6 +87,13 @@
   text-align:center;
 }
 
+.sf-article h3 {
+  padding-bottom: 2em;
+  letter-spacing: .5em;
+  color: white;
+  text-shadow: 3px 4px 3px grey;
+}
+
 .section-filter a {
   color:black;
   font-size:2rem;
