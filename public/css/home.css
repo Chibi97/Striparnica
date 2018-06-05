@@ -37,8 +37,6 @@
   cursor:pointer;
 }
 
-/* ----- MEDIA QUERY ----- */
-
 @media only screen and (max-width: 1300px) {
   .sneak-peek {
     position:absolute;
@@ -56,23 +54,104 @@
 }
 
 /* ----- ADVERTSIZMENT FOR LIST/REGISTER ----- */
-
 .list-adv {
-  min-height: 30rem;
-  font-size:2rem;
-  padding:1em;
+  font-size:2.3rem;
+  padding:4em 0;
 }
 
 .la-group {
-  width:50rem;
+  width:60rem;
   text-align: justify;
-  padding-bottom: 1em;
 }
 
 .list-adv a {
   display:block;
   margin: 0 0 1em 2em ;
   font-size:1em;
+}
+
+/* ----- LAST ADDED ----- */
+.last-added img {
+  width:100%;
+  height:100%;
+}
+
+.list-adv h2 {
+  font-size:2.4rem;
+  color:#666A86;
+  letter-spacing: .1em;
+  margin-bottom:.7em;
+  font-family:"Raleway", sans-serif;
+  text-transform: uppercase;
+  letter-spacing:.2em;
+}
+
+.l3-item {
+  width:250px;
+  position:relative;
+  margin-right:.5em;
+}
+
+.l3-desc {
+  position:absolute;
+  z-index:100;
+  bottom:0em;
+  left:0em;
+  right:0em;
+  color:white;
+  background: rgba(0, 0, 0, .55);
+  padding-bottom:2em;
+}
+
+.l3-item {
+  overflow:hidden;
+}
+
+.l3-desc {
+  transform: translateY(150%);
+}
+
+.l3-item:hover .l3-desc {
+  transform: translateY(0);
+}
+
+.the-rest {
+  margin-top:.7em;
+  font-size:1.8rem;
+}
+
+.the-rest a {
+  margin:0;
+  font-size:1.8rem;
+  display:inline;
+  color:#666A86;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 790px) {
+  .last-added {
+    justify-content: center;
+  }
+
+  .l3-item {
+    width: 400px;
+    margin-bottom:1em;
+  }
+
+  .l3-desc {
+    padding-bottom: 5.5em;
+  }
+
+  .the-rest, .the-rest a {
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .l3-item {
+    width: 200px;
+    margin-bottom: 1em;
+  }
 }
 
 /* ----- FILTER SECTION ----- */
@@ -104,6 +183,6 @@
   font-size:3rem;
 }
 
-.section-filter a:nth-child(5n+5) {
+.section-filter a:nth-child(5n+2) {
   font-size:2.7rem;
 }

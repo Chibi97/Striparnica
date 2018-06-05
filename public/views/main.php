@@ -1,59 +1,4 @@
-<!DOCTYPE html>
-<?php require_once "../database.php"; ?>
-<html>
-
-<head>
-  <title>MyComicsList</title>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/utils.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/home.css">
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-</head>
-
-<body>
-  <header class='flex-col center'>
-    <nav class='log-reg flex-row nav center'>
-      <h1>
-        <a class='logo' href='#'>MyComicsList</a>
-      </h1>
-      <ul>
-        <li>
-          <a href='#' class='btn-style'>Admin panel</a>
-        </li>
-        <li>
-          <a href='#' class='btn-style'>Account</a>
-        </li>
-        <li>
-          <a href='#' class='btn-style'>Logout</a>
-        </li>
-      </ul>
-    </nav>
-    <nav class='navigation nav center'>
-      <ul>
-        <li>
-          <a href='#'>Home</a>
-        </li>
-        <li>
-          <a href='#'>Browse</a>
-        </li>
-        <li>
-          <a href='#'>My List</a>
-        </li>
-        <li>
-          <a href='#'>About</a>
-        </li>
-        <li>
-          <a href='#'>Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class='slider flex-row center'>
+<section class='slider flex-row center'>
     <span class='fas fa-chevron-left'></span>
     <article class='list-of-comics'>
       <div class='sneak-peek'>
@@ -68,6 +13,7 @@
     <span class='fas fa-chevron-right'></span>
   </section>
 
+  <!--
   <section class='list-adv flex-row center'>
     <article class='la-group'>
       <p>Ever wanted to keep track of the comics that you've read? Well, we have a solution for you! Register now, and you can
@@ -77,7 +23,33 @@
     <article>
       <a href='#' class='btn-style bs-white'>JOIN US NOW</a>
       <a href='#' class='btn-style bs-white'>LOGIN</a>
+    </article>  
+  </section> -->
+  <section class='list-adv flex-col center'>
+    <h2>The last ones you added</h2>
+    <article class='last-added flex-row'>
+      <figure class='l3-item'>
+        <img src='../images/medium_sized/iw.jpg' alt='iw' />
+        <figcaption class='l3-desc'>
+          <p>Neki opis</p>
+        </figcaption>
+      </figure>
+
+      <figure class='l3-item'>
+        <img src='../images/medium_sized/aot.jpg' alt='iw' />
+        <figcaption class='l3-desc'>
+          <p>Neki opis</p>
+        </figcaption>
+      </figure>
+
+      <figure class='l3-item'>
+        <img src='../images/medium_sized/n_sh.jpg' alt='iw' />
+        <figcaption class='l3-desc'>
+          <p>Neki opis</p>
+        </figcaption>
+      </figure>
     </article>
+    <span class='the-rest'>You can see the rest <a href='#'>here</a>.</span>
   </section>
 
   <section class='section-filter flex-row center'>
@@ -85,10 +57,10 @@
       <h3>BROWSE BY FILTERS</h3>
       <a href="#" class='filter'>Must read</a>
       <a href="#" class='filter'>Genre</a>
-      <a href="#" class='filter'>Origin</a>
       <a href="#" class='filter'>Industry</a>
-      <a href="#" class='filter'>Year</a>
+      <a href="#" class='filter'>Origin</a>
       <a href="#" class='filter'>Type</a>
+      <a href="#" class='filter'>Year</a>
       <a href="#" class='filter'>Must read</a>
       <a href="#" class='filter'>Genre</a>
       <a href="#" class='filter'>Origin</a>
@@ -103,51 +75,26 @@
       <a href="#" class='filter'>Type</a>
       <a href="#" class='filter'>Must read</a>
       <a href="#" class='filter'>Genre</a>
-      <a href="#" class='filter'>Origin</a>
       <a href="#" class='filter'>Industry</a>
       <a href="#" class='filter'>Year</a>
       <a href="#" class='filter'>Type</a>
+      <a href="#" class='filter'>Origin</a>
+      <a href="#" class='filter'>Type</a>
+      <a href="#" class='filter'>Genre</a>
       <a href="#" class='filter'>Must read</a>
-      <a href="#" class='filter'>Genre</a>
       <a href="#" class='filter'>Origin</a>
       <a href="#" class='filter'>Industry</a>
-      <a href="#" class='filter'>Year</a>
-      <a href="#" class='filter'>Type</a>
+      <a href="#" class='filter'>Genre</a>
       <a href="#" class='filter'>Must read</a>
-      <a href="#" class='filter'>Genre</a>
+      <a href="#" class='filter'>Year</a>
       <a href="#" class='filter'>Origin</a>
       <a href="#" class='filter'>Industry</a>
       <a href="#" class='filter'>Year</a>
-      <a href="#" class='filter'>Type</a>
       <a href="#" class='filter'>Genre</a>
+      <a href="#" class='filter'>Type</a>
       <a href="#" class='filter'>Origin</a>
+      <a href="#" class='filter'>Type</a>
       <a href="#" class='filter'>Industry</a>
       <a href="#" class='filter'>Year</a>
-      <a href="#" class='filter'>Type</a>
-
     </article>
   </section>
-  <footer>
-    <div class="footer-picture flex-row center">
-      <ul class="links">
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">My List</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Documentation</a></li>
-      </ul>
-
-      <div class="disclaimer">
-        <p>Design by ©
-        <strong>Olja Ivkovic</strong>
-        <br/>This site is a project for ICT College, made for educational purposes. I don't intend to profit nor gain any rights. All
-        rights go to their rightful owners.</p>
-        
-        <a href="#" class="fab fa-github"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-facebook"></a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
