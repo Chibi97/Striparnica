@@ -145,3 +145,52 @@ h1, h2 {
   background:#666A86; 
   color:#333;
 }
+
+
+
+footer {
+  background:#333;
+  width:100%;
+}
+
+.footer-picture {
+  background-image: url("../images/footer-wallp.png");
+  padding: 8em 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 15%;
+}
+
+.footer-picture strong {
+  color: #7680c9;
+}
+
+.disclaimer {
+  color:white;
+  font-size:1.5rem;
+  width:12em;
+  margin-left: 5em;
+  align-self: flex-start;
+}
+
+.links a {
+  color:white;
+  font-size:2rem;
+}
+
+.links li {
+  padding-bottom: 1em;
+  border-bottom: 1px solid gray;
+  margin-bottom: 1em;
+  min-width: 20em;
+}
+
+.disclaimer .fab {
+  font-size: 2.5rem;
+  color: #7680c9;
+  margin: 1em 0;
+  padding-right: .5em;
+}
+
+
+
