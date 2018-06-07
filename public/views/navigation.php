@@ -12,7 +12,7 @@
           <a href='#' class='btn-style'>Account</a>
         </li>
         <li>
-          <a href='#' class='btn-style'>Logout</a>
+          <a href='#' id='login' class='btn-style'>Login</a>
         </li>
       </ul>
     </nav>

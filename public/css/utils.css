@@ -4,7 +4,6 @@
   box-sizing: border-box;
   margin:0;
   padding:0;
-  transition: all ease-in-out 250ms;
 }
 
 html {
@@ -57,6 +56,78 @@ h1, h2 {
   display: flex;
   flex-flow: row wrap;
 }
+
+/* ----- Modal ------ */
+.modal {
+  position: fixed;
+  height: 20rem;
+  width: 50%;
+  background: #666A86;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.modal span {
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: -19px;
+  font-size: 5rem;
+  color: black;
+  cursor: pointer;
+  transition: all ease 150ms;
+}
+
+.modal span:hover {
+  color: crimson;
+}
+
+.modal.show {
+  animation-name: modal-in;
+  animation-duration: 1s;
+  display: block;
+}
+
+.modal h1{
+  text-align: center;
+  margin-top: 1em;
+}
+
+.modal form input {
+  display: block;
+  width: 80%;
+  margin: 1em auto;
+  height: 2em;
+}
+
+.modal form button {
+  display: block;
+  width: 33.3%;
+  margin: 0 auto;
+  padding:1em;
+}
+
+@keyframes modal-in {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  25% {
+    width: 50%;
+    height: 5rem;
+  }
+
+  100% {
+    width: 50%;
+    height: 20rem;
+  }
+}
+
 
  /* ----- NAVIGATION ----- */
 
