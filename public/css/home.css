@@ -7,11 +7,6 @@
   flex-wrap: nowrap;
 }
 
-.slider img {
-  margin: 0 .6em;
-  width:200px;
-}
-
 .list-of-comics {
   position: relative;
 }
@@ -36,6 +31,21 @@
   margin: .5em;
   cursor:pointer;
 }
+
+.image-slider-wrap {
+  overflow: hidden;
+}
+
+.image-slider {
+  display: flex;
+  width: 800px;
+}
+
+.image-slider img {
+  flex: 0 0 200px;
+  margin: 0 .6em;
+}
+
 
 @media only screen and (max-width: 1300px) {
   .sneak-peek {
