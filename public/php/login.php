@@ -8,7 +8,7 @@
     $errors = [];
 
     $rePassword = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/';
-    if(!preg_match($rePasswrod, $password)) {
+    if(!preg_match($rePassword, $password)) {
       $errors[] = "A password must have at least one digit, at least one uppercase char, lowercase chars and it should be at least 8 chars long";
     }
 
@@ -35,8 +35,7 @@
     } else {
       $_SESSION['greske'] = $errors;
     }
-
-    var_dump($errors);
+    
     header("Location: ../index.php");
   }
 

@@ -11,27 +11,34 @@ $(document).ready(function () {
 });
 
 function initModal() {
+  $(".modal button").click(() => closeModal());
+
   $(".modal").find("span").click(function () {
     if (window.modalOpen) {
       closeModal();
     }
   });
 
-  /*$("body").click(function () {
+  $(document).click(function (e) {
+    if($(e.target).closest('.modal').length
+      || e.target == '#login') return;
+
     if (window.modalOpen) {
       closeModal();
     }
-  });*/
+  });
 }
 
 function closeModal() {
   window.modalOpen = false;
   $(".modal").removeClass("show");
+  $(".modal").addClass('hide');
   $("#crnilo").remove();
 }
 
 function openModal() {
   window.modalOpen = true;
+  $(".modal").removeClass('hide');
   var crnilo = $("<div id='crnilo'>");
   crnilo.css({
     display: "block",

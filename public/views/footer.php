@@ -45,7 +45,7 @@
   <script>
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
-      <?php unset($_SESSION['greske']); ?>
+    <?php unset($_SESSION['greske']); ?>
     <?php else: ?>
       window.modalOpen = false;
     <?php endif ?>
