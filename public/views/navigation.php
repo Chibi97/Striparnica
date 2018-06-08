@@ -12,7 +12,11 @@
           <a href='#' class='btn-style'>Account</a>
         </li>
         <li>
+          <?php if(!isset($_SESSION['user'])): ?>
           <a href='#' id='login' class='btn-style'>Login</a>
+          <?php else: ?>
+          <a href='../php/logout.php' class='btn-style'>Logout</a>
+          <?php endif; ?>
         </li>
       </ul>
     </nav>
