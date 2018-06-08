@@ -20,7 +20,7 @@
       </div>
     </div>
   </article>
-  <span class='fas fa-chevron-right'></span>
+  <span id="slide-right" class='fas fa-chevron-right'></span>
 </section>
 
 <?php

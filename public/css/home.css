@@ -34,14 +34,16 @@
 
 .image-slider-wrap {
   overflow: hidden;
+  width: 80rem;
 }
 
 .image-slider {
   display: flex;
-  width: 800px;
+  align-items: flex-start;
 }
 
 .image-slider img {
+  width: 200px;
   flex: 0 0 200px;
   margin: 0 .6em;
 }
@@ -57,9 +59,25 @@
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .image-slider-wrap {
+    width: 60rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .image-slider-wrap {
+    width: 40rem;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .sneak-peek {
     min-width: 16.8em;
+  }
+
+  .image-slider-wrap {
+    width: 20rem;
   }
 }
 
