@@ -11,7 +11,7 @@
 
 .filters {
   margin-right: 5em;
-  width: 20em;
+  width: 25em;
 }
 
 .filters ul {
@@ -42,6 +42,11 @@
   overflow: hidden;
 }
 
+.sub-items li {
+  margin-top: .5em;
+  margin-bottom: .75em;
+}
+
 .comics {
   min-width: 40vmax;
   background-color:rgb(210, 190, 229);
@@ -59,6 +64,45 @@
 
 .title i.go {
   transform: rotate(180deg);
+}
+
+.custom-checkbox {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: .33em;
+  margin-top: .33em;
+}
+
+.custom-checkbox input {
+  display: none;
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  display: block;
+  width: 1.3em;
+  height: 1.3em;
+  background: transparent;
+  border: 1px solid #333;
+  right: .5em;
+  top: 0;
+  border-radius: 3px;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  position: absolute;
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  left: .1em;
+  top: 1px;
+  color: #666A86;
 }
 
 @media only screen and (max-width: 770px) {

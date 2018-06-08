@@ -11,7 +11,13 @@
             </div>
             <ul class='sub-items'>
             <?php foreach($filter->subfilters as $subfilter): ?>
-              <li><?= $subfilter->name ?></li>
+              <li>
+                <label class='custom-checkbox'>
+                  <?= $subfilter->name ?>
+                  <input class='custom-checkbox' type='checkbox' />
+                  <span class='checkmark'></span>
+                </label>
+              </li>
             <?php endforeach ?>
             </ul>
           </li>
