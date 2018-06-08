@@ -10,8 +10,20 @@
   ?>
   <body>
     <?php 
+      $page = null;
+      if(isset($_GET['page'])) {
+        $page = $_GET['page'];
+      }
+
       include_once "views/navigation.php";
-      include_once "views/main.php";
+      switch($page) {
+        case 'browse':
+          include_once "views/browse.php";
+          break;
+        default:
+          include_once "views/main.php";
+          break;
+      }
       include_once "views/footer.php";
       ?>
   </body>
