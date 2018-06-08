@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
   <title>MyComicsList</title>
   <meta charset="utf-8" />

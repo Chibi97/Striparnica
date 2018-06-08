@@ -1,8 +1,17 @@
 <?php 
   session_start();
   require_once "../database.php";
-  include_once "views/head.php";
-  include_once "views/navigation.php";
-  include_once "views/main.php";
-  include_once "views/footer.php";
 ?>
+<!DOCTYPE html>
+<html>
+  <?php 
+    include_once "views/head.php";
+  ?>
+  <body>
+    <?php 
+      include_once "views/navigation.php";
+      include_once "views/main.php";
+      include_once "views/footer.php";
+      ?>
+  </body>
+</html>
