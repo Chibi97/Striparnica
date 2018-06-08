@@ -46,5 +46,5 @@
     <?php endif ?>
   </script>
   <script src='scripts/modal.js'></script>
-</body>
-</html>
+
+  
