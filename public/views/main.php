@@ -2,7 +2,7 @@
   <span id="slide-left" class='fas fa-chevron-left'></span>
   <article class='list-of-comics'>
     <div class='sneak-peek'>
-      <h2>Sneak Peek</h2>
+      <h2 class='heading'>Sneak Peek</h2>
     </div>
     <div class='image-slider-wrap'>
       <div class='image-slider'>
@@ -75,50 +75,7 @@
      foreach($rows as $row) {
       echo "<a href='#' class='filter'>{$row->name}</a>";
     }
-
-  
-     
     ?>
-    <!-- <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a> -->
+   
   </article>
 </section>

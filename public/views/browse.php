@@ -1,4 +1,4 @@
-<div class='browse-container'>
+<div class='browse-container flex-row'>
   <div class='filters'>
     <h1 class='text-center'>Filters</h1>
     <?php $filters = selectFiltersWithSubfilter($conn) ?> 
