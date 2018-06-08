@@ -23,7 +23,7 @@
           
         } else {
           $html .= "<li>
-          <a href='#' id='login' class='btn-style'>Login</a>
+          <a href='#' class='btn-style login'>Login</a>
           </li>";
         }
 
@@ -32,23 +32,14 @@
     </ul>
   </nav>
 
+  <?php $linkovi = $conn->query("SELECT * FROM links")->fetchAll(); ?>
   <nav class='navigation nav center'>
     <ul>
-      <li>
-        <a href='#'>Home</a>
-      </li>
-      <li>
-        <a href='#'>Browse</a>
-      </li>
-      <li>
-        <a href='#'>My List</a>
-      </li>
-      <li>
-        <a href='#'>About</a>
-      </li>
-      <li>
-        <a href='#'>Contact</a>
-      </li>
+      <?php foreach($linkovi as $link): ?>
+          <li>
+            <a href='<?= $link->path ?>'><?= $link->name ?></a>
+          </li>
+      <?php endforeach ?>
     </ul>
   </nav>
 </header>

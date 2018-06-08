@@ -1,16 +1,26 @@
 <section class='slider flex-row center'>
-  <span class='fas fa-chevron-left'></span>
+  <span id="slide-left" class='fas fa-chevron-left'></span>
   <article class='list-of-comics'>
     <div class='sneak-peek'>
       <h2>Sneak Peek</h2>
     </div>
-    <img src='images/medium_sized/american_gods.jpg' alt='american_gods' />
-    <img src='images/medium_sized/death_note.jpg' alt='american_gods' />
-    <img src='images/medium_sized/naruto.jpg' alt='american_gods' />
-    <img src='images/medium_sized/infinity_gauntlet.jpg' alt='american_gods' />
-    <img src='images/medium_sized/sandman.jpg' alt='american_gods' />
+    <div class='image-slider-wrap'>
+      <div class='image-slider'>
+        <img src='images/medium_sized/american_gods.jpg' alt='american_gods' />
+        <img src='images/medium_sized/death_note.jpg' alt='american_gods' />
+        <img src='images/medium_sized/naruto.jpg' alt='american_gods' />
+        <img src='images/medium_sized/infinity_gauntlet.jpg' alt='american_gods' />
+        <img src='images/medium_sized/sandman.jpg' alt='american_gods' />
+
+         <img src='images/medium_sized/american_gods.jpg' alt='american_gods' />
+        <img src='images/medium_sized/death_note.jpg' alt='american_gods' />
+        <img src='images/medium_sized/naruto.jpg' alt='american_gods' />
+        <img src='images/medium_sized/infinity_gauntlet.jpg' alt='american_gods' />
+        <img src='images/medium_sized/sandman.jpg' alt='american_gods' />
+      </div>
+    </div>
   </article>
-  <span class='fas fa-chevron-right'></span>
+  <span id="slide-right" class='fas fa-chevron-right'></span>
 </section>
 
 <?php
