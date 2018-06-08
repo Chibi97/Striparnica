@@ -1,5 +1,5 @@
 <section class='slider flex-row center'>
-  <span class='fas fa-chevron-left'></span>
+  <span id="slide-left" class='fas fa-chevron-left'></span>
   <article class='list-of-comics'>
     <div class='sneak-peek'>
       <h2>Sneak Peek</h2>
