@@ -1,13 +1,43 @@
 <?php
   session_start();
+  require_once "../../database.php";
 
-  // DODAJ VALIDACIJE OVDE MRZI ME
-  // ja cu samo da ti pokazem ako ima greske.
+  if(isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $errors = [];
+
+    $rePassword = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/';
+    if(!preg_match($rePasswrod, $password)) {
+      $errors[] = "A password must have at least one digit, at least one uppercase char, lowercase chars and it should be at least 8 chars long";
+    }
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errors[] = "You must enter a valid format for email address";
+    }
+    
+    if(empty($errors)) {
+      // prijavi korisnika
+      $password = sha1($password);
+      $upit = "SELECT u.* FROM users u INNER JOIN roles r ON u.id_role = r.id
+      WHERE email = :email AND password = :pass;";
+      $stmt = $conn->prepare($upit);
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':pass', $password);
+      $stmt->execute();
+      $selectedUser = $stmt->fetch();
+
+      if($selectedUser) {
+        $_SESSION['user'] = $selectedUser;
+      } else {
+        $_SESSION['greske'] = ['Email or password are not valid'];
+      }
+    } else {
+      $_SESSION['greske'] = $errors;
+    }
+
+    var_dump($errors);
+    header("Location: ../index.php");
+  }
 
 
-  $_SESSION['greske'] = [
-    "email nije u dobrom formatu",
-    "lozinka nije u dobrom formatu"
-  ];
-
-  header("Location: index.php");
