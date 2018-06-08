@@ -1,5 +1,6 @@
 <?php 
   session_start();
+  require_once "php/utilities.php";
   require_once "../database.php";
   include_once "views/head.php";
   include_once "views/navigation.php";

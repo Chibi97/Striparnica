@@ -13,7 +13,7 @@ $(document).ready(function () {
 function initModal() {
   $(".modal button").click(() => closeModal());
 
-  $(".modal").find("span").click(function () {
+  $(".modal").find("#modal-exit").click(function () {
     if (window.modalOpen) {
       closeModal();
     }

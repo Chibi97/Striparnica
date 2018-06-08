@@ -60,7 +60,7 @@ h1, h2 {
 /* ----- Modal ------ */
 .modal {
   position: fixed;
-  height: 20rem;
+  min-height: 20rem;
   width: 50%;
   max-width: 50rem;
   background: #666A86;
@@ -72,7 +72,7 @@ h1, h2 {
   z-index: 1000;
 }
 
-.modal span {
+.modal #modal-exit {
   display: block;
   position: absolute;
   right: 5px;
@@ -83,17 +83,24 @@ h1, h2 {
   transition: all ease 150ms;
 }
 
-.modal span:hover {
+.modal .form-error {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.modal #modal-exits:hover {
   color: crimson;
 }
 
 .modal.show {
+  min-height: 0 !important;
   animation-name: modal-in;
   animation-duration: 600ms;
   display: block;
 }
 
 .modal.hide {
+  min-height: 0 !important;
   animation-name: modal-out;
   animation-duration: 300ms;
   display: block;

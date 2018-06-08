@@ -23,17 +23,12 @@
     <!-- MODAL  -->
     <div class='modal'>
       <h1>Login Modal</h1>
-      <span>&times;</span>
-      <?php if(isset($_SESSION['greske'])): ?>
-      <ul>
-        <?php foreach($_SESSION['greske'] as $greska): ?>
-        <li><?= $greska; ?></li>
-        <?php endforeach ?>
-      </ul>
-      <?php endif ?>
+      <span id="modal-exit">&times;</span>
       <form action='php/login.php' method='POST'>
         <input type='text' name='email' placeholder="Email" />
+        <span class='form-error'><?= error_for("email"); ?></span>
         <input type='password' name='password' placeholder="Password" />
+        <span class='form-error'><?= error_for("password"); ?></span>
         <button name='login'>
           Login
         </button>
