@@ -39,12 +39,26 @@
 
 .sub-items {
   font-size: 2rem !important;
+  overflow: hidden;
 }
 
 .comics {
   min-width: 60vmax;
   background-color:rgb(210, 190, 229);
   border:3px solid goldenrod;
+}
+
+.title {
+  display: flex;
+  cursor: pointer;
+}
+
+.title span {
+  margin-right: auto;
+}
+
+.title i.go {
+  transform: rotate(180deg);
 }
 
 @media only screen and (max-width: 770px) {

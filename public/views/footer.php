@@ -47,4 +47,5 @@
   </script>
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
+  <script src='scripts/filters.js'></script>
   
