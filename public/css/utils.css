@@ -38,6 +38,10 @@ h1, h2 {
   justify-content: center;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .flex-col {
   display: flex;
   flex-flow: column wrap;
