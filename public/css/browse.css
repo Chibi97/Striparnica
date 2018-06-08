@@ -1,8 +1,44 @@
 .browse-container {
-  width: 100rem;
-  margin: 0 auto;
+  display: flex;
+  width: 102.4rem;
+  margin: 5em auto;
 }
 
 .browse-container h1 {
-  font-size: 4rem;
+  font-size: 4.3rem;
+}
+
+.filters {
+  flex: 1;
+}
+
+.filters ul {
+  font-size: 3.5rem;
+}
+
+.filters  > ul > li {
+  padding: .5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters span {
+  margin-right: auto;
+}
+
+.filters > ul > li:not(:last-child) {
+  border-bottom: 1px solid #333;
+}
+
+.title {
+  display: flex;
+}
+
+.sub-items {
+  font-size: 2rem !important;
+}
+
+.comics {
+  flex: 2;
+  background: burlywood;
 }
