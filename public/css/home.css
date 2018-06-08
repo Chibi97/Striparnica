@@ -16,13 +16,15 @@
   top: -3.5em;
   left: -2.2em;
   background:#666A86;
-  color: white;
-  letter-spacing: .2em;
   min-width: 22em;
   text-align: center;
-  font-size: 1.9rem;
+  color: white;
   padding:.5em;
-  text-transform: uppercase;
+}
+
+.heading {
+  letter-spacing: .2em;
+  font-size: 1.9rem;
 }
 
 .slider .fas {

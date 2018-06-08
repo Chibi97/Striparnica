@@ -2,7 +2,7 @@
   <span id="slide-left" class='fas fa-chevron-left'></span>
   <article class='list-of-comics'>
     <div class='sneak-peek'>
-      <h2>Sneak Peek</h2>
+      <h2 class='heading'>Sneak Peek</h2>
     </div>
     <div class='image-slider-wrap'>
       <div class='image-slider'>

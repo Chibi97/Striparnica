@@ -1,7 +1,7 @@
 .browse-container {
-  display: flex;
   width: 102.4rem;
   margin: 5em auto;
+  justify-content: space-between;
 }
 
 .browse-container h1 {
@@ -9,11 +9,16 @@
 }
 
 .filters {
-  flex: 1;
+  width:300px;
+}
+
+.comics {
+  flex: 2;
+  background: burlywood;
 }
 
 .filters ul {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }
 
 .filters  > ul > li {
@@ -21,6 +26,8 @@
   display: flex;
   flex-direction: column;
 }
+
+
 
 .filters span {
   margin-right: auto;
@@ -30,6 +37,10 @@
   border-bottom: 1px solid #333;
 }
 
+.filters h1 {
+  color:#666A86;
+} 
+
 .title {
   display: flex;
 }
@@ -38,7 +49,4 @@
   font-size: 2rem !important;
 }
 
-.comics {
-  flex: 2;
-  background: burlywood;
-}
+
