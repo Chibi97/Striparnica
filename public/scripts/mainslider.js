@@ -1,7 +1,7 @@
 $(document).ready(function() {
   slider.init();
-  $("#slide-left").click(slider.slideLeft);
-  $("#slide-right").click(slider.slideRight);
+  $("#slide-left").click(slider.slideRight);
+  $("#slide-right").click(slider.slideLeft);
   $(".image-slider-wrap").on('touchmove', slider.handleTouch);
   $(".image-slider-wrap").on('touchstart', slider.handleTouchStart);
   $(".image-slider-wrap").on('touchend', slider.handleTouchEnd);
