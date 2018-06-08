@@ -205,7 +205,9 @@
 .section-filter a {
   color:black;
   font-size:2rem;
-  padding-right: .5em;
+  padding-right: .7em;
+  display: inline-block;
+  line-height: 1.5em;
 }
 
 .section-filter a:nth-child(even) {
@@ -215,3 +217,4 @@
 .section-filter a:nth-child(5n+2) {
   font-size:2.7rem;
 }
+

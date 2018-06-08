@@ -75,50 +75,7 @@
      foreach($rows as $row) {
       echo "<a href='#' class='filter'>{$row->name}</a>";
     }
-
-  
-     
     ?>
-    <!-- <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Must read</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a>
-    <a href="#" class='filter'>Genre</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Origin</a>
-    <a href="#" class='filter'>Type</a>
-    <a href="#" class='filter'>Industry</a>
-    <a href="#" class='filter'>Year</a> -->
+   
   </article>
 </section>
