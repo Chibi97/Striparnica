@@ -23,7 +23,7 @@
           
         } else {
           $html .= "<li>
-          <a href='#' id='login' class='btn-style'>Login</a>
+          <a href='#' class='btn-style login'>Login</a>
           </li>";
         }
 

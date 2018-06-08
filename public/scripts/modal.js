@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   if (window.modalOpen) openModal();
 
-  $("#login").click(function (e) {
+  $(".login").click(function (e) {
     e.preventDefault();
     e.stopPropagation();
     openModal();
@@ -21,7 +21,7 @@ function initModal() {
 
   $(document).click(function (e) {
     if($(e.target).closest('.modal').length
-      || e.target == '#login') return;
+      || e.target == '.login') return;
 
     if (window.modalOpen) {
       closeModal();
