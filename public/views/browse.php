@@ -1,5 +1,5 @@
 <div class='flex-col center'>
-  <div class='browse-container flex-row'>
+  <div class='browse-container row-no-wrap'>
     <div class='filters'>
       <h1 class='text-center heading'>Filters</h1>
       <?php $filters = selectFiltersWithSubfilter($conn) ?> 
