@@ -89,13 +89,13 @@ h1, h2 {
 
 .modal.show {
   animation-name: modal-in;
-  animation-duration: 1s;
+  animation-duration: 600ms;
   display: block;
 }
 
 .modal.hide {
   animation-name: modal-out;
-  animation-duration: 1s;
+  animation-duration: 300ms;
   display: block;
   width: 0;
   height: 0;
