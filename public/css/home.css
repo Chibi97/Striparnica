@@ -20,11 +20,8 @@
   text-align: center;
   color: white;
   padding:.5em;
-}
-
-.heading {
+  font-size: 1.9em;
   letter-spacing: .2em;
-  font-size: 1.9rem;
 }
 
 .slider .fas {
@@ -186,6 +183,7 @@
 }
 
 /* ----- FILTER SECTION ----- */
+
 .section-filter {
   background-color: rgba(102, 106, 134, 0.6);
   padding: 5em 0;
@@ -218,5 +216,9 @@
 
 .section-filter a:nth-child(5n+2) {
   font-size:2.7rem;
+}
+
+.filter:hover, .filter:focus {
+  color:white;
 }
 

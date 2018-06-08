@@ -2,7 +2,7 @@
   <span id="slide-left" class='fas fa-chevron-left'></span>
   <article class='list-of-comics'>
     <div class='sneak-peek'>
-      <h2 class='heading'>Sneak Peek</h2>
+      <h2>Sneak Peek</h2>
     </div>
     <div class='image-slider-wrap'>
       <div class='image-slider'>
@@ -49,7 +49,7 @@
           </figcaption>
         </figure>
       </article>
-      <span class='the-rest'>You can see the rest <a href='#'>here</a>.</span>
+      <span class='the-rest'>You can see the rest <a href='../index.php?page=my_list'>here</a>.</span>
     </section>
 <?php else: ?>
   <section class='list-adv flex-row center'>
@@ -60,7 +60,7 @@
     </article>
     <article>
       <a href='#' class='btn-style bs-white'>JOIN US NOW</a>
-      <a href='#' class='btn-style bs-white'>LOGIN</a>
+      <a href='#' class='login btn-style bs-white'>LOGIN</a>
     </article>  
   </section>
 <?php endif; ?>
