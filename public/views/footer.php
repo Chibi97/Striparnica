@@ -1,17 +1,23 @@
   <footer>
     <div class="footer-picture flex-row center">
       <ul class="links">
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">My List</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Documentation</a></li>
+        <?php 
+          $linkovi = selectMultipleRows($conn, "SELECT * FROM links");
+          $trenutna = isset($_GET['page']) ? 'index.php?page=' . $_GET['page'] : "index.php";
+
+          foreach($linkovi as $link) {
+            if($trenutna != $link->path) {   
+              echo "<li><a href='$link->path'>$link->name</a></li>";  
+            } 
+          }
+          echo "<li><a href='#'>Dokumentacija</a></li>";
+        ?>
       </ul>
 
       <div class="disclaimer">
         <p>Design by ©
-        <strong>Olja Ivkovic</strong>
-        <br/>This site is a project for <strong>ICT College</strong>, made for educational purposes. I don't intend to profit nor gain any rights. All
+        <strong>Olja Ivkovic</strong></p>
+        <p>This site is a project for <strong>ICT College</strong>, made for educational purposes. I don't intend to profit nor gain any rights. All
         rights go to their rightful owners.</p>
         
         <a href="#" class="fab fa-github"></a>
@@ -20,7 +26,7 @@
       </div>
     </div>
     
-    <!-- MODAL  -->
+    <!-- ----- MODAL  -->
     <div class='modal'>
       <div class='card'>
         <div class='card__face card__face--front flex-col center'>

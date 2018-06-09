@@ -6,9 +6,9 @@
     return "";
   }
 
-   function selectMultipleRows($conn, $upit) {
-      $result = $conn->query($upit);
-      return $result->fetchAll();
+  function selectMultipleRows($conn, $upit) {
+    $result = $conn->query($upit);
+    return $result->fetchAll();
   }
 
   function selectFiltersWithSubfilter($conn) {

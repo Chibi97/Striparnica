@@ -32,7 +32,8 @@
     </ul>
   </nav>
 
-  <?php $linkovi = $conn->query("SELECT * FROM links")->fetchAll(); ?>
+  <?php 
+  $linkovi = selectMultipleRows($conn, "SELECT * FROM links"); ?>
   <nav class='navigation nav center'>
     <ul>
       <?php foreach($linkovi as $link): ?>
