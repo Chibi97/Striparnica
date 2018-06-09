@@ -73,6 +73,7 @@
   <script>
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
+      $(".fa-span").css("color", "crimson");
     <?php unset($_SESSION['greske']); ?>
     <?php else: ?>
       window.modalOpen = false;
