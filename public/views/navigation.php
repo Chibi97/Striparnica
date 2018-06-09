@@ -10,7 +10,7 @@
         if(isset($_SESSION['user'])) {
           if($_SESSION['user']->id_role == 1) {
             $html .= "
-               <li><a href='#' class='btn-style'>Admin panel</a></li>
+               <li><a href='' class='btn-style'>Admin panel</a></li>
             ";
           } 
 

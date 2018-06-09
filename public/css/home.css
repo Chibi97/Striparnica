@@ -119,8 +119,10 @@
 
 .l3-item {
   width:250px;
+  height: 100%;
   position:relative;
   margin-right:.5em;
+  overflow:hidden;
 }
 
 .l3-desc {
@@ -133,10 +135,6 @@
   background: rgba(0, 0, 0, .55);
   padding-bottom:2em;
   transition: all ease-in-out 250ms;
-}
-
-.l3-item {
-  overflow:hidden;
 }
 
 .l3-desc {
@@ -167,6 +165,7 @@
 
   .l3-item {
     width: 400px;
+    height: auto;
     margin-bottom:1em;
   }
 
@@ -180,9 +179,19 @@
 }
 
 @media only screen and (max-width: 510px) {
+  .last-added {
+   display:flex;
+   flex-direction:column;
+  }
+
   .l3-item {
-    width: 200px;
+    width: 250px;
+    height: auto;
     margin-bottom: 1em;
+  }
+
+  .l3-desc {
+    padding-bottom: 1.3em;
   }
 }
 
