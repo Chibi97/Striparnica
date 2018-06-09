@@ -70,15 +70,48 @@ h1, h2 {
 .modal {
   position: fixed;
   min-height: 20rem;
+  height: 20rem;
   width: 50%;
-  max-width: 50rem;
-  background: #666A86;
+  max-width: 40rem;
+  background: transparent;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: none;
   overflow: hidden;
   z-index: 1000;
+  perspective: 1200px;
+}
+
+.modal .card {
+  width: 100%;
+  height: 100%;
+  transition: transform ease-out 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  backface-visibility: hidden
+}
+
+.card__face--front {
+  background: crimson;
+}
+
+.card__face--back {
+  background: blue;
+  transform: rotateY(180deg);
 }
 
 .modal #modal-exit {
@@ -130,10 +163,8 @@ h1, h2 {
 }
 
 .modal form button {
-  display: block;
   width: 33.3%;
-  margin: 0 auto;
-  padding:1em;
+  padding: .7em;
 }
 
 @keyframes modal-out {

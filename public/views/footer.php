@@ -22,17 +22,29 @@
     
     <!-- MODAL  -->
     <div class='modal'>
-      <h1>Login Modal</h1>
-      <span id="modal-exit">&times;</span>
-      <form action='php/login.php' method='POST'>
-        <input type='text' name='email' placeholder="Email" />
-        <span class='form-error'><?= error_for("email"); ?></span>
-        <input type='password' name='password' placeholder="Password" />
-        <span class='form-error'><?= error_for("password"); ?></span>
-        <button name='login'>
-          Login
-        </button>
-      </form>
+      <div class='card'>
+        <div class='card__face card__face--front'>
+          <h1>Login Modal</h1>
+          <span id="modal-exit">&times;</span>
+          <form action='php/login.php' method='POST'>
+            <input type='text' name='email' placeholder="Email" />
+            <span class='form-error'><?= error_for("email"); ?></span>
+            <input type='password' name='password' placeholder="Password" />
+            <span class='form-error'><?= error_for("password"); ?></span>
+            <button id='login' name='login'>
+              Login
+            </button>
+            <button id='register-btn'>Register</button>
+          </form>
+        </div>
+        <div class='card__face card__face--back'>
+          <h1>Register<h1>
+          <button id='login-btn'>Login</button>
+        </div>
+      </div>
+      <!--
+      
+  -->
     </div>
   </footer>
 

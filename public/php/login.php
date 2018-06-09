@@ -32,7 +32,7 @@
       if($selectedUser) {
         $_SESSION['user'] = $selectedUser;
       } else {
-        $_SESSION['greske'] = ['Email or password are not valid'];
+        $_SESSION['greske'] = ['email' => 'Email or password are not valid'];
       }
     } else {
       $_SESSION['greske'] = $errors;
