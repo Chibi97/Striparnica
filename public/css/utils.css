@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 header {
   background: #666A86;
   font-family: 'Bangers', cursive;
@@ -33,6 +37,15 @@ header {
 h1, h2 {
   font-family: 'Bangers', cursive;
 }
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 
 .just-center {
   justify-content: center;
@@ -69,8 +82,8 @@ h1, h2 {
 /* ----- Modal ------ */
 .modal {
   position: fixed;
-  min-height: 20rem;
-  height: 20rem;
+  min-height: 30rem;
+  height: 35rem;
   width: 50%;
   max-width: 40rem;
   background: transparent;
@@ -81,6 +94,8 @@ h1, h2 {
   overflow: hidden;
   z-index: 1000;
   perspective: 1200px;
+  border-radius: .3em;
+  box-shadow: 5px 5px 15px #333;
 }
 
 .modal .card {
@@ -106,20 +121,21 @@ h1, h2 {
 }
 
 .card__face--front {
-  background: crimson;
+  background: #666A86;
 }
 
 .card__face--back {
-  background: blue;
+  background: #666A86;
   transform: rotateY(180deg);
 }
 
-.modal #modal-exit {
+.modal .modal-exit {
+  font-family: 'Raleway', sans-serif;
   display: block;
   position: absolute;
-  right: 5px;
-  top: -19px;
-  font-size: 5rem;
+  right: 10px;
+  top: -5px;
+  font-size: 3rem;
   color: black;
   cursor: pointer;
   transition: all ease 150ms;
@@ -128,10 +144,11 @@ h1, h2 {
 .modal .form-error {
   color: white;
   font-size: 1.3rem;
+  text-align:justify;
 }
 
-.modal #modal-exits:hover {
-  color: crimson;
+.modal .modal-exit:hover {
+  color:white;
 }
 
 .modal.show {
@@ -150,21 +167,62 @@ h1, h2 {
   height: 0;
 }
 
-.modal h1{
+.modal h1 {
   text-align: center;
-  margin-top: 1em;
+  letter-spacing: .2em;
+  font-size:2.3rem;
+}
+
+.modal form {
+  width:70%;
 }
 
 .modal form input {
   display: block;
-  width: 80%;
+  border:none;
+  background: rgba(255,255,255,0.4);
+  border-radius: .2em;
+  padding: 1.3em 1.3em 1.3em 3em;
+  color: #333;
+  width: 100%;
   margin: 1em auto;
   height: 2em;
+  position: relative;
 }
 
-.modal form button {
-  width: 33.3%;
-  padding: .7em;
+.fa-span {
+  position: absolute;
+  font-size: 2rem;
+  color: #333;
+  opacity: 0.7;
+  top: 8px;
+  left: 10px;
+}
+
+.modal form input::-moz-placeholder {
+  color:#333;
+  letter-spacing: .2em;
+}
+
+.modal form input::placeholder {
+  color:#333;
+  letter-spacing: .2em;
+}
+
+.modal button {
+  margin-top: 1em;
+  border: none;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.modal button:hover,
+.modal button:focus {
+  border:none;
+  background:white;
+  color:#666A86;
+  border: 2px solid white;
 }
 
 @keyframes modal-out {
@@ -200,7 +258,6 @@ h1, h2 {
     height: 20rem;
   }
 }
-
 
  /* ----- NAVIGATION ----- */
 

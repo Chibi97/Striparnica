@@ -91,6 +91,10 @@
   text-align: justify;
 }
 
+.la-group p {
+  margin: 0 1.5em 1em;
+}
+
 .list-adv a {
   display:block;
   margin: 0 0 1em 2em ;
@@ -167,7 +171,7 @@
   }
 
   .l3-desc {
-    padding-bottom: 5.5em;
+    padding-bottom: 4.5em;
   }
 
   .the-rest, .the-rest a {

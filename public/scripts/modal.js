@@ -16,9 +16,13 @@ function initModal() {
     e.preventDefault();
     $(".modal .card").addClass('is-flipped');
   });
-  $("#login-btn").click(() => $(".modal .card").removeClass('is-flipped'));
+  $("#login-btn").click((е) => {
+    е.preventDefault();
+    $(".modal .card").removeClass('is-flipped');
+  });
+  
 
-  $(".modal").find("#modal-exit").click(function () {
+  $(".modal").find(".modal-exit").click(function () {
     if (window.modalOpen) {
       closeModal();
     }
