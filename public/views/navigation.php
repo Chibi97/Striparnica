@@ -1,7 +1,7 @@
 <header class='flex-col center'>
   <nav class='log-reg flex-row nav center'>
     <h1>
-      <a class='logo' href='#'>MyComicsList</a>
+      <a class='logo' href='/index.php'>MyComicsList</a>
     </h1>
     <ul>
       <?php
