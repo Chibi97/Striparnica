@@ -13,8 +13,8 @@
             <?php foreach($filter->subfilters as $subfilter): ?>
               <li>
                 <label class='custom-checkbox'>
-                  <?= $subfilter->name ?>
-                  <input class='custom-checkbox' type='checkbox' />
+                  <span class='search-text'><?= $subfilter->name ?></span>
+                  <input type='checkbox' />
                   <span class='checkmark'></span>
                 </label>
               </li>

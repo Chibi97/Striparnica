@@ -73,7 +73,7 @@
      $rows = selectMultipleRows($conn, "SELECT DISTINCT sf.name FROM filters f INNER JOIN sub_filters sf ON f.id = sf.id_filter;");
      
      foreach($rows as $row) {
-        echo "<a href='index.php?page=browse&filetr={$row->name}' class='filter'>{$row->name}</a>";
+        echo "<a href='index.php?page=browse&filter={$row->name}' class='filter'>{$row->name}</a>";
       }
     ?>
    
