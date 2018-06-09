@@ -11,7 +11,12 @@ $(document).ready(function () {
 });
 
 function initModal() {
-  $(".modal button").click(() => closeModal());
+  $("#login").click(() => closeModal());
+  $("#register-btn").click((e) => {
+    e.preventDefault();
+    $(".modal .card").addClass('is-flipped');
+  });
+  $("#login-btn").click(() => $(".modal .card").removeClass('is-flipped'));
 
   $(".modal").find("#modal-exit").click(function () {
     if (window.modalOpen) {
