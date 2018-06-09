@@ -72,6 +72,7 @@ h1, h2 {
   min-height: 20rem;
   height: 20rem;
   width: 50%;
+  max-width: 40rem;
   background: transparent;
   left: 50%;
   top: 50%;
