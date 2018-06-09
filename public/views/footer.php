@@ -29,13 +29,13 @@
           <form action='php/login.php' method='POST'>
             <div class='relative'>
               <input type='text' name='email' placeholder='Email' />
-              <span class='fas fa-at fa-span absolute'></span>
+              <span class='fas fa-at fa-span fs-login absolute'></span>
             </div>
             <p class='form-error'><?= error_for("email"); ?></p>
 
             <div class='relative'>
               <input type='password' name='password' placeholder='Password' />
-              <span class='fas fa-key fa-span absolute'></span>
+              <span class='fas fa-key fa-span fs-login absolute'></span>
             </div>
             <p class='form-error'><?= error_for("password"); ?></p>
 
@@ -50,13 +50,13 @@
           <form action='php/register.php' method='POST'>
             <div class='relative'>
               <input type='text' name='reg-email' placeholder='Email' />
-              <span class='fas fa-at fa-span absolute'></span>
+              <span class='fas fa-at fa-span fs-reg absolute'></span>
             </div>
             <p class='form-error'></p>
 
             <div class='relative'>
               <input type='password' name='reg-password' placeholder='Password' />
-              <span class='fas fa-key fa-span absolute'></span>
+              <span class='fas fa-key fa-span fs-reg absolute'></span>
             </div>
             <p class='form-error'></p>
 
@@ -73,7 +73,7 @@
   <script>
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
-      $(".fa-span").css("color", "crimson");
+      $(".fs-login").css("color", "crimson");
     <?php unset($_SESSION['greske']); ?>
     <?php else: ?>
       window.modalOpen = false;

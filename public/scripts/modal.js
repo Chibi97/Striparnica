@@ -8,6 +8,12 @@ $(document).ready(function () {
     e.stopPropagation();
     openModal();
   });
+
+  $(".register").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    openModal();
+  });
 });
 
 function initModal() {
