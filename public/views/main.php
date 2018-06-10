@@ -59,7 +59,7 @@
         categories, give your own ratings and decide what next to read!</p>
     </article>
     <article>
-      <a href='#' class='register btn-style bs-white'>JOIN US NOW</a>
+      <a href='#' class='joinUs btn-style bs-white'>JOIN US NOW</a>
       <a href='#' class='login btn-style bs-white'>LOGIN</a>
     </article>  
   </section>

@@ -9,7 +9,7 @@ $(document).ready(function () {
     openModal();
   });
 
-  $(".register").click(function (e) {
+  $(".joinUs").click(function (e) {
     e.preventDefault();
     e.stopPropagation();
     openModal();
@@ -26,8 +26,8 @@ function initModal() {
     е.preventDefault();
     $(".modal .card").removeClass('is-flipped');
   });
-  
 
+  
   $(".modal").find(".modal-exit").click(function () {
     if (window.modalOpen) {
       closeModal();

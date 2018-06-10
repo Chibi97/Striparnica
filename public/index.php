@@ -20,8 +20,15 @@
         case 'browse':
           include_once "views/browse.php";
           break;
+        case 'panel':
+          if($_SESSION['user']->id_role == 1) {
+            include_once "../admin/panel.php";
+          } else {
+            include "views/main.php";
+          }
+          break;
         default:
-          include_once "views/main.php";
+          include "views/main.php";
           break;
       }
       include_once "views/footer.php";

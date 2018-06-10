@@ -2,7 +2,7 @@ $(document).ready(function() {
   filters.init();
 });
 
-var filters = (function() {  
+var filters = (function() {
   function init() {
     $(".sub-items").hide();
     $(".title i").css("transition", "all ease 450ms");

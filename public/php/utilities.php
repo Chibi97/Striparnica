@@ -11,6 +11,23 @@
     return $result->fetchAll();
   }
 
+  /*function bindAndSelect($conn, $upit, $parametri, $values, $fetchOne) {
+    $result = $conn->prepare($upit);
+    foreach($parametri as $p) {
+      foreach($values as $v) {
+        $result->bindParam(":".$p, $v);
+      }
+    }
+    $result->execute();
+    if($fetchOne) {
+      $selected = $result->fetch();
+    } else {
+      $selected = $result->fetchAll();
+    }
+
+    return $selected;
+  }*/
+
   function selectFiltersWithSubfilter($conn) {
     $final = [];
     $records = $conn->query("

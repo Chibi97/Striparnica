@@ -3,9 +3,9 @@
   require_once "../../database.php";
 
   if(isset($_POST['login'])) {
-    $email = $_POST['email'];
+    $email    = $_POST['email'];
     $password = $_POST['password'];
-    $errors = [];
+    $errors   = [];
 
     $passwordMessage = "A password must have at least one digit, at least one uppercase char, lowercase chars and it should be at least 8 chars long";
     $emailMessage    = "You must enter a valid format for email address";
@@ -28,6 +28,7 @@
       $stmt->bindParam(':pass', $password);
       $stmt->execute();
       $selectedUser = $stmt->fetch();
+      //$selectedUser = bindAndSelect($conn, $upit, ["email","pass"], [$email, $password], true);
 
       if($selectedUser) {
         $_SESSION['user'] = $selectedUser;

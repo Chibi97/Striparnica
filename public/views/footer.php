@@ -53,7 +53,7 @@
         <div class='card__face card__face--back flex-col center'>
           <h1>Register</h1>
           <span class='modal-exit'>&times;</span>
-          <form action='php/register.php' method='POST'>
+          <form action='../php/register.php' method='POST'>
             <div class='relative'>
               <input type='text' name='reg-email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-reg absolute'></span>
@@ -66,8 +66,14 @@
             </div>
             <p class='form-error'></p>
 
+            <div class='relative'>
+              <input type='password' name='reg-confirm' placeholder='Confirm password' />
+              <span class='fas fa-unlock fa-span fs-reg absolute'></span>
+            </div>
+            <p class='form-error'></p>
+
             <button id='login-btn' name='login' class='btn-style'>Login</button>
-            <button id='register-btn' class='btn-style'>Register</button>
+            <button class='btn-style register'>Register</button>
           </form>
         </div>
         

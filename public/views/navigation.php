@@ -10,12 +10,12 @@
         if(isset($_SESSION['user'])) {
           if($_SESSION['user']->id_role == 1) {
             $html .= "
-               <li><a href='' class='btn-style'>Admin panel</a></li>
+               <li><a href='index.php?page=panel' class='btn-style'>Admin panel</a></li>
             ";
           } 
 
           $html .= "
-            <li><a href='#' class='btn-style'>Account</a></li>
+            <li><a href='/' class='btn-style'>Account</a></li>
             <li>
               <a href='../php/logout.php' class='btn-style'>Logout</a>
             </li>
@@ -24,6 +24,8 @@
         } else {
           $html .= "<li>
           <a href='#' class='btn-style login'>Login</a>
+          </li> <li>
+          <a href='#' class='btn-style joinUs'>Register</a>
           </li>";
         }
 
