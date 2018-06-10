@@ -1,8 +1,13 @@
 $(document).ready(function () {
   initModal();
 
-  if (window.modalOpen) openModal();
-
+  if (window.modalOpen) {
+    if(window.turnModal) {
+      openModal('register');
+    } else {
+      openModal();
+    }
+  }
   $(".login").click(function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -12,7 +17,7 @@ $(document).ready(function () {
   $(".joinUs").click(function (e) {
     e.preventDefault();
     e.stopPropagation();
-    openModal();
+    openModal('register');
   });
 });
 
@@ -51,7 +56,7 @@ function closeModal() {
   $("#crnilo").remove();
 }
 
-function openModal() {
+function openModal(rotation) {
   window.modalOpen = true;
   $(".modal").removeClass('hide');
   var crnilo = $("<div id='crnilo'>");
@@ -65,5 +70,18 @@ function openModal() {
   });
 
   $(".modal").addClass("show");
+  if(typeof rotation == 'undefined') {
+    rotation = "login"
+  }
+
+  if(rotation == 'login') {
+    if($('.modal .card').hasClass('is-flipped')) {
+      $('.modal').on('animationend', () => $('.modal .card').removeClass('is-flipped'))
+    }
+  } else if(rotation == 'register') {
+    if(!$('.modal .card').hasClass('is-flipped')) {
+      $('.modal').on('animationend', () => $('.modal .card').addClass('is-flipped'))
+    }
+  }
   $("body").prepend(crnilo);
 }

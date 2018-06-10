@@ -95,7 +95,6 @@ h1, h2 {
   z-index: 1000;
   perspective: 1200px;
   border-radius: .3em;
-  box-shadow: 5px 5px 15px #333;
 }
 
 .modal .card {
@@ -104,6 +103,7 @@ h1, h2 {
   transition: transform ease-out 1s;
   transform-style: preserve-3d;
   position: relative;
+  box-shadow: 5px 5px 15px #333;
 }
 
 .card.is-flipped {
@@ -155,16 +155,36 @@ h1, h2 {
   min-height: 0 !important;
   animation-name: modal-in;
   animation-duration: 600ms;
-  display: block;
+  display: flex;
 }
 
 .modal.hide {
   min-height: 0 !important;
   animation-name: modal-out;
-  animation-duration: 300ms;
-  display: block;
+  animation-duration: 600ms;
+  display: flex;
   width: 0;
   height: 0;
+}
+
+@keyframes modal-out {
+  from {
+    width: 50%;
+    height: 35rem;
+  }
+  to {
+    width: 0;
+    height: 35rem;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
 }
 
 .modal h1 {
@@ -223,40 +243,6 @@ h1, h2 {
   background:white;
   color:#666A86;
   border: 2px solid white;
-}
-
-@keyframes modal-out {
-  0% {
-    width: 50%;
-    height: 20rem;
-  }
-
-  75% {
-    width: 50%;
-    height: 5rem;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-  }
-}
-
-@keyframes modal-in {
-  0% {
-    width: 0;
-    height: 0;
-  }
-
-  25% {
-    width: 50%;
-    height: 5rem;
-  }
-
-  100% {
-    width: 50%;
-    height: 20rem;
-  }
 }
 
  /* ----- NAVIGATION ----- */

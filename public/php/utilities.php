@@ -11,22 +11,33 @@
     return $result->fetchAll();
   }
 
-  /*function bindAndSelect($conn, $upit, $parametri, $values, $fetchOne) {
+  function bind($conn, $upit, $bindings) {
     $result = $conn->prepare($upit);
-    foreach($parametri as $p) {
-      foreach($values as $v) {
-        $result->bindParam(":".$p, $v);
-      }
+ 
+    foreach($bindings as $label => $value) {
+      ${"$label"} = $value; 
+      $result->bindParam(":$label", $$label);
     }
     $result->execute();
+    return $result;
+  }
+
+  function bindAndSelect($conn, $upit, $bindings, $fetchOne) {
+    $result = bind($conn, $upit, $bindings);
+    // echo $result->rowCount() . "<br>";
+    // echo $result->debugDumpParams();
+
     if($fetchOne) {
+      if($result->rowCount() > 1) {
+        throw new Exception("Rezultat je vratio vise od jednog!!");
+      }
       $selected = $result->fetch();
     } else {
       $selected = $result->fetchAll();
     }
 
     return $selected;
-  }*/
+  } 
 
   function selectFiltersWithSubfilter($conn) {
     $final = [];

@@ -58,22 +58,22 @@
               <input type='text' name='reg-email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'></p>
+            <p class='form-error'><?= error_for("reg_email");?></p>
 
             <div class='relative'>
               <input type='password' name='reg-password' placeholder='Password' />
               <span class='fas fa-key fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'></p>
+            <p class='form-error'><?= error_for("reg_password");?></p>
 
             <div class='relative'>
               <input type='password' name='reg-confirm' placeholder='Confirm password' />
               <span class='fas fa-unlock fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'></p>
+            <p class='form-error'><?= error_for("reg_confirm");?></p>
 
             <button id='login-btn' name='login' class='btn-style'>Login</button>
-            <button class='btn-style register'>Register</button>
+            <button class='btn-style register' name='register'>Register</button>
           </form>
         </div>
         
@@ -86,6 +86,10 @@
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
       $(".fs-login").css("color", "crimson");
+
+      <?php if(isset($_SESSION['greske']['turn_modal'])): ?>
+        window.turnModal = true;
+      <?php endif ?>
     <?php unset($_SESSION['greske']); ?>
     <?php else: ?>
       window.modalOpen = false;

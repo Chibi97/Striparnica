@@ -1,6 +1,7 @@
 <?php
   session_start();
   require_once "../../database.php";
+  require_once "utilities.php";
 
   if(isset($_POST['login'])) {
     $email    = $_POST['email'];
@@ -19,16 +20,14 @@
     }
     
     if(empty($errors)) {
-      // prijavi korisnika
       $password = sha1($password);
       $upit = "SELECT u.* FROM users u INNER JOIN roles r ON u.id_role = r.id
       WHERE email = :email AND password = :pass;";
-      $stmt = $conn->prepare($upit);
-      $stmt->bindParam(':email', $email);
-      $stmt->bindParam(':pass', $password);
-      $stmt->execute();
-      $selectedUser = $stmt->fetch();
-      //$selectedUser = bindAndSelect($conn, $upit, ["email","pass"], [$email, $password], true);
+      
+      $selectedUser = bindAndSelect($conn, $upit, [
+        "email" => $email,
+        "pass" => $password
+      ], true);
 
       if($selectedUser) {
         $_SESSION['user'] = $selectedUser;
@@ -38,8 +37,7 @@
     } else {
       $_SESSION['greske'] = $errors;
     }
-
-    header("Location: ../index.php");
   }
-
+  
+  header("Location: ../index.php");
 

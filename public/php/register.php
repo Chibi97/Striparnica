@@ -1,8 +1,10 @@
 <?php 
   session_start();
   require_once "../../database.php";
+  require "utilities.php";
 
   if(isset($_POST['register'])) {
+    echo "cao";
     $email    = $_POST['reg-email'];
     $password = $_POST['reg-password'];
     $confirm  = $_POST['reg-confirm'];
@@ -14,35 +16,41 @@
 
 
     if($password !== $confirm) {
-      $errors["confirm"] = $confirmMessage;
+      $errors["reg_confirm"] = $confirmMessage;
     } else {
         $rePassword = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/';
         if(!preg_match($rePassword, $password)) {
-        $errors["password"] = $passwordMessage;
+        $errors["reg_password"] = $passwordMessage;
       }
     }
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $errors["email"] = $emailMessage;
+      $errors["reg_email"] = $emailMessage;
     }
 
     if(empty($errors)) {
       $password = sha1($password);
-      $upit = "INSERT INTO users (email, password, id_role) VALUES (:email, :pass, :id)";
-      $stmt = $conn->prepare($upit);
-      $stmt->bindParam(":email", $email);
-      $stmt->bindParam(":pass", $password);
-      $stmt->bindParam(":id", 2);
-      $inserted = $stmt->execute();
+      $upit = "INSERT INTO users (email, password, id_role) VALUES (:email, :pass, 2)";
+      $inserted = bind($conn, $upit, [
+        "email" => $email,
+        "pass" => $password
+      ]);
+      $id = $conn->lastInsertId();
+
+      $user = (object)[
+        "id" => $id,
+        "email" => $email,
+        "password" => $password,
+        "id_role" => 2
+      ];
 
       if($inserted) {
-        echo "success";
-      } else {
-        echo "nope";
+        $_SESSION['user'] = $user;
       }
+    } else {
+      $errors["turn_modal"] = true;
+      $_SESSION['greske'] = $errors;
     }
-
-    header("Location: ../index.php");
-    
   }
-
+  
+  header("Location: ../index.php");
