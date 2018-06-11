@@ -8,7 +8,8 @@
     if($ratio < 1) {
       $targetWidth = $targetHeight * $ratio;
     } else {
-      throw new Error("Wrong image format supplied");
+      throw new Exception("Wrong image format supplied");
+      return;
     }
 
     $originalImage = imagecreatefromjpeg($file);
@@ -23,8 +24,12 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $file = $_FILES['slika'];
   $target = "uploads/" . basename($file["name"]);
-  move_uploaded_file($file['tmp_name'], $target);
-  resize_image($target, 250, 355);
+  try {
+    resize_image($file['tmp_name'], 250, 355);
+    move_uploaded_file($file['tmp_name'], $target);
+  } catch(Exception $e) {
+    echo "Slika nije u dobrom formatu!";
+  }
 }
 
 ?>
