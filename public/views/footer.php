@@ -86,8 +86,10 @@
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
       $(".fs-login").css("color", "crimson");
-
+      
       <?php if(isset($_SESSION['greske']['turn_modal'])): ?>
+        $(".fs-reg").css("color", "crimson");
+        $(".fs-login").css("color", "#333");
         window.turnModal = true;
       <?php endif ?>
     <?php unset($_SESSION['greske']); ?>

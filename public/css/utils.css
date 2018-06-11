@@ -82,8 +82,8 @@ h1, h2 {
 /* ----- Modal ------ */
 .modal {
   position: fixed;
-  min-height: 30rem;
-  height: 35rem;
+  min-height: 40rem;
+  height: 40rem;
   width: 50%;
   max-width: 40rem;
   background: transparent;
@@ -103,7 +103,6 @@ h1, h2 {
   transition: transform ease-out 1s;
   transform-style: preserve-3d;
   position: relative;
-  box-shadow: 5px 5px 15px #333;
 }
 
 .card.is-flipped {
@@ -170,11 +169,11 @@ h1, h2 {
 @keyframes modal-out {
   from {
     width: 50%;
-    height: 35rem;
+    height:40rem;
   }
   to {
     width: 0;
-    height: 35rem;
+    height: 40rem;
   }
 }
 
