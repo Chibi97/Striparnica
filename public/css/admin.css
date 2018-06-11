@@ -4,6 +4,7 @@
 
 .add-comic h1 {
   font-family: 'Raleway', sans-serif;
+  font-size: 2.5rem;
   letter-spacing: .2em;
   text-transform: uppercase;
   margin: 1em 0;
@@ -30,7 +31,39 @@
   width:5em;
 }
 
-
 .input-group label {
   display:block;
+  font-weight: 700;
+  color:#666A86;
+}
+
+.input-group p {
+  padding-left: 1em;
+  margin:1em;
+}
+
+#insertComic {
+  padding: 1.4em;
+  border:none;
+  background-color:#666A86;
+  color:white;
+  text-align: center;
+  margin: 1em 0;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+#insertComic:hover,
+#insertComic:focus {
+  background-color:#333;
+}
+
+.fstMultipleMode .fstControls {
+  width:15em !important;
+}
+
+.fstResultItem,
+.fstChoiceItem,
+.fstMultipleMode .fstQueryInput {
+  font-size: 1em !important;
 }

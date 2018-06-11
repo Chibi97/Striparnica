@@ -1,12 +1,5 @@
-
-<?php 
-  if(isset($_POST['insert'])) {
-    var_dump($_POST['tags']);
-  }
-  
-?>
 <div class='flex-row center add-comic'>
-  <form action='index.php?page=panel' method='POST' enctype='multipart/form-data' class=''>
+  <form action='/ajax/addNewComic.php' method='POST' enctype='multipart/form-data'>
     <h1>Add a new comic</h1>
     <div class='input-group'>
       <label>Name of the comic</label>
@@ -15,12 +8,12 @@
 
     <div class='input-group'>
       <label>Description</label>
-      <textarea></textarea>
+      <textarea name='desc'></textarea>
     </div>
 
     <div class='input-group'>
       <label>Number of issues (volumes)</label>
-      <input type='number' name='issues' />
+      <input type='number' min="1" max="2000" name='issues' />
     </div>
 
     <div class='input-group'>
@@ -43,7 +36,7 @@
       <input type='file' name='comic-small-pic'>
     </div>
 
-    <button name='insert'>Insert</button>
+    <button id='insertComic' name='insert'>Insert</button>
   </form>
 </div>
 <script>

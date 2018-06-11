@@ -1,4 +1,4 @@
-<?php 
+<?php
   session_start();
   require_once "../../database.php";
   require "utilities.php";
@@ -28,9 +28,6 @@
     }
 
     if(empty($errors)) {
-      
-
-
       $password = sha1($password);
       $upit = "INSERT INTO users (email, password, id_role) VALUES (:email, :pass, 2)";
       $inserted = bind($conn, $upit, [
@@ -52,13 +49,12 @@
       } else {
         $errors['reg_email'] = $uniqueMessage;
         $errors["turn_modal"] = true;
-        $_SESSION['greske'] = $errors;  
+        $_SESSION['greske'] = $errors;
       }
     } else {
       $errors["turn_modal"] = true;
       $_SESSION['greske'] = $errors;
     }
   }
-  
+
   header("Location: ../index.php");
-  
