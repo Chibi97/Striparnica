@@ -18,7 +18,11 @@
       ${"$label"} = $value; 
       $result->bindParam(":$label", $$label);
     }
-    $result->execute();
+    try {
+      $result->execute();
+    } catch (PDOException $e) {
+      return null;
+    }
     return $result;
   }
 
