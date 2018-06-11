@@ -19,7 +19,12 @@
   <div class='input-group'>
     <label>Choose subfilters</label>
     <select>
-      <!-- subfilters -->
+      <?php 
+        $upit = "SELECT * FROM sub_filters";
+        $filters = selectMultipleRows($conn, $upit);
+        foreach($filters as $filter): ?>
+        <option value="<?= $filter->name ?>"><?= $filter->name ?></option>
+        <?php endforeach ?>
     </select>
   </div>
 
