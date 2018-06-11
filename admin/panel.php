@@ -1,5 +1,13 @@
 
-<form action='#' method='POST' enctype='multipart/form-data' id='dodajStrip'>
+<?php 
+  if(isset($_POST['insert'])) {
+    var_dump($_POST['tags']);
+  }
+  
+?>
+
+
+<form action='index.php?page=panel' method='POST' enctype='multipart/form-data' id='dodajStrip'>
   <h1>Add a new comic</h1>
   <div class='input-group'>
     <label>Name of the comic</label>
@@ -18,12 +26,12 @@
 
   <div class='input-group'>
     <label>Choose subfilters</label>
-    <select>
+    <select class='multipleSelect' multiple name='tags[]'>
       <?php 
         $upit = "SELECT * FROM sub_filters";
         $filters = selectMultipleRows($conn, $upit);
         foreach($filters as $filter): ?>
-        <option value="<?= $filter->name ?>"><?= $filter->name ?></option>
+        <option value="<?= $filter->id ?>"><?= $filter->name ?></option>
         <?php endforeach ?>
     </select>
   </div>
@@ -36,5 +44,10 @@
     <input type='file' name='comic-small-pic'>
   </div>
 
-  <button>Insert</button>
+  <button name='insert'>Insert</button>
 </form>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  $(".multipleSelect").fastselect()
+})
+</script>

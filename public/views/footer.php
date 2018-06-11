@@ -97,6 +97,7 @@
       window.modalOpen = false;
     <?php endif ?>
   </script>
+  <script src='scripts/fastselect.min.js'></script>
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
   <script src='scripts/filters.js'></script>
