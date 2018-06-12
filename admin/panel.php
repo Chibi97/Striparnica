@@ -5,16 +5,19 @@
       <label>Name of the comic</label>
       <input type='text' name='comicName' />
     </div>
+    <span class='form-error'><?= error_for("comicName", "comicErrors"); ?></span>
 
     <div class='input-group'>
       <label>Description</label>
       <textarea name='desc'></textarea>
     </div>
+    <span class='form-error'><?= error_for("description", "comicErrors"); ?></span>
 
     <div class='input-group'>
       <label>Number of issues (volumes)</label>
       <input type='number' min="1" max="2000" name='issues' />
     </div>
+    <span class='form-error'><?= error_for("issues", "comicErrors"); ?></span>
 
     <div class='input-group'>
       <label>Choose subfilters</label>
@@ -27,6 +30,7 @@
           <?php endforeach ?>
       </select>
     </div>
+    <span class='form-error'><?= error_for("tags", "comicErrors"); ?></span>
 
     <div class='input-group'>
       <label>Upload 2 pictures</label>
@@ -36,6 +40,7 @@
       <input type='file' name='comic-small-pic'>
     </div>
 
+    <?php unset($_SESSION['comicErrors']); ?>
     <button id='insertComic' name='insert'>Insert</button>
   </form>
 </div>

@@ -1,4 +1,5 @@
 <?php
+   session_start();
    if(isset($_POST['insert'])) {
      $name   = trim($_POST['comicName']);
      $desc   = trim($_POST['desc']);
@@ -12,29 +13,30 @@
      $issuesError = "Number of issues cannot be zero or less";
      $tagsError = "You must choose at least one subfilter";
 
-     $reName = '/^[A-Z][a-z]{2,48}(\s([A-Z][a-z]{1,48}|[0-9]{1,4}))*$/';
+     $reName = '/^[A-Z][a-z]{2,48}(\s([A-Z][a-z]{1,48}|[0-9]{1,4}(\.)*))*$/';
 
      if(!preg_match($reName, $name)) {
-       $errors[] = $nameError;
+       $errors['comicName'] = $nameError;
      }
 
      if(strlen($desc) < 10) {
-       $errors[] = $descError;
+       $errors['description'] = $descError;
      }
 
      if($issues < 1) {
-       $errors[] = $issuesError;
+       $errors['issues'] = $issuesError;
      }
 
      if(empty($tags)) {
-       $errors[] = $tagsError;
+       $errors['tags'] = $tagsError;
      }
 
      // picture validation
 
      if(empty($errors)) {
        // upis u bazu
-
+       // INSERT INTO comics (name, description, issues) VALUES (n, d, i);
+       // INSERT INTO comics_sub_filters
 
        /*if($inserted) {
 
@@ -42,8 +44,8 @@
          $_SESSION['greske'] = $errors;
        } */
      } else {
-       $_SESSION['greske'] = $errors;
+       $_SESSION['comicErrors'] = $errors;
      }
-     
+    header("Location: ../index.php?page=panel");
   }
   

@@ -21,11 +21,15 @@
           include_once "views/browse.php";
           break;
         case 'panel':
-          if($_SESSION['user']->id_role == 1) {
-            include_once "../admin/panel.php";
+          if(isset($_SESSION['user'])) {
+            if($_SESSION['user']->id_role == 1) {
+              include_once "../admin/panel.php";
+            } else {
+              include "views/main.php";
+            }
           } else {
-            include "views/main.php";
-          }
+              include "views/main.php";
+            }
           break;
         default:
           include "views/main.php";

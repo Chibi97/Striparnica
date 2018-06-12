@@ -37,13 +37,13 @@
               <input type='text' name='email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-login absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("email"); ?></p>
+            <p class='form-error'><?= error_for("email", "greske"); ?></p>
 
             <div class='relative'>
               <input type='password' name='password' placeholder='Password' />
               <span class='fas fa-key fa-span fs-login absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("password"); ?></p>
+            <p class='form-error'><?= error_for("password", "greske"); ?></p>
 
             <button id='login' name='login' class='btn-style'>Login</button>
             <button id='register-btn' class='btn-style'>Register</button>
@@ -58,19 +58,19 @@
               <input type='text' name='reg-email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("reg_email");?></p>
+            <p class='form-error'><?= error_for("reg_email", "greske");?></p>
 
             <div class='relative'>
               <input type='password' name='reg-password' placeholder='Password' />
               <span class='fas fa-key fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("reg_password");?></p>
+            <p class='form-error'><?= error_for("reg_password", "greske");?></p>
 
             <div class='relative'>
               <input type='password' name='reg-confirm' placeholder='Confirm password' />
               <span class='fas fa-unlock fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("reg_confirm");?></p>
+            <p class='form-error'><?= error_for("reg_confirm", "greske");?></p>
 
             <button id='login-btn' name='login' class='btn-style'>Login</button>
             <button class='btn-style register' name='register'>Register</button>

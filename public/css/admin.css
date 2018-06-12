@@ -11,7 +11,7 @@
 }
 
 .input-group {
-  margin-bottom: 1em;
+  margin: 1em 0;
   width:70%;
 }
 
@@ -28,7 +28,12 @@
 }
 
 .input-group input[type='number'] {
+  border: 1px solid #D7D7D7;
   width:5em;
+}
+
+.input-group input[type='text'], textarea {
+  border: 1px solid #D7D7D7;
 }
 
 .input-group label {
@@ -40,6 +45,10 @@
 .input-group p {
   padding-left: 1em;
   margin:1em;
+}
+
+.form-error {
+  color:red;
 }
 
 #insertComic {
