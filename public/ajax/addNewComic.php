@@ -38,7 +38,13 @@
 
      if(empty($errors)) {
        // upis u bazu
-       $conn->
+       /*try {
+         $conn->exec($upit);
+         $conn->exec($upit2);
+         $conn->commit();
+       } catch(PDOException $e) {
+         $conn->rollBack();
+       }*/
        // INSERT INTO comics (name, description, issues) VALUES (n, d, i);
        // INSERT INTO comics_sub_filters
 
