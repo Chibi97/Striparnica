@@ -34,7 +34,6 @@
 
      if(empty($errors)) {
        // upis u bazu
-       
 
 
        /*if($inserted) {
