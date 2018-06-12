@@ -5,20 +5,22 @@ $(document).ready(function() {
   $(".image-slider-wrap").on('touchmove', slider.handleTouch);
   $(".image-slider-wrap").on('touchstart', slider.handleTouchStart);
   $(".image-slider-wrap").on('touchend', slider.handleTouchEnd);
-
+  $(window).on('resize', slider.haandleResize);
 });
 
 var slider = (function () {
-  var index, slideAmount;
+  var index, slideAmount, imagesShown, imageCount;
   var lastTouchX, touchedPos, sliderPosition;
 
   function init() {
     index = 0;
     lastPos = 0;
     sliderPosition = 0;
+    imageCount = $(".image-slider img").length;
     slideAmount = $(".image-slider img").eq(0).outerWidth(true);
     length = $(".image-slider img").length;
     $(".image-slider").css('transition', 'all ease 1s');
+    syncImageCount();
   }
 
   function handleTouchStart(e) {
@@ -44,11 +46,40 @@ var slider = (function () {
     }
   }
 
+  function syncImageCount() {
+    var imageWidth = $(".image-slider img").eq(1).outerWidth(true);
+    var sliderWidth = $(".image-slider-wrap").width();
+    imagesShown = Math.ceil(sliderWidth / imageWidth);
+  }
+  function handleResize() {
+    syncImageCount();
+  }
+
   function handleTouchEnd() {
     $(".image-slider").css('transition', 'all ease 1s');
   }
 
+  function toMaxIndex() {
+    var jumpIndex = imageCount - imagesShown;
+    index = jumpIndex;
+    var toSlide = index * slideAmount;
+    $(".image-slider").css({
+      transform: `translateX(${-toSlide}px)`
+    });
+    lastPos = -toSlide;
+  }     
+
+  function revertToZero() {
+    index = 0;
+    $(".image-slider").css({transform: "translateX(0)"})
+    lsatPos = 0;
+  }
+
   function slideLeft() {
+    if(index + imagesShown > imageCount - 1) {
+      revertToZero();
+      return;
+    }
     index++;
     var toSlide = index * slideAmount;
     $(".image-slider").css({
@@ -58,7 +89,10 @@ var slider = (function () {
   }
   
   function slideRight() {
-    if(index - 1 < 0) return;
+    if(index - 1 < 0) {
+      toMaxIndex();
+      return;
+    }
     index--;
     var toSlide = index * slideAmount;
     $(".image-slider").css({
@@ -73,6 +107,7 @@ var slider = (function () {
     slideRight: slideRight,
     handleTouch: handleTouch,
     handleTouchStart: handleTouchStart,
-    handleTouchEnd: handleTouchEnd
+    handleTouchEnd: handleTouchEnd,
+    haandleResize: handleResize
   }
 })();

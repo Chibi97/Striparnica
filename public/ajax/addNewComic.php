@@ -1,5 +1,8 @@
 <?php
    session_start();
+   include "../php/utilities.php";
+   include "../../database.php";
+
    if(isset($_POST['insert'])) {
      $name   = trim($_POST['comicName']);
      $desc   = trim($_POST['desc']);
@@ -35,6 +38,7 @@
 
      if(empty($errors)) {
        // upis u bazu
+       $conn->
        // INSERT INTO comics (name, description, issues) VALUES (n, d, i);
        // INSERT INTO comics_sub_filters
 
