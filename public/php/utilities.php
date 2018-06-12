@@ -28,7 +28,6 @@
 
   function bindAndSelect($conn, $upit, $bindings, $fetchOne) {
     $result = bind($conn, $upit, $bindings);
-    // echo $result->rowCount() . "<br>";
     // echo $result->debugDumpParams();
 
     if($fetchOne) {
@@ -39,7 +38,6 @@
     } else {
       $selected = $result->fetchAll();
     }
-
     return $selected;
   } 
 

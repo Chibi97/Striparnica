@@ -1,5 +1,2 @@
 # Ignore the php configuration
 configuration.php
-
-# Ignore the uploads
-public/uploads/*

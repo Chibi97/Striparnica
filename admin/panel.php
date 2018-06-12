@@ -1,21 +1,21 @@
 <div class='flex-row center add-comic'>
-  <form action='/ajax/addNewComic.php' method='POST' enctype='multipart/form-data'>
+  <form action='' method='POST' enctype='multipart/form-data'>
     <h1>Add a new comic</h1>
     <div class='input-group'>
       <label>Name of the comic</label>
-      <input type='text' name='comicName' />
+      <input type='text' name='comicName' id='comicName' />
     </div>
     <span class='form-error'><?= error_for("comicName", "comicErrors"); ?></span>
 
     <div class='input-group'>
       <label>Description</label>
-      <textarea name='desc'></textarea>
+      <textarea name='desc' id='desc'></textarea>
     </div>
     <span class='form-error'><?= error_for("description", "comicErrors"); ?></span>
 
     <div class='input-group'>
-      <label>Number of issues (volumes)</label>
-      <input type='number' min="1" max="2000" name='issues' />
+      <label>Number of issues (chapters)</label>
+      <input type="text" value="1" data-min="1" data-max="1000" class="dial" data-fgColor="#666A86" id="num">
     </div>
     <span class='form-error'><?= error_for("issues", "comicErrors"); ?></span>
 
@@ -34,9 +34,9 @@
 
     <div class='input-group'>
       <label>Upload 2 pictures</label>
-      <p>Please upload picture that is 250 x 350</p>
+      <p>Please upload a picture that is portrait oriented</p>
       <input type='file' name='comic-big-pic'>
-      <p>Please upload picture that is 500 x 300</p>
+      <p>Please upload a picture that is landscape oriented</p>
       <input type='file' name='comic-small-pic'>
     </div>
 

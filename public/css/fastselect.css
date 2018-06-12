@@ -121,14 +121,14 @@ General styling
 
 .fstResultItem.fstFocused {
   color: #fff;
-  background-color: #43A2F3;
-  border-color: #73baf6;
+  background-color: #666A86;
+  border-color: hsl(262, 20%, 63%);
 }
 
 .fstResultItem.fstSelected {
   color: #fff;
-  background-color: #2694f1;
-  border-color: #73baf6;
+  background-color: #666A86;
+  border-color: hsl(262, 20%, 63%);
 }
 
 .fstGroupTitle {
@@ -211,10 +211,10 @@ Multiple mode
   padding: 0.33333em 0.33333em 0.33333em 1.5em;
   float: left;
   border-radius: 0.25em;
-  border: 1px solid #43A2F3;
+  border: 1px solid #666A86;
   cursor: auto;
   color: #fff;
-  background-color: #43A2F3;
+  background-color: #666A86;
   -webkit-animation: fstAnimationEnter 0.2s;
   -moz-animation: fstAnimationEnter 0.2s;
   animation: fstAnimationEnter 0.2s;

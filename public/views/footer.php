@@ -98,6 +98,8 @@
     <?php endif ?>
   </script>
   <script src='scripts/fastselect.min.js'></script>
+  <script src='scripts/jquery.knob.min.js'></script>
+  <script src='scripts/insertValidation.js'></script>
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
   <script src='scripts/filters.js'></script>
