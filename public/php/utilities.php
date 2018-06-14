@@ -1,7 +1,10 @@
 <?php
-  $path = $_SERVER['DOCUMENT_ROOT'];
-  $path .= "/public/index.php";
+  define('PROJECT_ROOT', dirname(dirname(dirname(__FILE__))));
+  define('DS', DIRECTORY_SEPARATOR);
 
+  echo "Moj project root apsolutna: " . PROJECT_ROOT . "<br>";
+  echo "Moj directory seperator: " . DS;
+  
   function error_for($key, $arr) {
     if(isset($_SESSION["$arr"][$key])) {
       return $_SESSION["$arr"][$key];
@@ -9,9 +12,9 @@
     return "";
   }
 
-  function multi_error_for($key, $arr, $i) {
-    if(isset($_SESSION["$arr"][$key][$i])) {
-      return $_SESSION["$arr"][$key][$i];
+  function multi_error_for($key, $arr, $subKey) {
+    if(isset($_SESSION["$arr"][$key][$subKey])) {
+      return $_SESSION["$arr"][$key][$subKey];
     }
     return "";
   }
