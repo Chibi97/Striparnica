@@ -7,6 +7,8 @@
   }
 
   function multi_error_for($key, $arr, $i) {
+    // $_SESSION['comicErrors']['comic-por-pic'][type]
+    // ........................................ [size]
     if(isset($_SESSION["$arr"][$key][$i])) {
       return $_SESSION["$arr"][$key][$i];
     }
@@ -94,8 +96,6 @@
     if($size > 0) {
       $errors[$value]['size'] = "You need to upload a picture lighter than 5MB";
     }
-
-    var_dump($errors);
   }
 
 
