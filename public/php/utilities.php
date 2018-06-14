@@ -112,7 +112,7 @@
 
     $formats = ['image/jpg', 'image/jpeg'];
     if(!in_array($type, $formats)) {
-      $errors[$value]['type'] = "Picture must be jpg / jpeg or png";
+      $errors[$value]['type'] = "Picture must be jpg / jpeg";
     }
 
     if($size > 2000000) {

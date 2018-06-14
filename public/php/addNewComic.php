@@ -41,12 +41,12 @@
     if(empty($errors)) {
       // upis u bazu
       $upit = "INSERT INTO comics(name, description, issues) VALUES (:name, :desc, :issues)";
-      $inserted = bind($conn, $upit, [
+      /*$inserted = bind($conn, $upit, [
         "name" => $name,
         "desc" => $desc,
         "issues" => $issues
-      ]);
-
+      ]); */
+      
       if($inserted) {
         if(uploadPicture($picPor)) {
           echo "Fajl je prebacen na server";
