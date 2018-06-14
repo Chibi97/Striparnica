@@ -2,9 +2,20 @@
   define('PROJECT_ROOT', dirname(dirname(dirname(__FILE__))));
   define('DS', DIRECTORY_SEPARATOR);
 
-  echo "Moj project root apsolutna: " . PROJECT_ROOT . "<br>";
-  echo "Moj directory seperator: " . DS;
-  
+  echo relativeToProjectOS('/public/images/comics');
+
+  /**
+   * Kao da smo u project root.
+   * /public/images/comics
+   */
+  function relativeToProjectOS($path) {
+    $final = PROJECT_ROOT . $path; 
+    if(DS != '/') {
+      return str_replace('/', "\\", $final);
+    }
+    return $final;
+  }
+
   function error_for($key, $arr) {
     if(isset($_SESSION["$arr"][$key])) {
       return $_SESSION["$arr"][$key];
