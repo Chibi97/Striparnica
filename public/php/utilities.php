@@ -1,4 +1,7 @@
 <?php
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/public/index.php";
+
   function error_for($key, $arr) {
     if(isset($_SESSION["$arr"][$key])) {
       return $_SESSION["$arr"][$key];
@@ -81,14 +84,10 @@
 
   function uploadPicture($picture) {
     $tmpPath = $picture['tmp_name'];
-    $ext = pathinfo($picture['name'], PATHINFO_EXTENSION);
-    $targetPath = "../images/comics" . $picture['name'] ."_" .  time() . "." .$ext;
-
-    echo $targetPath;
+    $targetPath = "../images/comics" . time() . "_" . $picture['name'];
     try {
       resize_image($tmpPath, 355);
       $uploaded = move_uploaded_file($tmpPath, $targetPath);
-      var_dump($uploaded);
       return $uploaded;
     } catch(Exception $e) {
       echo "Slika nije u dobrom formatu";
@@ -99,7 +98,7 @@
     $type = $picture['type'];
     $size = $picture['size'];
 
-    $formats = ['image/jpg', 'image/png', 'image/jpeg'];
+    $formats = ['image/jpg', 'image/jpeg'];
     if(!in_array($type, $formats)) {
       $errors[$value]['type'] = "Picture must be jpg / jpeg or png";
     }

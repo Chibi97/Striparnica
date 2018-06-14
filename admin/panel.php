@@ -1,5 +1,5 @@
 <div class='flex-row center add-comic'>
-  <form action='../php/addNewComic.php' method='POST' enctype='multipart/form-data'>
+  <form action='/php/addNewComic.php' method='POST' enctype='multipart/form-data'>
     <h1>Add a new comic</h1>
     <div class='input-group'>
       <label>Name of the comic</label>

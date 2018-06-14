@@ -46,8 +46,8 @@
         "desc" => $desc,
         "issues" => $issues
       ]);
+
       if($inserted) {
-        var_dump("OVde");
         if(uploadPicture($picPor)) {
           echo "Fajl je prebacen na server";
           $idComic = $conn->lastInsertId();
@@ -56,7 +56,6 @@
         } else echo "Nije prebacena";
       }
 
-      
     } else {
       $_SESSION['comicErrors'] = $errors;
     }
