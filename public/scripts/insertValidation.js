@@ -1,28 +1,27 @@
 $(document).ready(function() {
-  var comicName = $("#comicName").val();
-  var desc = $("#desc").val();
-  var num = $(".dial").val();
-
+  
    $(".dial").knob({
-     'min': 1,
-     'max': 2000
+    min: 1,
+    max: 2000,
+    width: 100,
+    height: 100
    });
 
   $("#insertComic").click(function(e) {
-    e.preventDefault();
-    var errors = {};
-    var validno = {};
-    validateName(comicName, errors, validno);
-    validateDesc(desc, errors, validno);
-    validateIssueNum(errors, validno);
+    // e.preventDefault();
+    var comicName = $("#comicName").val();
+    var desc      = $("#desc").val();
+    var num       = $(".dial").val();
+    var errors    = {};
+    var validno   = {};
+   // validateName(comicName, errors, validno);
+   // validateDesc(desc, errors, validno);
+   // validateIssueNum(num, errors, validno);
 
-    console.log($(".dial").val());
-    console.log(num);
-
-    console.log("Errors:");
+   /* console.log("Errors:");
     console.log(errors);
     console.log("Valid:");
-    console.log(validno);
+    console.log(validno); */
   });
 });
 
@@ -43,11 +42,11 @@ function validateDesc(desc, errors, validno) {
   }
 }
 
-function validateIssueNum(errors, validno) {
-  if ($(".dial").val() < 2 || $(".dial").val() > 2000) {
+function validateIssueNum(num, errors, validno) {
+  if (num < 1 || num > 2000) {
     errors.num = "Number of issues cannot be zero or less";
   } else {
-    validno.num = $(".dial").val();
+    validno.num = Number(num);
   }
 }
 

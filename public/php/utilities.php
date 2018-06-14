@@ -71,3 +71,8 @@
     
     return $final;
   }
+
+
+  function validatePicture() {
+
+  }

@@ -4,11 +4,12 @@
   include "../../database.php";
 
   if(isset($_POST['insert'])) {
-    $name   = trim($_POST['comicName']);
-    $desc   = trim($_POST['desc']);
-    //$issues = (int)$_POST['issues'];
-    $tags   = isset($_POST['tags']) ? $_POST['tags'] : null;
-    // uploaded pic 1 & 2
+    $name    = trim($_POST['comicName']);
+    $desc    = trim($_POST['desc']);
+    $issues  = $_POST['issues'];
+    $tags    = isset($_POST['tags']) ? $_POST['tags'] : null;
+    $picPor  = $_FILES['comic-por-pic'];
+    $picLand = $_FILES['comic-land-pic'];
     $errors = [];
 
     $nameError = "Every first letter of a word must be a capital letter";
@@ -26,15 +27,17 @@
       $errors['description'] = $descError;
     }
 
-    /*if($issues < 1 || $issues > 2000) {
+    if($issues < 1 || $issues > 2000) {
       $errors['issues'] = $issuesError;
-    }*/
+    }
 
     if(empty($tags)) {
       $errors['tags'] = $tagsError;
     }
 
     // picture validation
+    validatePicture($picPor);
+    validatePicture($picLand);
 
     if(empty($errors)) {
       // upis u bazu
