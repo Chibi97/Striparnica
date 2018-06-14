@@ -35,24 +35,32 @@
       $errors['tags'] = $tagsError;
     }
 
-    // picture validation
     validatePicture($picPor, $errors, "comic-por-pic");
-    validatePicture($picLand, $errors, "comic-land-pic");
+   // validatePicture($picLand, $errors, "comic-land-pic");
 
     if(empty($errors)) {
       // upis u bazu
-      if(uploadPicture($picPor)) {
-        echo "Fajl je prebacen na server";
+      $upit = "INSERT INTO comics(name, description, issues) VALUES (:name, :desc, :issues)";
+      $inserted = bind($conn, $upit, [
+        "name" => $name,
+        "desc" => $desc,
+        "issues" => $issues
+      ]);
+      if($inserted) {
+        var_dump("OVde");
+        if(uploadPicture($picPor)) {
+          echo "Fajl je prebacen na server";
+          $idComic = $conn->lastInsertId();
+          // $upit = "INSERT INTO pictures VALUES ('', :putanja, :alt, :idComic)";
+          // 
+        } else echo "Nije prebacena";
       }
 
-      if(uploadPicture($picLand)) {
-        echo "Fajl je prebacen na server";
-      }
       
     } else {
       $_SESSION['comicErrors'] = $errors;
     }
-    header("Location: ../index.php?page=panel");
+    //header("Location: ../index.php?page=panel");
   } else {
     header("Location: ../index.php");
   }

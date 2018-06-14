@@ -7,8 +7,6 @@
   }
 
   function multi_error_for($key, $arr, $i) {
-    // $_SESSION['comicErrors']['comic-por-pic'][type]
-    // ........................................ [size]
     if(isset($_SESSION["$arr"][$key][$i])) {
       return $_SESSION["$arr"][$key][$i];
     }
@@ -30,6 +28,7 @@
     try {
       $result->execute();
     } catch (PDOException $e) {
+      var_dump($e->getMessage());
       return null;
     }
     return $result;
@@ -81,10 +80,15 @@
   }
 
   function uploadPicture($picture) {
-    $targetPath = "../images/comics" . basename($picture['name']) ."_" .  time();
+    $tmpPath = $picture['tmp_name'];
+    $ext = pathinfo($picture['name'], PATHINFO_EXTENSION);
+    $targetPath = "../images/comics" . $picture['name'] ."_" .  time() . "." .$ext;
+
+    echo $targetPath;
     try {
-      resize_image($picture['tmp_name'], 355);
+      resize_image($tmpPath, 355);
       $uploaded = move_uploaded_file($tmpPath, $targetPath);
+      var_dump($uploaded);
       return $uploaded;
     } catch(Exception $e) {
       echo "Slika nije u dobrom formatu";

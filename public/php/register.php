@@ -34,7 +34,7 @@
         "email" => $email,
         "pass" => $password
       ]);
-
+      
       $id = $conn->lastInsertId();
 
       $user = (object)[
