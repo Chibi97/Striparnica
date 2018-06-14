@@ -36,8 +36,15 @@
       <label>Upload 2 pictures</label>
       <p>Please upload a picture that is portrait oriented</p>
       <input type='file' name='comic-por-pic'>
+      <span class='form-error'><?php
+       echo multi_error_for("comic-por-pic", "comicErrors", "type");
+        ?></span>
+      <span class='form-error'><?php
+       echo multi_error_for("comic-por-pic", "comicErrors", "size");
+        ?></span> 
       <p>Please upload a picture that is landscape oriented</p>
       <input type='file' name='comic-land-pic'>
+      <span class='form-error'></span>
     </div>
 
     <?php unset($_SESSION['comicErrors']); ?>

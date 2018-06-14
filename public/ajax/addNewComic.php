@@ -36,8 +36,8 @@
     }
 
     // picture validation
-    validatePicture($picPor);
-    validatePicture($picLand);
+    validatePicture($picPor, $errors, "comic-por-pic");
+    validatePicture($picLand, $errors, "comic-land-pic");
 
     if(empty($errors)) {
       // upis u bazu
@@ -59,6 +59,6 @@
     } else {
       $_SESSION['comicErrors'] = $errors;
     }
-    header("Location: ../index.php?page=panel");
+    // header("Location: ../index.php?page=panel");
   }
   

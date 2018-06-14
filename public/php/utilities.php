@@ -6,6 +6,13 @@
     return "";
   }
 
+  function multi_error_for($key, $arr, $i) {
+    if(isset($_SESSION["$arr"][$key][$i])) {
+      return $_SESSION["$arr"][$key][$i];
+    }
+    return "";
+  }
+
   function selectMultipleRows($conn, $upit) {
     $result = $conn->query($upit);
     return $result->fetchAll();
@@ -73,6 +80,24 @@
   }
 
 
-  function validatePicture() {
+  function validatePicture($picture, &$errors, $value) {
+    $name = $picture['name'];
+    $type = $picture['type'];
+    $originPath = $picture['tmp_name'];
+    $size = $picture['size'];
 
+    $formats = ['image/jpg', 'image/png', 'image/jpeg'];
+    if(!in_array($type, $formats)) {
+      $errors[$value]['type'] = "Picture must be jpg / jpeg or png";
+    }
+
+    if($size > 0) {
+      $errors[$value]['size'] = "You need to upload a picture lighter than 5MB";
+    }
+
+    var_dump($errors);
   }
+
+
+
+
