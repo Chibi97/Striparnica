@@ -2,8 +2,6 @@
   define('PROJECT_ROOT', dirname(dirname(dirname(__FILE__))));
   define('DS', DIRECTORY_SEPARATOR);
 
-  echo relativeToProjectOS('/public/images/comics');
-
   /**
    * Kao da smo u project root.
    * /public/images/comics
@@ -98,7 +96,7 @@
 
   function uploadPicture($picture) {
     $tmpPath = $picture['tmp_name'];
-    $targetPath = "../images/comics" . time() . "_" . $picture['name'];
+    $targetPath = relativeToProjectOS("/public/images/comics/") . time() . "_" . $picture['name'];
     try {
       resize_image($tmpPath, 355);
       $uploaded = move_uploaded_file($tmpPath, $targetPath);
