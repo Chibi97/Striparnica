@@ -41,21 +41,14 @@
 
     if(empty($errors)) {
       // upis u bazu
-      /*try {
-        $conn->exec($upit);
-        $conn->exec($upit2);
-        $conn->commit();
-      } catch(PDOException $e) {
-        $conn->rollBack();
-      }*/
-      // INSERT INTO comics (name, description, issues) VALUES (n, d, i);
-      // INSERT INTO comics_sub_filters
+      if(uploadPicture($picPor)) {
+        echo "Fajl je prebacen na server";
+      }
 
-      /*if($inserted) {
-
-      } else {
-        $_SESSION['greske'] = $errors;
-      } */
+      if(uploadPicture($picLand)) {
+        echo "Fajl je prebacen na server";
+      }
+      
     } else {
       $_SESSION['comicErrors'] = $errors;
     }

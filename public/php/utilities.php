@@ -77,15 +77,22 @@
         ];
       }
     }
-    
     return $final;
   }
 
+  function uploadPicture($picture) {
+    $targetPath = "../images/comics" . basename($picture['name']) ."_" .  time();
+    try {
+      resize_image($picture['tmp_name'], 355);
+      $uploaded = move_uploaded_file($tmpPath, $targetPath);
+      return $uploaded;
+    } catch(Exception $e) {
+      echo "Slika nije u dobrom formatu";
+    }
+  }
 
   function validatePicture($picture, &$errors, $value) {
-    $name = $picture['name'];
     $type = $picture['type'];
-    $originPath = $picture['tmp_name'];
     $size = $picture['size'];
 
     $formats = ['image/jpg', 'image/png', 'image/jpeg'];
@@ -93,11 +100,27 @@
       $errors[$value]['type'] = "Picture must be jpg / jpeg or png";
     }
 
-    if($size > 0) {
-      $errors[$value]['size'] = "You need to upload a picture lighter than 5MB";
+    if($size > 2000000) {
+      $errors[$value]['size'] = "You need to upload a picture lighter than 2MB";
     }
   }
 
+  function resize_image($file, $targetHeight) {
+    list($originalWidth, $originalHeight) = getimagesize($file);
 
+    $ratio = $originalWidth / $originalHeight;
 
-
+    if($ratio < 1) {
+      $targetWidth = $targetHeight * $ratio;
+    } else {
+      throw new Exception("Wrong image format supplied");
+      return;
+    }
+    $originalImage = imagecreatefromjpeg($file);
+    $targetImage = imagecreatetruecolor($targetWidth, $targetHeight);
+    imagecopyresampled($targetImage, $originalImage,
+        0, 0, 0, 0,
+        $targetWidth, $targetHeight,
+      $originalWidth, $originalHeight);
+      imagejpeg($targetImage, $file, 100);
+  }

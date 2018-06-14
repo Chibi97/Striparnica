@@ -6,17 +6,17 @@
     </div>
     <div class='image-slider-wrap'>
       <div class='image-slider'>
-        <img src='images/medium_sized/american_gods.jpg' alt='american_gods' />
-        <img src='images/medium_sized/death_note.jpg' alt='american_gods' />
-        <img src='images/medium_sized/naruto.jpg' alt='american_gods' />
-        <img src='images/medium_sized/infinity_gauntlet.jpg' alt='american_gods' />
-        <img src='images/medium_sized/sandman.jpg' alt='american_gods' />
+        <img src='images/comics/american_gods.jpg' alt='american_gods' />
+        <img src='images/comics/death_note.jpg' alt='american_gods' />
+        <img src='images/comics/naruto.jpg' alt='american_gods' />
+        <img src='images/comics/infinity_gauntlet.jpg' alt='american_gods' />
+        <img src='images/comics/sandman.jpg' alt='american_gods' />
 
-         <img src='images/medium_sized/american_gods.jpg' alt='american_gods' />
-        <img src='images/medium_sized/death_note.jpg' alt='american_gods' />
-        <img src='images/medium_sized/naruto.jpg' alt='american_gods' />
-        <img src='images/medium_sized/infinity_gauntlet.jpg' alt='american_gods' />
-        <img src='images/medium_sized/sandman.jpg' alt='american_gods' />
+         <img src='images/comics/american_gods.jpg' alt='american_gods' />
+        <img src='images/comics/death_note.jpg' alt='american_gods' />
+        <img src='images/comics/naruto.jpg' alt='american_gods' />
+        <img src='images/comics/infinity_gauntlet.jpg' alt='american_gods' />
+        <img src='images/comics/sandman.jpg' alt='american_gods' />
       </div>
     </div>
   </article>
@@ -29,21 +29,21 @@
       <h2>The last ones you added</h2>
       <article class='last-added flex-row'>
         <figure class='l3-item'>
-          <img src='../images/medium_sized/iw.jpg' alt='iw' />
+          <img src='../images/comics/iw.jpg' alt='iw' />
           <figcaption class='l3-desc'>
             <p>Neki opis</p>
           </figcaption>
         </figure>
 
         <figure class='l3-item'>
-          <img src='../images/medium_sized/aot.jpg' alt='iw' />
+          <img src='../images/comics/aot.jpg' alt='iw' />
           <figcaption class='l3-desc'>
             <p>Neki opis</p>
           </figcaption>
         </figure>
 
         <figure class='l3-item'>
-          <img src='../images/medium_sized/n_sh.jpg' alt='iw' />
+          <img src='../images/comics/n_sh.jpg' alt='iw' />
           <figcaption class='l3-desc'>
             <p>Neki opis</p>
           </figcaption>
