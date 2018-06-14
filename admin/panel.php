@@ -34,20 +34,22 @@
 
     <div class='input-group'>
       <label>Upload 2 pictures</label>
-      <p>Please upload a picture that is portrait oriented</p>
+      
       <input type='file' name='comic-por-pic'>
+      <p>Please upload a picture that is portrait oriented</p>
       <?php
        $subIndexes = ['type', 'size']; 
        foreach($subIndexes as $subIndex):
        ?>
-        <span class='form-error'><?= multi_error_for("comic-por-pic", "comicErrors", $subIndex); ?></span>
+        <p class='form-error'><?= multi_error_for("comic-por-pic", "comicErrors", $subIndex); ?></p>
        <?php endforeach ?>
-      <p>Please upload a picture that is landscape oriented</p>
+
       <input type='file' name='comic-land-pic'>
+      <p>Please upload a picture that is landscape oriented</p>
       <?php
       foreach($subIndexes as $subIndex):
        ?>
-        <span class='form-error'><?= multi_error_for("comic-land-pic", "comicErrors", $subIndex); ?></span>
+        <p class='form-error'><?= multi_error_for("comic-land-pic", "comicErrors", $subIndex); ?></p>
        <?php endforeach ?>
     </div>
 
