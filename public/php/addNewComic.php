@@ -49,13 +49,20 @@
       if($inserted) {
         $idComic = $conn->lastInsertId();
         if(uploadPicture($picPor, $idComic, $conn)) {
+          $upit = "INSERT INTO comics_sub_filters(id_comic,id_sub_filter) VALUES (:idComic, :subFilter)";
+          foreach($tags as $tag) {
+            bind($conn, $upit, [
+              "idComic" => $idComic,
+              "subFilter" => $tag
+            ]);
+          }
           $_SESSION['upload'] = "Successfully inserted comic!";
         } else $_SESSION['upload'] = "Error, not inserted";
       }
     } else {
       $_SESSION['comicErrors'] = $errors;
     }
-    header("Location: ../index.php?page=panel");
+    //header("Location: ../index.php?page=panel");
   } else {
     header("Location: ../index.php");
   }
