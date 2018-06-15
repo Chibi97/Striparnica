@@ -89,11 +89,11 @@
     }
     return $final;
   }
-//relativeToProjectOS("/public/images/comics/")
+
   function uploadPicture($picture, $lastInsertId, $conn) {
     $tmpPath = $picture['tmp_name'];
     $picName = strstr($picture['name'], "." , true);
-    $targetPath = "/images/comics/" . time() . "_" . $picture['name'];
+    $targetPath = relativeToProjectOS("/public/images/comics/") . time() . "_" . $picture['name'];
     $targetDB = "images/comics/" . time() . "_" . $picture['name'];
     try {
       resize_image($tmpPath, 355);
