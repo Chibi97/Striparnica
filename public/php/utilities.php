@@ -2,10 +2,6 @@
   define('PROJECT_ROOT', dirname(dirname(dirname(__FILE__))));
   define('DS', DIRECTORY_SEPARATOR);
 
-  /**
-   * Kao da smo u project root.
-   * /public/images/comics
-   */
   function relativeToProjectOS($path) {
     $final = PROJECT_ROOT . $path; 
     if(DS != '/') {
@@ -94,12 +90,20 @@
     return $final;
   }
 
-  function uploadPicture($picture) {
+  function uploadPicture($picture, $lastInsertId, $conn) {
     $tmpPath = $picture['tmp_name'];
+    $picName = strstr($picture['name'], "." , true);
     $targetPath = relativeToProjectOS("/public/images/comics/") . time() . "_" . $picture['name'];
+    $targetDB = "images/comics/" . time() . "_" . $picture['name'];
     try {
       resize_image($tmpPath, 355);
-      $uploaded = move_uploaded_file($tmpPath, $targetPath);
+      move_uploaded_file($tmpPath, $targetPath);
+      $upit = "INSERT INTO pictures(path, alt, id_comic) VALUES (:putanja, :alt, :idComic)";
+      $uploaded = bind($conn, $upit, [
+        "putanja" => $targetDB,
+        "alt" => $picName,
+        "idComic" => $lastInsertId
+      ]);
       return $uploaded;
     } catch(Exception $e) {
       echo "Slika nije u dobrom formatu";

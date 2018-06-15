@@ -55,10 +55,22 @@
 
     <?php unset($_SESSION['comicErrors']); ?>
     <button id='insertComic' name='insert'>Insert</button>
+    <?php 
+      if(isset($_SESSION['upload'])) {
+        echo "<strong>" . $_SESSION['upload'] . "</strong>"; 
+        unset($_SESSION['upload']);
+      }
+    ?>
   </form>
 </div>
 <script>
   window.addEventListener('DOMContentLoaded', () => {
-    $(".multipleSelect").fastselect()
+     $(".dial").knob({
+      min: 1,
+      max: 1000,
+      width: 100,
+      height: 100
+    });
+    $(".multipleSelect").fastselect();
   });
 </script>

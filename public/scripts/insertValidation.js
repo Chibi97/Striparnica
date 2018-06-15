@@ -1,11 +1,6 @@
 $(document).ready(function() {
   
-   $(".dial").knob({
-    min: 1,
-    max: 2000,
-    width: 100,
-    height: 100
-   });
+  
 
   $("#insertComic").click(function(e) {
     // e.preventDefault();

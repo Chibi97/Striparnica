@@ -27,7 +27,7 @@
       $errors['description'] = $descError;
     }
 
-    if($issues < 1 || $issues > 2000) {
+    if($issues < 1 || $issues > 1000) {
       $errors['issues'] = $issuesError;
     }
 
@@ -39,27 +39,23 @@
    // validatePicture($picLand, $errors, "comic-land-pic");
 
     if(empty($errors)) {
-      // upis u bazu
       $upit = "INSERT INTO comics(name, description, issues) VALUES (:name, :desc, :issues)";
-      /*$inserted = bind($conn, $upit, [
+      $inserted = bind($conn, $upit, [
         "name" => $name,
         "desc" => $desc,
         "issues" => $issues
-      ]); */
+      ]);
       
       if($inserted) {
-        if(uploadPicture($picPor)) {
-          echo "Fajl je prebacen na server";
-          $idComic = $conn->lastInsertId();
-          // $upit = "INSERT INTO pictures VALUES ('', :putanja, :alt, :idComic)";
-          // 
-        } else echo "Nije prebacena";
+        $idComic = $conn->lastInsertId();
+        if(uploadPicture($picPor, $idComic, $conn)) {
+          $_SESSION['upload'] = "Successfully inserted comic!";
+        } else $_SESSION['upload'] = "Error, not inserted";
       }
-
     } else {
       $_SESSION['comicErrors'] = $errors;
     }
-    //header("Location: ../index.php?page=panel");
+    header("Location: ../index.php?page=panel");
   } else {
     header("Location: ../index.php");
   }
