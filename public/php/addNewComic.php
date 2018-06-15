@@ -36,7 +36,7 @@
     }
 
     validatePicture($picPor, $errors, "comic-por-pic");
-   // validatePicture($picLand, $errors, "comic-land-pic");
+    validatePicture($picLand, $errors, "comic-land-pic");
 
     if(empty($errors)) {
       $upit = "INSERT INTO comics(name, description, issues) VALUES (:name, :desc, :issues)";
@@ -48,7 +48,7 @@
       
       if($inserted) {
         $idComic = $conn->lastInsertId();
-        if(uploadPicture($picPor, $idComic, $conn)) {
+        if(uploadPicture($picPor, $idComic, $conn, 'resize_image_by_height', 355) && uploadPicture($picLand, $idComic, $conn, 'resize_image_by_width', 500)) {
           $upit = "INSERT INTO comics_sub_filters(id_comic,id_sub_filter) VALUES (:idComic, :subFilter)";
           foreach($tags as $tag) {
             bind($conn, $upit, [

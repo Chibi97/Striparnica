@@ -90,13 +90,13 @@
     return $final;
   }
 
-  function uploadPicture($picture, $lastInsertId, $conn) {
+  function uploadPicture($picture, $lastInsertId, $conn, Callable $callback, $target) {
     $tmpPath = $picture['tmp_name'];
     $picName = strstr($picture['name'], "." , true);
     $targetPath = relativeToProjectOS("/public/images/comics/") . time() . "_" . $picture['name'];
     $targetDB = "images/comics/" . time() . "_" . $picture['name'];
     try {
-      resize_image($tmpPath, 355);
+      resize_image($tmpPath, $target, $callback);
       move_uploaded_file($tmpPath, $targetPath);
       $upit = "INSERT INTO pictures(path, alt, id_comic) VALUES (:putanja, :alt, :idComic)";
       $uploaded = bind($conn, $upit, [
@@ -124,17 +124,38 @@
     }
   }
 
-  function resize_image($file, $targetHeight) {
-    list($originalWidth, $originalHeight) = getimagesize($file);
 
-    $ratio = $originalWidth / $originalHeight;
+  // 600 / 300 = 2
+  function resize_image_by_width($ratio, $targetWidth) {
+    if($ratio > 1) {
+      $targetHeight = $targetWidth / $ratio;
+    } else {
+      throw new Exception("Wrong image form suplied");
+      return;
+    }
 
+    return [$targetWidth, $targetHeight];
+  }
+
+  function resize_image_by_height($ratio, $targetHeight) {
     if($ratio < 1) {
       $targetWidth = $targetHeight * $ratio;
     } else {
       throw new Exception("Wrong image format supplied");
       return;
     }
+
+    return [$targetWidth, $targetHeight];
+  }
+
+  function resize_image($file, $target, Callable $callback) {
+    list($originalWidth, $originalHeight) = getimagesize($file);
+    echo "Original width: $originalWidth <br>";
+    echo "Original height: $originalHeight <br>";
+    $ratio = $originalWidth / $originalHeight;
+
+    list($targetWidth, $targetHeight) = $callback($ratio, $target);
+
     $originalImage = imagecreatefromjpeg($file);
     $targetImage = imagecreatetruecolor($targetWidth, $targetHeight);
     imagecopyresampled($targetImage, $originalImage,
