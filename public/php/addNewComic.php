@@ -62,7 +62,7 @@
     } else {
       $_SESSION['comicErrors'] = $errors;
     }
-    //header("Location: ../index.php?page=panel");
+    header("Location: ../index.php?page=panel");
   } else {
     header("Location: ../index.php");
   }
