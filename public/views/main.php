@@ -54,13 +54,11 @@
 <?php else: ?>
   <section class='list-adv flex-row center'>
     <article class='la-group'>
-      <p>Ever wanted to keep track of the comics that you've read? Well, we have a solution for you! Register now, and you can
-        make your own list of comics for free! You will be able to add a comic to reading / completed / on-hold / dropped
-        categories, give your own ratings and decide what next to read!</p>
+      <p>Ever wanted to keep track of the comics that you are interested it? Well, we have a solution for you! We'll give you one list, so you decide what you'll keep track of -- favorites, currently reading, plan to read or anything else. Register now, and you can make your own list of comics for free, give your own ratings and decide what next to read.</p>
     </article>
     <article>
-      <a href='#' class='joinUs btn-style bs-white'>JOIN US NOW</a>
-      <a href='#' class='login btn-style bs-white'>LOGIN</a>
+      <a href='#' class='open-modal-register btn-style bs-white'>JOIN US NOW</a>
+      <a href='#' class='open-modal-login btn-style bs-white'>LOGIN</a>
     </article>  
   </section>
 <?php endif; ?>

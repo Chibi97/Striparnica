@@ -124,8 +124,6 @@
     }
   }
 
-
-  // 600 / 300 = 2
   function resize_image_by_width($ratio, $targetWidth) {
     if($ratio > 1) {
       $targetHeight = $targetWidth / $ratio;

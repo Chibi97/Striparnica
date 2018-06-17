@@ -8,13 +8,13 @@ $(document).ready(function () {
       openModal();
     }
   }
-  $(".login").click(function (e) {
+  $(".open-modal-login").click(function (e) {
     e.preventDefault();
     e.stopPropagation();
     openModal();
   });
 
-  $(".joinUs").click(function (e) {
+  $(".open-modal-register").click(function (e) {
     e.preventDefault();
     e.stopPropagation();
     openModal('register');
@@ -22,7 +22,7 @@ $(document).ready(function () {
 });
 
 function initModal() {
-  $("#login").click(() => closeModal());
+ // $("#login").click(() => closeModal());
   $("#register-btn").click((e) => {
     e.preventDefault();
     $(".modal .card").addClass('is-flipped');
@@ -41,7 +41,7 @@ function initModal() {
 
   $(document).click(function (e) {
     if($(e.target).closest('.modal').length
-      || e.target == '.login') return;
+      || e.target == '.open-modal-login') return;
 
     if (window.modalOpen) {
       closeModal();

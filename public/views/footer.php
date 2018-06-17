@@ -26,30 +26,31 @@
       </div>
     </div>
     
-    <!-- ----- MODAL  -->
+    <!-- LOGIN MODAL  -->
     <div class='modal'>
       <div class='card'>
         <div class='card__face card__face--front flex-col center'>
           <h1>Login</h1>
           <span class='modal-exit'>&times;</span>
-          <form action='php/login.php' method='POST'>
+          <form action='php/login.php'name='login-forma' method='POST'>
             <div class='relative'>
               <input type='text' name='email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-login absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("email", "greske"); ?></p>
+            <p class='form-error errEmail'><?= error_for("email", "greske"); ?></p>
 
             <div class='relative'>
               <input type='password' name='password' placeholder='Password' />
               <span class='fas fa-key fa-span fs-login absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("password", "greske"); ?></p>
+            <p class='form-error errPass'><?= error_for("password", "greske"); ?></p>
 
             <button id='login' name='login' class='btn-style'>Login</button>
             <button id='register-btn' class='btn-style'>Register</button>
           </form>
         </div>
 
+        <!-- REGISTER MODAL  -->
         <div class='card__face card__face--back flex-col center'>
           <h1>Register</h1>
           <span class='modal-exit'>&times;</span>
@@ -73,7 +74,7 @@
             <p class='form-error'><?= error_for("reg_confirm", "greske");?></p>
 
             <button id='login-btn' name='login' class='btn-style'>Login</button>
-            <button class='btn-style register' name='register'>Register</button>
+            <button id='register' class='btn-style' name='register'>Register</button>
           </form>
         </div>
         
@@ -86,7 +87,6 @@
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
       $(".fs-login").css("color", "crimson");
-      
       <?php if(isset($_SESSION['greske']['turn_modal'])): ?>
         $(".fs-reg").css("color", "crimson");
         $(".fs-login").css("color", "#333");
@@ -99,7 +99,7 @@
   </script>
   <script src='scripts/fastselect.min.js'></script>
   <script src='scripts/jquery.knob.min.js'></script>
-  <script src='scripts/insertValidation.js'></script>
+  <script src='scripts/logRegValidate.js'></script>
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
   <script src='scripts/filters.js'></script>

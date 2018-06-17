@@ -15,7 +15,6 @@
           } 
 
           $html .= "
-            <li><a href='/' class='btn-style'>Account</a></li>
             <li>
               <a href='../php/logout.php' class='btn-style'>Logout</a>
             </li>
@@ -23,9 +22,9 @@
           
         } else {
           $html .= "<li>
-          <a href='#' class='btn-style login'>Login</a>
+          <a href='#' class='btn-style open-modal-login'>Login</a>
           </li> <li>
-          <a href='#' class='btn-style joinUs'>Register</a>
+          <a href='#' class='btn-style open-modal-register'>Register</a>
           </li>";
         }
 
