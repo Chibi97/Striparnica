@@ -97,6 +97,7 @@
       window.modalOpen = false;
     <?php endif ?>
   </script>
+  <script src='scripts/utils.js'></script>
   <script src='scripts/fastselect.min.js'></script>
   <script src='scripts/jquery.knob.min.js'></script>
   <script src='scripts/logRegValidate.js'></script>

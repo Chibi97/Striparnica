@@ -45,6 +45,9 @@
     return $result;
   }
 
+  /**
+   * @throws Exception
+   */
   function bindAndSelect($conn, $upit, $bindings, $fetchOne) {
     $result = bind($conn, $upit, $bindings);
     // echo $result->debugDumpParams();

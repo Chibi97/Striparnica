@@ -8,6 +8,7 @@ var filters = (function() {
     $(".title i").css("transition", "all ease 450ms");
     $(".sub-items").each((i, el) => $(el).data('height', $(el).height())); 
     $(".title").click(handleClick);
+    $(".filter").click(handleFilterClick);
 
     var urlString = window.location.href;
     var url = new URL(urlString);
@@ -33,6 +34,23 @@ var filters = (function() {
          
       }
     }
+  }
+
+  function handleFilterClick() {
+    var ids = $(".filter")
+      .filter(function() { return this.checked; })
+      .map(function() { return $(this).val() })
+      .toArray();
+
+    var data = {ids: ids}
+    ajaxPost("ajax/comics.php", data,
+      (resp)    => {
+        console.log(resp);
+      },
+      (status)  => {
+        console.log(status);
+      }
+    );
   }
 
   function handleClick() {

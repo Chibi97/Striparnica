@@ -14,7 +14,7 @@
               <li>
                 <label class='custom-checkbox'>
                   <span class='search-text'><?= $subfilter->name ?></span>
-                  <input type='checkbox' />
+                  <input class='filter' type='checkbox' value='<?= $subfilter->id ?>' />
                   <span class='checkmark'></span>
                 </label>
               </li>
