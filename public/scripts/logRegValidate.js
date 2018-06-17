@@ -1,28 +1,53 @@
 $(document).ready(function() {
-  $('form[name="login-forma"]').submit(function(e) {
+  loginValidation();
+  registerValidation();
+});
+
+function loginValidation() {
+  $('form[name="login-forma"]').submit(function (e) {
     var email = $("input[name='email']").val();
     var password = $("input[name='password']").val();
     var errors = {};
-    var validno  = {};
-    var returnEmail = validateEmail(email, errors, validno);
-    var returnPass = validatePassword(password, errors, validno);
-    
-    if(!(returnEmail && returnPass)) {
+    var validno = {};
+    var validateEmail = validateEmail(email, errors, validno);
+    var validatePass = validatePassword(password, errors, validno);
+
+    if (!(validateEmail && validatePass)) {
       e.preventDefault();
       prikazGresaka(errors);
     }
   });
-});
+}
+
+function registerValidation() {
+  var email    = $("input[name='reg-email']").val();
+  var password = $("input[name='reg-password']").val();
+  var confirm  = $("input[name='reg-confirm']").val();
+  var errors = {};
+  var validno = {};
+  var validateEmail = validateEmail(email, errors, validno);
+  var validatePass  = false;
+
+  $('form[name="reg-forma"]').submit(function (e) {
+    if (validatePassword(password, errors, validno)) {
+      var confirmPass = confirmPassword(password, confirm, errors);
+    }
+    if (!(validateEmail && confirmPass)) {
+      e.preventDefault();
+      prikazGresaka(errors);
+    }
+  });
+}
 
 function prikazGresaka(errors) {
-  if(errors.password) {
+  if (errors.password) {
     $(".errPass").html(errors.password);
     $(".fa-key").css("color", "crimson");
   } else {
     $(".errPass").html("");
     $(".fa-key").css("color", "#333");
   }
- 
+
   if (errors.email) {
     $(".errEmail").html(errors.email);
     $(".fa-at").css("color", "crimson");
@@ -31,6 +56,12 @@ function prikazGresaka(errors) {
     $(".fa-at").css("color", "#333");
   }
 
+  if(errors.confirm) {
+    $(".errEmail").html(errors.email);
+    $(".fa-unlock").css("color", "crimson");
+  } else {
+    
+  }
 }
 
 function validateEmail(email, errors, validno) {
@@ -54,3 +85,13 @@ function validatePassword(password, errors, validno) {
     return true;
   }
 }
+
+function confirmPassword(password, confirm, errors) {
+  if(password != confirm) {
+    errors.confirm = "Your passwords are not matching";
+    return false;
+  } else {
+    return true;
+  }
+}
+

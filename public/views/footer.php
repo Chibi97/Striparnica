@@ -32,7 +32,7 @@
         <div class='card__face card__face--front flex-col center'>
           <h1>Login</h1>
           <span class='modal-exit'>&times;</span>
-          <form action='php/login.php'name='login-forma' method='POST'>
+          <form action='php/login.php' name='login-forma' method='POST'>
             <div class='relative'>
               <input type='text' name='email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-login absolute'></span>
@@ -54,7 +54,7 @@
         <div class='card__face card__face--back flex-col center'>
           <h1>Register</h1>
           <span class='modal-exit'>&times;</span>
-          <form action='../php/register.php' method='POST'>
+          <form action='../php/register.php' name='reg-forma'  method='POST'>
             <div class='relative'>
               <input type='text' name='reg-email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-reg absolute'></span>
@@ -71,7 +71,7 @@
               <input type='password' name='reg-confirm' placeholder='Confirm password' />
               <span class='fas fa-unlock fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("reg_confirm", "greske");?></p>
+            <p class='form-error errConfirm'><?= error_for("reg_confirm", "greske");?></p>
 
             <button id='login-btn' name='login' class='btn-style'>Login</button>
             <button id='register' class='btn-style' name='register'>Register</button>
