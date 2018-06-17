@@ -5,38 +5,46 @@ $(document).ready(function() {
 
 function loginValidation() {
   $('form[name="login-forma"]').submit(function (e) {
-    var email = $("input[name='email']").val();
-    var password = $("input[name='password']").val();
     var errors = {};
     var validno = {};
-    var validateEmail = validateEmail(email, errors, validno);
-    var validatePass = validatePassword(password, errors, validno);
-
-    if (!(validateEmail && validatePass)) {
+    if (!validateLoginParams(errors, validno)) {
       e.preventDefault();
       prikazGresaka(errors);
     }
   });
 }
 
-function registerValidation() {
-  var email    = $("input[name='reg-email']").val();
-  var password = $("input[name='reg-password']").val();
-  var confirm  = $("input[name='reg-confirm']").val();
-  var errors = {};
-  var validno = {};
-  var validateEmail = validateEmail(email, errors, validno);
-  var validatePass  = false;
+function validateLoginParams(errors, validno) {
+  var validations = [];
+  var email = $("input[name='email']").val();
+  var password = $("input[name='password']").val();
+  validations.push(validateEmail(email, errors, validno));
+  validations.push(validatePassword(password, errors, validno));
 
+  console.log(validations);
+  return !validations.includes(false);
+}
+
+function registerValidation() {
   $('form[name="reg-forma"]').submit(function (e) {
-    if (validatePassword(password, errors, validno)) {
-      var confirmPass = confirmPassword(password, confirm, errors);
-    }
-    if (!(validateEmail && confirmPass)) {
+    var errors = {};
+    var validno = {};
+    if (validateRegistrationParams(errors, validno)) {
       e.preventDefault();
       prikazGresaka(errors);
     }
   });
+}
+
+function validateRegistrationParams(errors, validno) {
+  var validations = [];
+  var email    = $("input[name='reg-email']").val();
+  var password = $("input[name='reg-password']").val();
+  var confirm  = $("input[name='reg-confirm']").val();
+  validations.push(validateEmail(email, errors, validno));
+  validations.push(confirmPassword(password, confirm, errors));
+
+  return !validations.includes(false);
 }
 
 function prikazGresaka(errors) {
