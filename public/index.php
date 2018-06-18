@@ -22,7 +22,7 @@
           break;
         case 'panel':
           if(isset($_SESSION['user'])) {
-            if($_SESSION['user']->id_role == 1) {
+            if($_SESSION['user']->role == "administrator") {
               include_once "../admin/panel.php";
             } else {
               include "views/main.php";

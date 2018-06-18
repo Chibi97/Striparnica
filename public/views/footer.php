@@ -54,7 +54,7 @@
         <div class='card__face card__face--back flex-col center'>
           <h1>Register</h1>
           <span class='modal-exit'>&times;</span>
-          <form action='php/register.php' name='reg-forma'  method='POST'>
+          <form action='php/register.php' name='reg-forma'  method='POST' >
             <div class='relative'>
               <input type='text' name='reg-email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-reg absolute'></span>

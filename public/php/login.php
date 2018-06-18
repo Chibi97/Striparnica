@@ -21,8 +21,8 @@
     
     if(empty($errors)) {
       $password = sha1($password);
-      $upit = "SELECT u.* FROM users u INNER JOIN roles r ON u.id_role = r.id
-      WHERE email = :email AND password = :pass;";
+      $upit = "SELECT u.*, r.role FROM users u INNER JOIN roles r ON u.id_role = r.id
+               WHERE email = :email AND password = :pass";
       
       $selectedUser = bindAndSelect($conn, $upit, [
         "email" => $email,
