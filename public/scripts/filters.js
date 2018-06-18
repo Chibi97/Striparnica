@@ -1,5 +1,6 @@
 $(document).ready(function() {
   filters.init();
+  filters.getAllComics();
 });
 
 var filters = (function() {
@@ -53,6 +54,44 @@ var filters = (function() {
     );
   }
 
+  function getAllComics() {
+    ajaxPost("ajax/comics.php", {}, 
+    (comics) => {
+      iscrtajSve(comics);
+    },
+    (status) => {
+      console.log(status);
+    });
+  }
+
+  function iscrtajJednog(comic) {
+    return `<div class='comic'>
+        <img src='${comic.path}' alt=${comic.alt}'/>
+        <h2>${comic.name}</h2>
+        <div class='aid'>
+          <a href='#' data-id='${comic.id}' class='btn-style bs-white'>UPDATE</a>
+          <a href = '#' data-id = '${comic.id}'
+           class = 'btn-style bs-white' > DELETE </a>
+          <a href = '#' data-id = '${comic.id}'
+           class = 'btn-style bs-white' > ADD </a>
+        </div>
+        <p class='scroll'>${comic.description}
+        </p>
+        <div class='info'>
+          <p><strong>Issues/Chapters:</strong> ${comic.issues}</p>
+          <p><strong>Rating:</strong> ${comic.votes}</p>
+        </div>
+      </div>`;
+  }
+
+  function iscrtajSve(comics) {
+    var html = "";
+    comics.forEach((comics) => {
+      html += iscrtajJednog(comics);
+    });
+    $(".comics").append(html);
+  }
+
   function handleClick() {
     var elem = $(this).parent().find('.sub-items');
     var toHeight = elem.data('height');
@@ -73,6 +112,7 @@ var filters = (function() {
   }
 
   return {
-    init: init
+    init: init,
+    getAllComics: getAllComics
   };
 })();

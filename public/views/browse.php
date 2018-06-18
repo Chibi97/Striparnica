@@ -24,8 +24,8 @@
         <?php endforeach ?>
       </ul>
     </div>
-    <div class='comics'>
-      bla blaa
+    <div class='comics flex-row'>
+
     </div>
   </div>
 </div>

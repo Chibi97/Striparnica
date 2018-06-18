@@ -22,8 +22,6 @@
             join comics_sub_filters filter on c.id = filter.id_comic
             join sub_filters sf on filter.id_sub_filter = sf.id
             where sf.id in ". $array;
-
-
     try {
       $result = bindAndSelect($conn, $query, $bindings, false);
       echo json_encode($result);
@@ -31,9 +29,7 @@
       $status = 500;
     }
   } else {
-    echo json_encode($conn->query("select * from comics")->fetchAll());
+    $upit = "SELECT c.*, p.alt, p.path FROM comics c INNER JOIN pictures p ON c.id = p.id_comic WHERE p.primary = 1";
+    echo json_encode($conn->query($upit)->fetchAll());
   }
-
-
-
   http_response_code($status);
