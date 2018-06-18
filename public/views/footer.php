@@ -54,18 +54,18 @@
         <div class='card__face card__face--back flex-col center'>
           <h1>Register</h1>
           <span class='modal-exit'>&times;</span>
-          <form action='../php/register.php' name='reg-forma'  method='POST'>
+          <form action='php/register.php' name='reg-forma'  method='POST'>
             <div class='relative'>
               <input type='text' name='reg-email' placeholder='Email' />
               <span class='fas fa-at fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("reg_email", "greske");?></p>
+            <p class='form-error errEmail'><?= error_for("reg_email", "greske");?></p>
 
             <div class='relative'>
               <input type='password' name='reg-password' placeholder='Password' />
               <span class='fas fa-key fa-span fs-reg absolute'></span>
             </div>
-            <p class='form-error'><?= error_for("reg_password", "greske");?></p>
+            <p class='form-error errPass'><?= error_for("reg_password", "greske");?></p>
 
             <div class='relative'>
               <input type='password' name='reg-confirm' placeholder='Confirm password' />
