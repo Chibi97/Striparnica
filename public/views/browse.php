@@ -28,4 +28,6 @@
 
     </div>
   </div>
+  <div class='comics-control'>
+  </div>
 </div>

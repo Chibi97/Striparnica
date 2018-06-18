@@ -33,25 +33,16 @@
     <span class='form-error'><?= error_for("tags", "comicErrors"); ?></span>
 
     <div class='input-group'>
-      <label>Upload 2 pictures</label>
+      <label>Upload a picture</label>
       
       <input type='file' name='comic-por-pic'>
-      <p>Please upload a picture that is portrait oriented</p>
+      <p>Please upload a picture that is portrait oriented!</p>
       <?php
        $subIndexes = ['type', 'size']; 
        foreach($subIndexes as $subIndex):
        ?>
         <p class='form-error'><?= multi_error_for("comic-por-pic", "comicErrors", $subIndex); ?></p>
        <?php endforeach ?>
-
-      <input type='file' name='comic-land-pic'>
-      <p>Please upload a picture that is landscape oriented</p>
-      <?php
-      foreach($subIndexes as $subIndex):
-       ?>
-        <p class='form-error'><?= multi_error_for("comic-land-pic", "comicErrors", $subIndex); ?></p>
-       <?php endforeach ?>
-    </div>
 
     <?php unset($_SESSION['comicErrors']); ?>
     <button id='insertComic' name='insert'>Insert</button>

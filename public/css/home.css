@@ -119,7 +119,7 @@
 }
 
 .l3-item {
-  width:250px;
+  width:180px;
   position:relative;
   margin-right:.5em;
   overflow:hidden;
@@ -139,7 +139,7 @@
   right:0em;
   color:white;
   background: rgba(0, 0, 0, .55);
-  padding-bottom:2em;
+  padding-bottom:5em;
   transition: all ease-in-out 250ms;
 }
 
@@ -170,14 +170,14 @@
   }
 
   .l3-item {
-    width: 400px;
+    width: 250px;
     height: auto;
     margin-bottom:1em;
   }
 
-
   .l3-desc {
-    padding-bottom: 4.5em;
+    width:250px;
+    padding-bottom: 7em;
   }
 
   .the-rest, .the-rest a {
@@ -195,10 +195,6 @@
     width: 250px;
     -moz-height: auto;
     margin-bottom: 1em;
-  }
-
-  .l3-desc {
-    padding-bottom: 1.3em;
   }
 }
 

@@ -54,14 +54,29 @@ var filters = (function() {
     );
   }
 
-  function getAllComics() {
-    ajaxPost("ajax/comics.php", {}, 
-    (comics) => {
-      iscrtajSve(comics);
+  function getAllComics(page) {
+    var page = page || 1;
+    ajaxPost("ajax/comics.php", {page: page}, 
+    (resp) => {
+      iscrtajSve(resp);
+      iscrtajNav(resp)
     },
     (status) => {
       console.log(status);
     });
+  }
+
+  function iscrtajNav(resp) {
+    $(".comics-control").html("");
+    for(let i=0; i<resp.total;i++) {
+      let link = $(`<a href='#'>${i+1}</a>`);
+      link.css({"fontSize": "3.4rem", "margin": "1em"});
+      link.click(function(e) {
+        e.preventDefault();
+        getAllComics(i+1);
+      });
+      $(".comics-control").append(link);
+    }
   }
 
   function iscrtajJednog(comic) {
@@ -84,12 +99,12 @@ var filters = (function() {
       </div>`;
   }
 
-  function iscrtajSve(comics) {
+  function iscrtajSve(resp) {
     var html = "";
-    comics.forEach((comics) => {
-      html += iscrtajJednog(comics);
+    resp.data.forEach((comic) => {
+      html += iscrtajJednog(comic);
     });
-    $(".comics").append(html);
+    $(".comics").html(html);
   }
 
   function handleClick() {

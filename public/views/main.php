@@ -29,21 +29,21 @@
       <h2>The last ones you added</h2>
       <article class='last-added flex-row'>
         <figure class='l3-item'>
-          <img src='../images/comics/iw.jpg' alt='iw' />
+          <img src='../images/comics/infinity_gauntlet.jpg' alt='iw' />
           <figcaption class='l3-desc'>
             <p>Neki opis</p>
           </figcaption>
         </figure>
 
         <figure class='l3-item'>
-          <img src='../images/comics/aot.jpg' alt='iw' />
+          <img src='../images/comics/attack_on_titan.jpg' alt='iw' />
           <figcaption class='l3-desc'>
             <p>Neki opis</p>
           </figcaption>
         </figure>
 
         <figure class='l3-item'>
-          <img src='../images/comics/n_sh.jpg' alt='iw' />
+          <img src='../images/comics/naruto.jpg' alt='iw' />
           <figcaption class='l3-desc'>
             <p>Neki opis</p>
           </figcaption>

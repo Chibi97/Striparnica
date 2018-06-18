@@ -32,7 +32,7 @@
   function bind($conn, $upit, $bindings) {
     $result = $conn->prepare($upit);
  
-    foreach($bindings as $label => $value) {
+    foreach($bindings as $label => &$value) {
       ${"$label"} = $value; 
       $result->bindParam(":$label", $$label);
     }
@@ -102,6 +102,11 @@
       resize_image($tmpPath, $target, $callback);
       move_uploaded_file($tmpPath, $targetPath);
       $upit = "INSERT INTO pictures(path, alt, id_comic) VALUES (:putanja, :alt, :idComic)";
+      /*if($target == 355) {
+        $primary = 1;
+      } else if($target == 500) {
+        $primary = 2;
+      }*/
       $uploaded = bind($conn, $upit, [
         "putanja" => $targetDB,
         "alt" => $picName,

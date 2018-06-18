@@ -9,7 +9,6 @@
     $issues  = $_POST['issues'];
     $tags    = isset($_POST['tags']) ? $_POST['tags'] : null;
     $picPor  = $_FILES['comic-por-pic'];
-    $picLand = $_FILES['comic-land-pic'];
     $errors = [];
 
     $nameError = "Every first letter of a word must be a capital letter";
@@ -36,7 +35,6 @@
     }
 
     validatePicture($picPor, $errors, "comic-por-pic");
-    validatePicture($picLand, $errors, "comic-land-pic");
 
     if(empty($errors)) {
       $upit = "INSERT INTO comics(name, description, issues) VALUES (:name, :desc, :issues)";
@@ -48,7 +46,7 @@
       
       if($inserted) {
         $idComic = $conn->lastInsertId();
-        if(uploadPicture($picPor, $idComic, $conn, 'resize_image_by_height', 355) && uploadPicture($picLand, $idComic, $conn, 'resize_image_by_width', 500)) {
+        if(uploadPicture($picPor, $idComic, $conn, 'resize_image_by_height', 355)) {
           $upit = "INSERT INTO comics_sub_filters(id_comic,id_sub_filter) VALUES (:idComic, :subFilter)";
           foreach($tags as $tag) {
             bind($conn, $upit, [
