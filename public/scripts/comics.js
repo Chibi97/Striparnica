@@ -5,12 +5,12 @@ $(document).ready(function() {
 
 var myList = (function() {
   function init() {
-    $(".add-to-list").click(handleClick)
+    $(".add-to-list").click(handleClick);
   }
 
   function handleClick(e) {
     e.preventDefault();
-    var id = $(this).data('id');
+    var id = $(this).data("id");
     ajaxPost("ajax/mylist.php", {stripId: id},
       () => {
         alert("Uspesno!");
@@ -29,7 +29,7 @@ var filters = (function() {
   function init() {
     $(".sub-items").hide();
     $(".title i").css("transition", "all ease 450ms");
-    $(".sub-items").each((i, el) => $(el).data('height', $(el).height())); 
+    $(".sub-items").each((i, el) => $(el).data('height', $(el).height()));
     $(".title").click(handleClick);
     $(".filter").click(handleFilterClick);
 
@@ -54,7 +54,7 @@ var filters = (function() {
             scrollTop: found.offset().top - half
           }, 750);
          }, 450);
-         
+
       }
     }
   }
@@ -65,7 +65,7 @@ var filters = (function() {
       .map(function() { return $(this).val() })
       .toArray();
 
-    var data = {ids: ids}
+    var data = {ids: ids};
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
         console.log(resp);
@@ -78,8 +78,9 @@ var filters = (function() {
 
   function getAllComics(page) {
     var page = page || 1;
-    ajaxPost("ajax/comics.php", {page: page}, 
+    ajaxPost("ajax/comics.php", {page: page},
     (resp) => {
+      console.log(resp);
       iscrtajSve(resp);
       myList.init();
       iscrtajNav(resp);
@@ -90,7 +91,8 @@ var filters = (function() {
   }
 
   function iscrtajNav(resp) {
-    $(".comics-control").html("");
+    var div = $(".comics-control");
+    div.html("");
     for(let i=0; i<resp.total;i++) {
       let link = $(`<a href='#'>${i+1}</a>`);
       link.css({"fontSize": "3.4rem", "margin": "1em"});
@@ -98,34 +100,46 @@ var filters = (function() {
         e.preventDefault();
         getAllComics(i+1);
       });
-      $(".comics-control").append(link);
+      div.append(link);
     }
   }
 
-  function iscrtajJednog(comic) {
+  function iscrtajJednog(comic, role) {
+    var del = "";
+    var add = "";
+    var update = "";
+    var remove = "";
+    if (role == "administrator") {
+      del = `<a href='#' data-id='${comic.id}' class='btn-style bs-white'>DELETE</a>`;
+      update = `<a href='#' data-id='${comic.id}' class='btn-style bs-white'>UPDATE</a>`;
+    }
+    if (!comic.postoji) {
+      add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>ADD</a>`;
+    } else {
+      remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>REMOVE</a>`;
+    }
     return `<div class='comic'>
-        <img src='${comic.path}' alt=${comic.alt}'/>
-        <h2>${comic.name}</h2>
-        <div class='aid'>
-          <a href='#' data-id='${comic.id}' class='btn-style bs-white'>UPDATE</a>
-          <a href = '#' data-id = '${comic.id}'
-           class = 'btn-style bs-white' > DELETE </a>
-          <a href = '#' data-id = '${comic.id}'
-           class = 'btn-style bs-white add-to-list' > ADD </a>
-        </div>
-        <p class='scroll'>${comic.description}
-        </p>
-        <div class='info'>
-          <p><strong>Issues/Chapters:</strong> ${comic.issues}</p>
-          <p><strong>Rating:</strong> ${comic.votes}</p>
-        </div>
-      </div>`;
+              <img src='${comic.path}' alt='${comic.alt}' />
+              <h2>${comic.name}</h2>
+              <div class='aid'>
+                ${update}
+                ${del}
+                ${add}
+                ${remove}
+              </div>
+              <p class='scroll'>${comic.description}</p>
+              <div class='info'>
+                <p><strong>Issues/Chapters: </strong>${comic.issues}</p>
+                <p><strong>Number of votes: </strong>${comic.votes}</p>
+              </div>
+            </div>`;
   }
 
   function iscrtajSve(resp) {
     var html = "";
-    resp.data.forEach((comic) => {
-      html += iscrtajJednog(comic);
+    var role = resp.role;
+    resp.svi.forEach((comic) => {
+      html += iscrtajJednog(comic, role);
     });
     $(".comics").html(html);
   }
@@ -134,7 +148,7 @@ var filters = (function() {
     var elem = $(this).parent().find('.sub-items');
     var toHeight = elem.data('height');
     var carret = $(this).find('i');
-    
+
     elem.finish();
 
     if(!elem.data("expanded")) {

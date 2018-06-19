@@ -1,11 +1,15 @@
 <?php
+  session_start();
   require_once "../../database.php";
   require_once "../php/utilities.php";
 
-  define("PER_PAGE", 4);
+  define("PER_PAGE", 8);
   header("Content-type: application/json");
 
   $status = 200;
+  $role   = $_SESSION['user']->role;
+  $userId = $_SESSION['user']->id;
+
   if(isset($_POST['ids'])) {
     $ids = $_POST['ids'];
     $page = 1;
@@ -28,8 +32,7 @@
     $query = "select c.* as total from comics c
             join comics_sub_filters filter on c.id = filter.id_comic
             join sub_filters sf on filter.id_sub_filter = sf.id
-            where sf.id in ". $array;
-    
+            where sf.id in ". $array;    
     try {
       $pages = bindAndSelect($conn, $query, $bindings, false);
       $resp = [
@@ -41,28 +44,33 @@
     }
   } else {
     $page = 1;
-    if(isset($_POST['page'])) $page = $_POST['page'];
-    $od = ($page-1) * PER_PAGE; 
-    // page=1 0 * 3 = 1 // 0, 3 -> 1,2,3
-    // page=2 1 * 3 = 3 // 3, 3 -> 4,5,6
-    // ...
-    // page=5 4 * 3 = 12 // 12, 3 -> 13, 14, 15
-    // page=6 
+    if(isset($_POST['page'])) {
+      $page = $_POST['page'];
+    }
+    $od = ($page-1) * PER_PAGE;
     $koliko = PER_PAGE;
-    $upit = "SELECT c.*, p.alt, p.path FROM comics c 
-            INNER JOIN pictures p ON c.id = p.id_comic
-            LIMIT :od, $koliko";
+    
+    $upit = "SELECT c.*,p.path, p.alt,l.id AS postoji, l.id_user AS ulogovan FROM comics c LEFT JOIN list l ON l.id_comic=c.id INNER JOIN pictures p ON p.id_comic = c.id LIMIT :od, $koliko";
+
     $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
     $pages = ceil($count / PER_PAGE);
+
     $stmt = $conn->prepare($upit);
     $stmt->bindParam(":od", $od, PDO::PARAM_INT);
     $stmt->execute();
-    $data = $stmt->fetchAll();
-    
+    $svi = $stmt->fetchAll();
+
+    $query = "SELECT c.*, l.id_user 
+    FROM comics c 
+    LEFT JOIN list l ON c.id = l.id_comic 
+    WHERE l.id_user=$userId OR l.id_user IS NULL";
+    $comicPerUser = selectMultipleRows($conn, $query);
+
     $resp = [
       "total" => $pages,
       "page"  => $page,
-      "data" => $data
+      "role"  => $role,
+      "svi" => $svi
     ];
     echo json_encode($resp);
   }

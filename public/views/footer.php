@@ -103,5 +103,5 @@
   <script src='scripts/logRegValidate.js'></script>
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
-  <script src='scripts/filters.js'></script>
+  <script src='scripts/comics.js'></script>
   

@@ -31,6 +31,9 @@
               include "views/main.php";
             }
           break;
+        case 'my_list':
+          include "views/my_list.php";
+          break;
         default:
           include "views/main.php";
           break;

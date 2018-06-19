@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88aa5cc8-8b2b-49be-87a9-7b49d16bf29a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ajax/mylist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Olja.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/views/my_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/scripts/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/scripts/filters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/scripts/getComics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ajax/comics.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/ajax/comics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/scripts/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/scripts/comics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/footer.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,34 +44,50 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="comics_list: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="comics_list@mycomicslist.datapoint.rs" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="comics_list: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="comics: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="filters.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/filters.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mylist.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/ajax/mylist.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            <state relative-caret-position="42">
+              <caret line="2" column="43" lean-forward="true" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comics.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/ajax/comics.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comics.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/comics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="89" column="24" lean-forward="true" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -78,7 +95,7 @@
       <file leaf-file-name="utilities.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/php/utilities.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
+            <state relative-caret-position="433">
               <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
             </state>
           </provider>
@@ -86,19 +103,37 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>select</find>
+      <find>a</find>
+      <find>console.log</find>
+      <find>myList</find>
+      <find>alert</find>
+      <find>init</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/public/scripts/comics.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/public/ajax/comics.php" root0="SKIP_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/public/php/utilities.php" />
-        <option value="$PROJECT_DIR$/public/ajax/comics.php" />
         <option value="$PROJECT_DIR$/public/scripts/logRegValidate.js" />
         <option value="$PROJECT_DIR$/public/scripts/getComics.js" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b/console.sql" />
         <option value="$PROJECT_DIR$/public/scripts/filters.js" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/public/views/my_list.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b/console.sql" />
         <option value="$PROJECT_DIR$/public/ajax/mylist.php" />
+        <option value="$PROJECT_DIR$/public/views/footer.php" />
+        <option value="$PROJECT_DIR$/public/scripts/comics.js" />
+        <option value="$PROJECT_DIR$/public/ajax/comics.php" />
       </list>
     </option>
   </component>
@@ -111,19 +146,20 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="PhpDebugGeneral" break_at_first_line="true" />
+  <component name="PhpDebugGeneral" break_at_first_line="true" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="0.0.0.0" id="6387839c-3509-4ace-b01f-20033da37a27" name="0.0.0.0" port="2222" />
       <server host="localhost" id="190788c2-bba8-42d5-9738-76ab5f57b659" name="localhost" port="2222" />
+      <server host="localhost" id="facdadde-025a-4ba8-8e09-f62b287a6222" name="localhost (1)" port="3333" />
+      <server host="localhost" id="ee56dcd3-1546-42f9-872e-26b7ef6566d7" name="localhost (2)" port="8888" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="52" />
-    <option name="y" value="25" />
-    <option name="width" value="935" />
-    <option name="height" value="1055" />
+    <option name="x" value="-8" />
+    <option name="width" value="1128" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -155,6 +191,12 @@
               <item name="mycomicslist.local" type="b2602c69:ProjectViewProjectNode" />
               <item name="mycomicslist.local" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycomicslist.local" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycomicslist.local" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="php" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -162,6 +204,12 @@
               <item name="mycomicslist.local" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycomicslist.local" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycomicslist.local" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -171,14 +219,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="comics.php&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/ajax/comics.php&#10;.js&#9;FILE&#9;file:///home/stefankupresak/faks/Striparnica/public/scripts/logRegValidate.js&#10;comics_list@&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="server&#9;null&#9;null&#10;comics.php&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/ajax/comics.php&#10;comics.js&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/scripts/comics.js&#10;browse.php&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/views/browse.php&#10;footer.php&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/views/footer.php&#10;footer&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/images/footer-wallp.jpg&#10;ajax&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/ajax&#10;utili&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/php/utilities.php&#10;index.php&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/index.php&#10;myl&#9;FILE&#9;file://C:/xampp/htdocs/mycomicslist.local/public/ajax/mylist.php&#10;.js&#9;FILE&#9;file:///home/stefankupresak/faks/Striparnica/public/scripts/logRegValidate.js&#10;comics_list@&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -206,28 +254,38 @@
       <option name="presentableId" value="Default" />
       <updated>1529272134316</updated>
       <workItem from="1529272136728" duration="2301000" />
-      <workItem from="1529408901579" duration="6315000" />
+      <workItem from="1529408901579" duration="14116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8616000" />
+    <option name="totallyTimeSpent" value="16417000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" side_tool="true" weight="0.3295302" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4045584" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Console" order="7" weight="0.32905984" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1785235" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4031339" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.6210826" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.034228187" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17315437" />
+      <window_info anchor="right" id="Database" order="3" weight="0.63301665" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3974359" />
@@ -235,7 +293,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
@@ -350,22 +407,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/getComics.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ajax/comics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-        </state>
-      </provider>
     </entry>
     <entry file="uml://DATABASE/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b">
       <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -396,29 +439,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/php/utilities.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
+        <state relative-caret-position="433">
           <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/public/images/footer-wallp.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/filters.js">
+    <entry file="file://$PROJECT_DIR$/public/views/browse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="255">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/ajax/mylist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        <state relative-caret-position="168">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/my_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cf2a66f2-c69b-4f0c-9fba-fc275eaf867b/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="43" lean-forward="true" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ajax/comics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mongodb/mongodb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="145" column="13" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/comics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="89" column="24" lean-forward="true" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
         </state>
       </provider>
     </entry>
