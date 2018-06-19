@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="comics_list@mycomicslist.datapoint.rs">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.9">
     <root id="1">
+      <ServerVersion>5.7.22</ServerVersion>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>exact</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="comics_list">
@@ -900,190 +903,175 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="226" parent="2" name="comics">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="227" parent="2" name="comics_sub_filters">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="228" parent="2" name="filters">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="229" parent="2" name="links">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="230" parent="2" name="pictures">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="231" parent="2" name="roles">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="232" parent="2" name="sub_filters">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="233" parent="2" name="users">
-      <Engine>InnoDB</Engine>
-    </table>
-    <column id="234" parent="226" name="id">
+    <table id="226" parent="2" name="comics"/>
+    <table id="227" parent="2" name="comics_sub_filters"/>
+    <table id="228" parent="2" name="filters"/>
+    <table id="229" parent="2" name="links"/>
+    <table id="230" parent="2" name="list"/>
+    <table id="231" parent="2" name="pictures"/>
+    <table id="232" parent="2" name="roles"/>
+    <table id="233" parent="2" name="sub_filters"/>
+    <table id="234" parent="2" name="users"/>
+    <column id="235" parent="226" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="226" name="name">
+    <column id="236" parent="226" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="226" name="description">
+    <column id="237" parent="226" name="description">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="226" name="issues">
+    <column id="238" parent="226" name="issues">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="238" parent="226" name="name">
+    <column id="239" parent="226" name="votes">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="240" parent="226" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
+      <Type>btree</Type>
     </index>
-    <key id="239" parent="226" name="PRIMARY">
+    <key id="241" parent="226" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="240" parent="226" name="name">
+    <key id="242" parent="226" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="241" parent="227" name="id">
+    <column id="243" parent="227" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="227" name="id_comic">
+    <column id="244" parent="227" name="id_comic">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="227" name="id_sub_filter">
+    <column id="245" parent="227" name="id_sub_filter">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="244" parent="227" name="id_comic">
+    <index id="246" parent="227" name="id_comic">
       <ColNames>id_comic</ColNames>
+      <Type>btree</Type>
     </index>
-    <index id="245" parent="227" name="id_sub_filter">
+    <index id="247" parent="227" name="id_sub_filter">
       <ColNames>id_sub_filter</ColNames>
+      <Type>btree</Type>
     </index>
-    <key id="246" parent="227" name="PRIMARY">
+    <key id="248" parent="227" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="247" parent="227" name="comics_sub_filters_ibfk_1">
+    <foreign-key id="249" parent="227" name="comics_sub_filters_ibfk_1">
       <ColNames>id_comic</ColNames>
       <RefSchemaName>comics_list</RefSchemaName>
       <RefTableName>comics</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="248" parent="227" name="comics_sub_filters_ibfk_2">
+    <foreign-key id="250" parent="227" name="comics_sub_filters_ibfk_2">
       <ColNames>id_sub_filter</ColNames>
       <RefSchemaName>comics_list</RefSchemaName>
       <RefTableName>sub_filters</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="249" parent="228" name="id">
+    <column id="251" parent="228" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="228" name="name">
+    <column id="252" parent="228" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="251" parent="228" name="PRIMARY">
+    <key id="253" parent="228" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="252" parent="229" name="id">
+    <column id="254" parent="229" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="229" name="name">
+    <column id="255" parent="229" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="229" name="path">
+    <column id="256" parent="229" name="path">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="255" parent="229" name="PRIMARY">
+    <key id="257" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="256" parent="230" name="id">
+    <column id="258" parent="230" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="230" name="path">
+    <column id="259" parent="230" name="id_user">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="230" name="alt">
+    <column id="260" parent="230" name="id_comic">
       <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="230" name="id_comic">
+    <column id="261" parent="230" name="rating">
       <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="260" parent="230" name="id_comic">
-      <ColNames>id_comic</ColNames>
-    </index>
-    <key id="261" parent="230" name="PRIMARY">
+    <key id="262" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="262" parent="230" name="pictures_ibfk_1">
-      <ColNames>id_comic</ColNames>
-      <RefSchemaName>comics_list</RefSchemaName>
-      <RefTableName>comics</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
     <column id="263" parent="231" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
@@ -1091,92 +1079,136 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="231" name="role">
+    <column id="264" parent="231" name="path">
       <Position>2</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="265" parent="231" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="266" parent="232" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="267" parent="232" name="name">
-      <Position>2</Position>
+    <column id="265" parent="231" name="alt">
+      <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="232" name="id_filter">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="269" parent="232" name="id_filter">
-      <ColNames>id_filter</ColNames>
-    </index>
-    <key id="270" parent="232" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="271" parent="232" name="sub_filters_ibfk_1">
-      <ColNames>id_filter</ColNames>
-      <RefSchemaName>comics_list</RefSchemaName>
-      <RefTableName>filters</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="272" parent="233" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="273" parent="233" name="email">
-      <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="274" parent="233" name="password">
-      <Position>3</Position>
-      <DataType>varchar(500)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="275" parent="233" name="id_role">
+    <column id="266" parent="231" name="id_comic">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="276" parent="233" name="email">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
+    <index id="267" parent="231" name="id_comic">
+      <ColNames>id_comic</ColNames>
+      <Type>btree</Type>
     </index>
-    <index id="277" parent="233" name="roles_id">
-      <ColNames>id_role</ColNames>
-    </index>
-    <key id="278" parent="233" name="PRIMARY">
+    <key id="268" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="279" parent="233" name="email">
+    <foreign-key id="269" parent="231" name="pictures_ibfk_1">
+      <ColNames>id_comic</ColNames>
+      <RefSchemaName>comics_list</RefSchemaName>
+      <RefTableName>comics</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="270" parent="232" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="271" parent="232" name="role">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="272" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="273" parent="233" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="233" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="275" parent="233" name="id_filter">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="276" parent="233" name="id_filter">
+      <ColNames>id_filter</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="277" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="278" parent="233" name="sub_filters_ibfk_1">
+      <ColNames>id_filter</ColNames>
+      <RefSchemaName>comics_list</RefSchemaName>
+      <RefTableName>filters</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="279" parent="234" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="234" name="email">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="234" name="password">
+      <Position>3</Position>
+      <DataType>varchar(500)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="234" name="id_role">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;2&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="283" parent="234" name="email">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="284" parent="234" name="roles_id">
+      <ColNames>id_role</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="285" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="286" parent="234" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <foreign-key id="280" parent="233" name="users_ibfk_1">
+    <foreign-key id="287" parent="234" name="users_ibfk_1">
       <ColNames>id_role</ColNames>
       <RefSchemaName>comics_list</RefSchemaName>
       <RefTableName>roles</RefTableName>

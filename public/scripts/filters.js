@@ -3,6 +3,28 @@ $(document).ready(function() {
   filters.getAllComics();
 });
 
+var myList = (function() {
+  function init() {
+    $(".add-to-list").click(handleClick)
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    ajaxPost("ajax/mylist.php", {stripId: id},
+      () => {
+        alert("Uspesno!");
+      },
+      (status) => {
+
+      });
+  }
+
+  return {
+    init: init
+  }
+})();
+
 var filters = (function() {
   function init() {
     $(".sub-items").hide();
@@ -59,7 +81,8 @@ var filters = (function() {
     ajaxPost("ajax/comics.php", {page: page}, 
     (resp) => {
       iscrtajSve(resp);
-      iscrtajNav(resp)
+      myList.init();
+      iscrtajNav(resp);
     },
     (status) => {
       console.log(status);
@@ -88,7 +111,7 @@ var filters = (function() {
           <a href = '#' data-id = '${comic.id}'
            class = 'btn-style bs-white' > DELETE </a>
           <a href = '#' data-id = '${comic.id}'
-           class = 'btn-style bs-white' > ADD </a>
+           class = 'btn-style bs-white add-to-list' > ADD </a>
         </div>
         <p class='scroll'>${comic.description}
         </p>
