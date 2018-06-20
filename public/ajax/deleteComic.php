@@ -5,7 +5,6 @@
 
   function obrisiSliku($putanja) {
     $publicPath = relativeToProjectOS("public/$putanja");
-    var_dump($publicPath);
     if(file_exists($publicPath)) {
       unlink($publicPath);
     }
