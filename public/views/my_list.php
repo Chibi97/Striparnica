@@ -24,7 +24,7 @@
   <div class='comic'>
     <img src='<?= $myComic->path ?>' alt='<?= $myComic->alt ?>' />
     <div class='ar-btn'>
-      <a href='#' data-id='<?= $myComic->id ?>' class='btn-style bs-white add-to-list'>Remove</a>
+      <a href='#' data-id='<?= $myComic->id ?>' class='btn-style bs-white add-to-list remove'>Remove</a>
     </div>
     <h2><?= $myComic->name ?></h2>
     <p class='scroll'><?= $myComic->description ?></p>

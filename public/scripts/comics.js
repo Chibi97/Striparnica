@@ -5,13 +5,30 @@ $(document).ready(function() {
 
 var myList = (function() {
   function init() {
-    $(".add-to-list").click(handleClick);
+    $(".add").click(handleAdd);
+    $(".remove").click(handleRemove);
   }
 
-  function handleClick(e) {
+  function handleRemove(e) {
     e.preventDefault();
     var id = $(this).data("id");
-    ajaxPost("ajax/mylist.php", {stripId: id},
+    ajaxPost("ajax/removeFromList.php", {
+          stripId: id
+        },
+      () => {
+        console.log("uspeh");
+      },
+      (status) => {
+        console.log(status);
+      });
+  }
+
+  function handleAdd(e) {
+    e.preventDefault();
+    var id = $(this).data("id");
+    ajaxPost("ajax/addToList.php", {
+          stripId: id
+        },
       () => {
         console.log("uspeh");
       },
@@ -113,7 +130,7 @@ var filters = (function() {
   function iscrtajJednog(comic) {
     var remove = "";
     var add = "";
-    if(comic.flag == null) {
+    if (comic.flag == null) {
       add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list add'>ADD</a>`;
     } else {
       remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list remove'>REMOVE</a>`;
