@@ -8,8 +8,7 @@
   header("Content-type: application/json");
 
   $status = 200;
-  $role   = $_SESSION['user']->role;
-  $userId = $_SESSION['user']->id;
+  $userId = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
 
   if(isset($_POST['ids'])) {
     $ids = $_POST['ids'];
@@ -30,14 +29,12 @@
     }
     $array .= ")";
 
-    $query = "select c.* as total from comics c
-            join comics_sub_filters filter on c.id = filter.id_comic
-            join sub_filters sf on filter.id_sub_filter = sf.id
-            where sf.id in ". $array;    
+    $query = "SELECT DISTINCT c.*,p.path, p.alt FROM comics c INNER JOIN comics_sub_filters cf ON c.id = cf.id_comic INNER JOIN pictures p ON c.id = p.id_comic WHERE cf.id_sub_filter IN ". $array; 
+
     try {
-      $pages = bindAndSelect($conn, $query, $bindings, false);
+      $result = bindAndSelect($conn, $query, $bindings, false);
       $resp = [
-        "total" => $pages
+        "svi" => $result
       ];
       echo json_encode($resp);
     } catch(Exception $e) {
@@ -61,16 +58,15 @@
     $stmt->execute();
     $svi = $stmt->fetchAll();
 
-    $query = "SELECT c.*, l.id_user 
+    /*$query = "SELECT c.*, l.id_user 
     FROM comics c 
     LEFT JOIN list l ON c.id = l.id_comic 
     WHERE l.id_user=$userId OR l.id_user IS NULL";
-    $comicPerUser = selectMultipleRows($conn, $query);
+    $comicPerUser = selectMultipleRows($conn, $query);*/
 
     $resp = [
       "total" => $pages,
       "page"  => $page,
-      "role"  => $role,
       "svi" => $svi
     ];
     echo json_encode($resp);

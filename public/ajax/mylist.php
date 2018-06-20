@@ -7,18 +7,21 @@
     $status = 403;
     if(isset($_SESSION['user'])) {
       $status = 400;
-      $idUser = $_SESSION['user']->id;
+      $idUser = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
 
       if(isset($_POST['stripId'])) {
         $idStrip = $_POST['stripId'];
         $status = 200;
 
-        $query = "INSERT INTO list(id_user, id_comic) 
+        if(!empty($idUser)) {
+          $query = "INSERT INTO list(id_user, id_comic) 
                   VALUES(:id_kor, :id_com)";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(":id_kor", $idUser);
-        $stmt->bindParam(":id_com", $idStrip);
-        $stmt->execute();
+          $stmt = $conn->prepare($query);
+          $stmt->bindParam(":id_kor", $idUser);
+          $stmt->bindParam(":id_com", $idStrip);
+          $stmt->execute();
+        } 
+
       }
     }
   }

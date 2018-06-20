@@ -13,10 +13,10 @@ var myList = (function() {
     var id = $(this).data("id");
     ajaxPost("ajax/mylist.php", {stripId: id},
       () => {
-        alert("Uspesno!");
+        console.log("uspeh");
       },
       (status) => {
-
+        console.log(status);
       });
   }
 
@@ -68,7 +68,7 @@ var filters = (function() {
     var data = {ids: ids};
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
-        console.log(resp);
+        iscrtajSve(resp);
       },
       (status)  => {
         console.log(status);
@@ -80,7 +80,6 @@ var filters = (function() {
     var page = page || 1;
     ajaxPost("ajax/comics.php", {page: page},
     (resp) => {
-      console.log(resp);
       iscrtajSve(resp);
       myList.init();
       iscrtajNav(resp);
@@ -104,15 +103,9 @@ var filters = (function() {
     }
   }
 
-  function iscrtajJednog(comic, role) {
+  function iscrtajJednog(comic) {
     var del = "";
     var add = "";
-    var update = "";
-    var remove = "";
-    if (role == "administrator") {
-      del = `<a href='#' data-id='${comic.id}' class='btn-style bs-white'>DELETE</a>`;
-      update = `<a href='#' data-id='${comic.id}' class='btn-style bs-white'>UPDATE</a>`;
-    }
     if (!comic.postoji) {
       add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>ADD</a>`;
     } else {
@@ -121,9 +114,7 @@ var filters = (function() {
     return `<div class='comic'>
               <img src='${comic.path}' alt='${comic.alt}' />
               <h2>${comic.name}</h2>
-              <div class='aid'>
-                ${update}
-                ${del}
+              <div class='aid ar-btn'>
                 ${add}
                 ${remove}
               </div>
@@ -137,9 +128,9 @@ var filters = (function() {
 
   function iscrtajSve(resp) {
     var html = "";
-    var role = resp.role;
+    var role = resp;
     resp.svi.forEach((comic) => {
-      html += iscrtajJednog(comic, role);
+      html += iscrtajJednog(comic);
     });
     $(".comics").html(html);
   }
