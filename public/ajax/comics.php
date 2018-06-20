@@ -8,7 +8,7 @@
   header("Content-type: application/json");
 
   $status = 200;
-  $userId = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
+  $userId = isset($_SESSION['user']) ? $_SESSION['user']->id : 0;
 
   // PAGINACIJA
   $page = 1;
@@ -20,6 +20,9 @@
 
   $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
   $pages = ceil($count / PER_PAGE);
+
+  // SELECT COUNT(*) AS num FROM comics c INNER JOIN comics_sub_filters csf ON c.id = csf.id_comic WHERE csf.id_sub_filter IN (SELECT id FROM sub_filters WHERE id=)
+  // SELECT COUNT(*) AS num FROM comics
   
   $limit = "LIMIT :od, $koliko";
   $base_query = "SELECT DISTINCT c.*,p.path, p.alt, ( CASE WHEN l.id_user=$userId THEN 1 WHEN l.id_user <> $userId THEN NULL END ) AS flag FROM comics c LEFT JOIN list l ON c.id = l.id_comic INNER JOIN pictures p ON c.id = p.id_comic LEFT JOIN comics_sub_filters cf ON c.id = cf.id_comic WHERE (l.id_user=$userId OR l.id_user IS NULL OR l.id_comic IS NOT NULL)";
@@ -82,28 +85,3 @@
   }
 
 http_response_code($status);
-
-
-   /* try {
-      $result = bindAndSelect($conn, $query, $bindings, false);
-      $resp = [
-        "svi" => $result
-      ];
-      echo json_encode($resp);
-    } catch(Exception $e) {
-      $status = 500;
-    } */ 
-    
-    //$upit = "SELECT DISTINCT c.*,p.path, p.alt, l.id_user FROM comics c LEFT JOIN list l ON l.id_comic=c.id INNER JOIN pictures p ON p.id_comic = c.id LIMIT :od, $koliko"; // FILTERI
-
-    
-    /*$query = "SELECT c.*, l.id_user 
-    FROM comics c 
-    LEFT JOIN list l ON c.id = l.id_comic 
-    WHERE l.id_user=$userId OR l.id_user IS NULL";
-    $comicPerUser = selectMultipleRows($conn, $query);*/
-
-  /*  $query = "SELECT DISTINCT c.*, ( CASE WHEN l.id_user=2 THEN 1 WHEN l.id_user <> 2 THEN NULL END ) AS flag FROM comics c LEFT JOIN list l ON c.id = l.id_comic WHERE l.id_user=2 OR l.id_user IS NULL OR l.id_comic IS NOT NULL"; */
- // $comicPerUser = selectMultipleRows($conn, $query);
-
-     /* $query = "SELECT DISTINCT c.*,p.path, p.alt FROM comics c INNER JOIN comics_sub_filters cf ON c.id = cf.id_comic INNER JOIN pictures p ON c.id = p.id_comic WHERE cf.id_sub_filter IN ". $array; */
