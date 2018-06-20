@@ -69,7 +69,6 @@ var filters = (function() {
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
         iscrtajSve(resp);
-        console.log(resp);
       },
       (status)  => {
         console.log(status);
@@ -79,7 +78,14 @@ var filters = (function() {
 
   function getAllComics(page) {
     var page = page || 1;
-    ajaxPost("ajax/comics.php", {page: page},
+    var ids = $(".filter")
+      .filter(function () { return this.checked; })
+      .map(function () { return $(this).val() })
+      .toArray();
+    ajaxPost("ajax/comics.php", {
+      page: page,
+      ids: ids
+    },
     (resp) => {
       iscrtajSve(resp);
       myList.init();
@@ -89,13 +95,13 @@ var filters = (function() {
       console.log(status);
     });
   }
-
+ 
   function iscrtajNav(resp) {
     var div = $(".comics-control");
     div.html("");
     for(let i=0; i<resp.total;i++) {
       let link = $(`<a href='#'>${i+1}</a>`);
-      link.css({"fontSize": "3.4rem", "margin": "1em"});
+      link.css({"fontSize": "3rem", "margin": "1em"});
       link.click(function(e) {
         e.preventDefault();
         getAllComics(i+1);
@@ -107,11 +113,11 @@ var filters = (function() {
   function iscrtajJednog(comic) {
     var remove = "";
     var add = "";
-    /*if (!comic.postoji) {
-      add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>ADD</a>`;
+    if(comic.flag == null) {
+      add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list add'>ADD</a>`;
     } else {
-      remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>REMOVE</a>`;
-    }*/
+      remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list remove'>REMOVE</a>`;
+    }
     return `<div class='comic'>
               <img src='${comic.path}' alt='${comic.alt}' />
               <h2>${comic.name}</h2>
@@ -129,7 +135,7 @@ var filters = (function() {
 
   function iscrtajSve(resp) {
     var html = "";
-    resp.svi.forEach((comic) => {
+    resp.data.forEach((comic) => {
       html += iscrtajJednog(comic);
     });
     $(".comics").html(html);
