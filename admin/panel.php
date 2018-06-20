@@ -66,7 +66,7 @@
       <option value='<?= $strip->id ?>'><?= $strip->name ?></option>
     <?php endforeach ?>
   </select>
-  <button disabled class='disabled'>
+  <button id="delete" disabled class='disabled'>
     Delete
   </button>
   <img id="preview" />
@@ -81,8 +81,16 @@
     });
     let select = $(".multipleSelect").fastselect().data('fastselect');
 
+    $("#delete").click(function() {
+      var id = $("#izbor-stripa").val();
+      ajaxPost("ajax/deleteComic.php", {id: id}, (resp) => {
+        console.log(resp);
+      });
+    });
 
     $("#izbor-stripa").change(function() {
+      $("#delete").removeAttr('disabled');
+      $("#delete").removeClass('disabled');
       ajaxPost("ajax/getComic.php", {id: $(this).val()}, (data) => {
         let comic = data.comic;
         let filterIds = data.filters.map((filter) => filter.id_sub_filter + "");
