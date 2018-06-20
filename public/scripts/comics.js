@@ -86,6 +86,7 @@ var filters = (function() {
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
         iscrtajSve(resp);
+        iscrtajNav(resp);
       },
       (status)  => {
         console.log(status);
@@ -114,6 +115,7 @@ var filters = (function() {
   }
  
   function iscrtajNav(resp) {
+    console.log(resp.total);
     var div = $(".comics-control");
     div.html("");
     for(let i=0; i<resp.total;i++) {

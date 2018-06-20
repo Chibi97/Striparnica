@@ -18,8 +18,9 @@
   $od = ($page-1) * PER_PAGE;
   $koliko = PER_PAGE;
 
-  $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
-  $pages = ceil($count / PER_PAGE);
+  //$count_query = "SELECT COUNT(*) AS num FROM comics";
+  
+  //$count_query = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
 
   // SELECT COUNT(*) AS num FROM comics c INNER JOIN comics_sub_filters csf ON c.id = csf.id_comic WHERE csf.id_sub_filter IN (SELECT id FROM sub_filters WHERE id=)
   // SELECT COUNT(*) AS num FROM comics
@@ -47,38 +48,49 @@
     }
     $array .= ")";
 
-   $base_query .= " AND cf.id_sub_filter IN $array " . $limit;
-   try {
-    $stmt = $conn->prepare($base_query);
-    $stmt->bindParam(":od", $od, PDO::PARAM_INT);
+    $stmt = $conn->prepare("SELECT COUNT(*) AS num FROM comics c INNER JOIN comics_sub_filters csf ON c.id = csf.id_comic WHERE csf.id_sub_filter IN (SELECT id FROM sub_filters WHERE id IN $array)");
     foreach($bindings as $index => &$val) {
-      $stmt->bindParam("$index", $val, PDO::PARAM_INT);
-    }
+        $stmt->bindParam("$index", $val, PDO::PARAM_INT);
+      }
     $stmt->execute();
-    $svi = $stmt->fetchAll();
-
-    $resp = [
-    "total" => $pages,
-    "page"  => $page,
-    "data" => $svi
-    ];
-    echo json_encode($resp);
+    $count = $stmt->fetch()->num;
+    $pages = ceil($count / PER_PAGE);
+    $base_query .= " AND cf.id_sub_filter IN $array " . $limit;
+    try {
+      $stmt = $conn->prepare($base_query);
+      $stmt->bindParam(":od", $od, PDO::PARAM_INT);
+      foreach($bindings as $index => &$val) {
+        $stmt->bindParam("$index", $val, PDO::PARAM_INT);
+      }
+      $stmt->execute();
+      $svi = $stmt->fetchAll();
+      
+      $resp = [
+        "total" => $pages,
+        "page"  => $page,
+        "data" => $svi
+      ];
+      echo json_encode($resp);
     } catch (Exception $e) {
       $status = 500;
     }
   } else {
+    
+    $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
+    $pages = ceil($count / PER_PAGE);
+    
     try {
-    $stmt = $conn->prepare($base_query . " " . $limit);
-    $stmt->bindParam(":od", $od, PDO::PARAM_INT);
-    $stmt->execute();
-    $svi = $stmt->fetchAll();
+      $stmt = $conn->prepare($base_query . " " . $limit);
+      $stmt->bindParam(":od", $od, PDO::PARAM_INT);
+      $stmt->execute();
+      $svi = $stmt->fetchAll();
 
-    $resp = [
-    "total" => $pages,
-    "page"  => $page,
-    "data" => $svi
-    ];
-    echo json_encode($resp);
+      $resp = [
+      "total" => $pages,
+      "page"  => $page,
+      "data" => $svi
+      ];
+      echo json_encode($resp);
     } catch (Exception $e) {
       $status = 500;
     }
