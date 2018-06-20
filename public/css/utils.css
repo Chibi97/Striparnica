@@ -38,6 +38,10 @@ h1, h2 {
   font-family: 'Bangers', cursive;
 }
 
+.warning {
+  color:#666A86;
+}
+
 .relative {
   position: relative;
 }
@@ -243,7 +247,7 @@ h1, h2 {
   border: 2px solid white;
 }
 
- /* ----- NAVIGATION ----- */
+/* ----- NAVIGATION ----- */
 
 .nav li {
   display: inline-block;

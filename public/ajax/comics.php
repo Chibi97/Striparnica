@@ -7,8 +7,8 @@
   header("Content-type: application/json");
 
   $status = 200;
-  $role   = $_SESSION['user']->role;
-  $userId = $_SESSION['user']->id;
+  $userId = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
+  $role = isset($_SESSION['user']) ? $_SESSION['user']->role : null;
 
   if(isset($_POST['ids'])) {
     $ids = $_POST['ids'];
@@ -60,15 +60,15 @@
     $stmt->execute();
     $svi = $stmt->fetchAll();
 
-    $query = "SELECT c.*, l.id_user 
+    /*$query = "SELECT c.*, l.id_user 
     FROM comics c 
     LEFT JOIN list l ON c.id = l.id_comic 
     WHERE l.id_user=$userId OR l.id_user IS NULL";
-    $comicPerUser = selectMultipleRows($conn, $query);
+    $comicPerUser = selectMultipleRows($conn, $query);*/
 
     $resp = [
       "total" => $pages,
-      "page"  => $page,
+    "page"  => $page,
       "role"  => $role,
       "svi" => $svi
     ];
