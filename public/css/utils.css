@@ -392,6 +392,10 @@ footer {
   padding-right: .5em;
 }
 
+.update-comic button.disabled {
+  cursor: not-allowed;
+}
+
 @media only screen and (max-width: 475px) {
   .disclaimer {
     margin: 1em 2.5em;
