@@ -57,7 +57,7 @@
     ?>
   </form>
 </div>
-<div class="flex-row center add-comic update-comic">
+<div class="flex-col add-comic update-comic">
   <h1>Choose a comic</h1>
   <?php $stripovi = selectMultipleRows($conn, "select id, name from comics") ?>
   <select id='izbor-stripa'>

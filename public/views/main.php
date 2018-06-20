@@ -6,17 +6,13 @@
     </div>
     <div class='image-slider-wrap'>
       <div class='image-slider'>
-        <img src='images/comics/american_gods.jpg' alt='american_gods' />
-        <img src='images/comics/death_note.jpg' alt='american_gods' />
-        <img src='images/comics/naruto.jpg' alt='american_gods' />
-        <img src='images/comics/infinity_gauntlet.jpg' alt='american_gods' />
-        <img src='images/comics/sandman.jpg' alt='american_gods' />
-
-         <img src='images/comics/american_gods.jpg' alt='american_gods' />
-        <img src='images/comics/death_note.jpg' alt='american_gods' />
-        <img src='images/comics/naruto.jpg' alt='american_gods' />
-        <img src='images/comics/infinity_gauntlet.jpg' alt='american_gods' />
-        <img src='images/comics/sandman.jpg' alt='american_gods' />
+        <?php
+          $upit = "SELECT p.path, p.alt FROM comics c INNER JOIN pictures p ON c.id = p.id_comic ORDER BY issues LIMIT 0,10";
+          $pics = selectMultipleRows($conn, $upit);
+          foreach($pics as $pic):
+        ?>
+        <img src='<?= $pic->path ?>' alt='<?= $pic->alt ?>' />
+        <?php endforeach ?>
       </div>
     </div>
   </article>
@@ -25,32 +21,25 @@
 
 <?php
   if(isset($_SESSION['user'])): ?>
+  <?php 
+    $upit = "SELECT c.name, p.path, p.alt FROM comics c INNER JOIN pictures p ON c.id = p.id_comic ORDER BY votes DESC LIMIT 0,3";
+    $comics = selectMultipleRows($conn, $upit);
+  ?>
     <section class='list-adv flex-col center'>
-      <h2>The last ones you added</h2>
+      <h2>Top three by votes:</h2>
       <article class='last-added flex-row'>
+      <?php foreach($comics as $comic): ?>
         <figure class='l3-item'>
-          <img src='../images/comics/infinity_gauntlet.jpg' alt='iw' />
+          <img src='<?= $comic->path ?>' alt='<?= $comic->alt ?>' />
           <figcaption class='l3-desc'>
-            <p>Neki opis</p>
+            <p><?= $comic->name ?></p>
           </figcaption>
         </figure>
-
-        <figure class='l3-item'>
-          <img src='../images/comics/attack_on_titan.jpg' alt='iw' />
-          <figcaption class='l3-desc'>
-            <p>Neki opis</p>
-          </figcaption>
-        </figure>
-
-        <figure class='l3-item'>
-          <img src='../images/comics/naruto.jpg' alt='iw' />
-          <figcaption class='l3-desc'>
-            <p>Neki opis</p>
-          </figcaption>
-        </figure>
+       <?php endforeach ?>
       </article>
-      <span class='the-rest'>You can see the rest <a href='../index.php?page=my_list'>here</a>.</span>
+      <span class='the-rest'>You can see the rest <a href='../index.php?page=browse'>here</a>.</span>
     </section>
+   
 <?php else: ?>
   <section class='list-adv flex-row center'>
     <article class='la-group'>
