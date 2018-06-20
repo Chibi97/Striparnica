@@ -107,12 +107,6 @@ var filters = (function() {
   function iscrtajJednog(comic, role) {
     var del = "";
     var add = "";
-    var update = "";
-    var remove = "";
-    if (role == "administrator") {
-      del = `<a href='#' data-id='${comic.id}' class='btn-style bs-white'>DELETE</a>`;
-      update = `<a href='#' data-id='${comic.id}' class='btn-style bs-white'>UPDATE</a>`;
-    }
     if (!comic.postoji) {
       add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>ADD</a>`;
     } else {
@@ -121,9 +115,7 @@ var filters = (function() {
     return `<div class='comic'>
               <img src='${comic.path}' alt='${comic.alt}' />
               <h2>${comic.name}</h2>
-              <div class='aid'>
-                ${update}
-                ${del}
+              <div class='aid ar-btn'>
                 ${add}
                 ${remove}
               </div>

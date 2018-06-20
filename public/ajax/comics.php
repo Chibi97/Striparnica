@@ -8,7 +8,6 @@
 
   $status = 200;
   $userId = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
-  $role = isset($_SESSION['user']) ? $_SESSION['user']->role : null;
 
   if(isset($_POST['ids'])) {
     $ids = $_POST['ids'];
@@ -29,7 +28,7 @@
     }
     $array .= ")";
 
-    $query = "select c.* as total from comics c
+    $query = "SELECT c.* as total from comics c
             join comics_sub_filters filter on c.id = filter.id_comic
             join sub_filters sf on filter.id_sub_filter = sf.id
             where sf.id in ". $array;    
@@ -68,8 +67,7 @@
 
     $resp = [
       "total" => $pages,
-    "page"  => $page,
-      "role"  => $role,
+      "page"  => $page,
       "svi" => $svi
     ];
     echo json_encode($resp);

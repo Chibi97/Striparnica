@@ -133,11 +133,11 @@
   color: #666A86;
 }
 
-.aid {
-  margin: 1em 0;
+.ar-btn {
+  margin: 1.5em 0;
 }
 
-.aid a:first-child {
+.ar-btn a:first-child {
   margin-left:0;
 }
 
@@ -156,6 +156,7 @@
 .one-row img {
   width:100px;
 }
+
 
 @media only screen and (max-width: 770px) {
   .browse-container {

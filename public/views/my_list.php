@@ -1,4 +1,3 @@
-
 <?php
   $id = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
   if(empty($id)): ?>
@@ -24,7 +23,7 @@
   <?php foreach($myComics as $myComic): ?>
   <div class='comic'>
     <img src='<?= $myComic->path ?>' alt='<?= $myComic->alt ?>' />
-    <div class=''>
+    <div class='ar-btn'>
       <a href='#' data-id='<?= $myComic->id ?>' class='btn-style bs-white add-to-list'>Remove</a>
     </div>
     <h2><?= $myComic->name ?></h2>
