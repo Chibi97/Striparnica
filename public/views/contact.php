@@ -13,6 +13,6 @@
     </div>
     <span class='form-error'><?= error_for("description", "comicErrors"); ?></span>
 
-    <button id='insertComic' name='contact'>Contact us</button>
+    <button class='change-btn' name='contact'>Contact us</button>
 </form>
 </div>

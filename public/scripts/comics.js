@@ -69,6 +69,7 @@ var filters = (function() {
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
         iscrtajSve(resp);
+        console.log(resp);
       },
       (status)  => {
         console.log(status);
@@ -104,13 +105,13 @@ var filters = (function() {
   }
 
   function iscrtajJednog(comic) {
-    var del = "";
+    var remove = "";
     var add = "";
-    if (!comic.postoji) {
+    /*if (!comic.postoji) {
       add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>ADD</a>`;
     } else {
       remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list'>REMOVE</a>`;
-    }
+    }*/
     return `<div class='comic'>
               <img src='${comic.path}' alt='${comic.alt}' />
               <h2>${comic.name}</h2>

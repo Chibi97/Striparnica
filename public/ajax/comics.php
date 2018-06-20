@@ -31,6 +31,11 @@
 
     $query = "SELECT DISTINCT c.*,p.path, p.alt FROM comics c INNER JOIN comics_sub_filters cf ON c.id = cf.id_comic INNER JOIN pictures p ON c.id = p.id_comic WHERE cf.id_sub_filter IN ". $array; 
 
+    /* SELECT DISTINCT c.*, p.path, p.alt, ( CASE WHEN l.id_user=2 THEN 1 WHEN l.id_user <> 2 THEN NULL END ) AS flag FROM comics c LEFT JOIN list l ON c.id = l.id_comic INNER JOIN pictures p ON c.id = p.id_comic INNER JOIN comics_sub_filters cf ON c.id = cf.id_comic
+   WHERE (l.id_user=2 OR l.id_user IS NULL OR l.id_comic IS NOT NULL)
+   AND cf.id_sub_filter IN 
+   LIMIT 0,3 */
+
     try {
       $result = bindAndSelect($conn, $query, $bindings, false);
       $resp = [
@@ -48,7 +53,7 @@
     $od = ($page-1) * PER_PAGE;
     $koliko = PER_PAGE;
     
-    $upit = "SELECT DISTINCT c.*,p.path, p.alt,l.id AS postoji, l.id_user AS ulogovan FROM comics c LEFT JOIN list l ON l.id_comic=c.id INNER JOIN pictures p ON p.id_comic = c.id LIMIT :od, $koliko";
+    $upit = "SELECT DISTINCT c.*,p.path, p.alt, l.id_user FROM comics c LEFT JOIN list l ON l.id_comic=c.id INNER JOIN pictures p ON p.id_comic = c.id LIMIT :od, $koliko";
 
     $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
     $pages = ceil($count / PER_PAGE);
@@ -64,13 +69,14 @@
     WHERE l.id_user=$userId OR l.id_user IS NULL";
     $comicPerUser = selectMultipleRows($conn, $query);*/
 
-    /*$query = "SELECT DISTINCT c.*, l.id_user FROM comics c LEFT JOIN list l ON c.id = l.id_comic WHERE l.id_user=$userId OR l.id_user IS NULL OR l.id_comic IS NOT NULL";
-    $comicPerUser = selectMultipleRows($conn, $query);*/
+    $query = "SELECT DISTINCT c.*, ( CASE WHEN l.id_user=2 THEN 1 WHEN l.id_user <> 2 THEN NULL END ) AS flag FROM comics c LEFT JOIN list l ON c.id = l.id_comic WHERE l.id_user=2 OR l.id_user IS NULL OR l.id_comic IS NOT NULL";
+    $comicPerUser = selectMultipleRows($conn, $query);
 
     $resp = [
       "total" => $pages,
       "page"  => $page,
-      "svi" => $svi
+      "svi" => $svi,
+      "perUser" => $comicPerUser
     ];
     echo json_encode($resp);
   }

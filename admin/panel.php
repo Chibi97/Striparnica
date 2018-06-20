@@ -48,7 +48,7 @@
        <?php endforeach ?>
 
     <?php unset($_SESSION['comicErrors']); ?>
-    <button id='insertComic' name='insert'>Insert</button>
+    <button id='insertComic' class='change-btn' name='insert'>Insert</button>
     <?php 
       if(isset($_SESSION['upload'])) {
         echo "<strong>" . $_SESSION['upload'] . "</strong>"; 
@@ -66,7 +66,7 @@
       <option value='<?= $strip->id ?>'><?= $strip->name ?></option>
     <?php endforeach ?>
   </select>
-  <button id="delete" disabled class='disabled'>
+  <button id="delete" disabled class='disabled change-btn'>
     Delete
   </button>
   <img id="preview" />

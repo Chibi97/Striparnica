@@ -301,7 +301,7 @@ textarea {
   color: crimson;
 }
 
-#insertComic {
+.change-btn {
   padding: 1.4em;
   border: none;
   background-color: #666A86;
@@ -312,8 +312,8 @@ textarea {
   letter-spacing: .2em;
 }
 
-#insertComic:hover,
-#insertComic:focus {
+.change-btn:hover,
+.change-btn:focus {
   background-color: #333;
 }
 
