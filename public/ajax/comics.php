@@ -48,7 +48,7 @@
     $od = ($page-1) * PER_PAGE;
     $koliko = PER_PAGE;
     
-    $upit = "SELECT c.*,p.path, p.alt,l.id AS postoji, l.id_user AS ulogovan FROM comics c LEFT JOIN list l ON l.id_comic=c.id INNER JOIN pictures p ON p.id_comic = c.id LIMIT :od, $koliko";
+    $upit = "SELECT DISTINCT c.*,p.path, p.alt,l.id AS postoji, l.id_user AS ulogovan FROM comics c LEFT JOIN list l ON l.id_comic=c.id INNER JOIN pictures p ON p.id_comic = c.id LIMIT :od, $koliko";
 
     $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
     $pages = ceil($count / PER_PAGE);
@@ -62,6 +62,9 @@
     FROM comics c 
     LEFT JOIN list l ON c.id = l.id_comic 
     WHERE l.id_user=$userId OR l.id_user IS NULL";
+    $comicPerUser = selectMultipleRows($conn, $query);*/
+
+    /*$query = "SELECT DISTINCT c.*, l.id_user FROM comics c LEFT JOIN list l ON c.id = l.id_comic WHERE l.id_user=$userId OR l.id_user IS NULL OR l.id_comic IS NOT NULL";
     $comicPerUser = selectMultipleRows($conn, $query);*/
 
     $resp = [

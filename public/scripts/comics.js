@@ -128,7 +128,6 @@ var filters = (function() {
 
   function iscrtajSve(resp) {
     var html = "";
-    var role = resp;
     resp.svi.forEach((comic) => {
       html += iscrtajJednog(comic);
     });
