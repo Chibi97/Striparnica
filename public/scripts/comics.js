@@ -118,7 +118,12 @@ var filters = (function() {
     div.html("");
     for(let i=0; i<resp.total;i++) {
       let link = $(`<a href='#'>${i+1}</a>`);
-      link.css({"fontSize": "3rem", "margin": "1em"});
+      link.css(
+        {
+        "fontSize": "3rem", 
+        "margin": "1em",
+        "color": "#666A86"
+        });
       link.click(function(e) {
         e.preventDefault();
         getAllComics(i+1);
