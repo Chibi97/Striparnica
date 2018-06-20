@@ -46,11 +46,28 @@
   }
 
   /**
+   * @param $conn
+   * @param $upit
+   * @param $bindings
+   * @return mixed
+   * @throws PDOException
+   */
+  function bindWithException($conn, $upit, $bindings) {
+    $result = $conn->prepare($upit);
+
+    foreach($bindings as $label => &$value) {
+      ${"$label"} = $value;
+      $result->bindParam(":$label", $$label);
+    }
+    $result->execute();
+    return $result;
+  }
+
+  /**
    * @throws Exception
    */
   function bindAndSelect($conn, $upit, $bindings, $fetchOne) {
     $result = bind($conn, $upit, $bindings);
-    // echo $result->debugDumpParams();
     $selected = null;
 
     if($fetchOne) {
