@@ -1,2 +1,5 @@
 # Ignore the php configuration
 configuration.php
+
+# Ignore the .idea folder
+.idea
