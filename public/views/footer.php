@@ -20,9 +20,9 @@
         <p>This site is a project for <strong>ICT College</strong>, made for educational purposes. I don't intend to profit nor gain any rights. All
         rights go to their rightful owners.</p>
         
-        <a href="#" class="fab fa-github"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-facebook"></a>
+        <a href="https://github.com/" class="fab fa-github"></a>
+        <a href="https://www.instagram.com/?hl=sr" class="fab fa-instagram"></a>
+        <a href="https://www.facebook.com/" class="fab fa-facebook"></a>
       </div>
     </div>
     

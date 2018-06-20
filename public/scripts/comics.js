@@ -13,10 +13,10 @@ var myList = (function() {
     var id = $(this).data("id");
     ajaxPost("ajax/mylist.php", {stripId: id},
       () => {
-        alert("Uspesno!");
+        console.log("uspeh");
       },
       (status) => {
-
+        console.log(status);
       });
   }
 
@@ -68,7 +68,7 @@ var filters = (function() {
     var data = {ids: ids};
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
-        console.log(resp);
+        iscrtajSve(resp);
       },
       (status)  => {
         console.log(status);
@@ -103,7 +103,7 @@ var filters = (function() {
     }
   }
 
-  function iscrtajJednog(comic, role) {
+  function iscrtajJednog(comic) {
     var del = "";
     var add = "";
     if (!comic.postoji) {
@@ -128,9 +128,9 @@ var filters = (function() {
 
   function iscrtajSve(resp) {
     var html = "";
-    var role = resp.role;
+    var role = resp;
     resp.svi.forEach((comic) => {
-      html += iscrtajJednog(comic, role);
+      html += iscrtajJednog(comic);
     });
     $(".comics").html(html);
   }

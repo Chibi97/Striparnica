@@ -28,16 +28,14 @@
     }
     $array .= ")";
 
-    $query = "SELECT COUNT(*) AS total FROM comics c
-            JOIN comics_sub_filters cf ON c.id = cf.id_comic
-            JOIN sub_filters sf ON cf.id_sub_filter = sf.id
-            WHERE sf.id IN ". $array;    
+    $query = "SELECT DISTINCT c.*,p.path, p.alt FROM comics c INNER JOIN comics_sub_filters cf ON c.id = cf.id_comic INNER JOIN pictures p ON c.id = p.id_comic WHERE cf.id_sub_filter IN ". $array; 
+
     try {
-      $pages = bindAndSelect($conn, $query, $bindings, false);
+      $result = bindAndSelect($conn, $query, $bindings, false);
       $resp = [
-        "total" => $pages
+        "svi" => $result
       ];
-      //echo json_encode($resp);
+      echo json_encode($resp);
     } catch(Exception $e) {
       $status = 500;
     }
