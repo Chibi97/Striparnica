@@ -34,6 +34,12 @@
         case 'my_list':
           include "views/my_list.php";
           break;
+        case 'about':
+          include "views/about.php";
+          break;
+        case 'contact':
+          include "views/contact.php";
+          break;
         default:
           include "views/main.php";
           break;

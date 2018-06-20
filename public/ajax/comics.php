@@ -28,16 +28,16 @@
     }
     $array .= ")";
 
-    $query = "SELECT c.* as total from comics c
-            join comics_sub_filters filter on c.id = filter.id_comic
-            join sub_filters sf on filter.id_sub_filter = sf.id
-            where sf.id in ". $array;    
+    $query = "SELECT COUNT(*) AS total FROM comics c
+            JOIN comics_sub_filters cf ON c.id = cf.id_comic
+            JOIN sub_filters sf ON cf.id_sub_filter = sf.id
+            WHERE sf.id IN ". $array;    
     try {
       $pages = bindAndSelect($conn, $query, $bindings, false);
       $resp = [
         "total" => $pages
       ];
-      echo json_encode($resp);
+      //echo json_encode($resp);
     } catch(Exception $e) {
       $status = 500;
     }

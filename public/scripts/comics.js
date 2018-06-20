@@ -80,7 +80,6 @@ var filters = (function() {
     var page = page || 1;
     ajaxPost("ajax/comics.php", {page: page},
     (resp) => {
-      console.log(resp);
       iscrtajSve(resp);
       myList.init();
       iscrtajNav(resp);
