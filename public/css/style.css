@@ -264,13 +264,14 @@
 
 .input-group input,
 .input-group textarea {
-  width: 100%;
+  width: 30rem;
   height: 3em;
 }
 
 .input-group textarea {
+  height: 10em;
   max-height: 30em;
-  max-width: 20em;
+  max-width: 30em;
   min-width: 100%;
   min-height: 100%;
 }
