@@ -51,6 +51,7 @@
   function bindAndSelect($conn, $upit, $bindings, $fetchOne) {
     $result = bind($conn, $upit, $bindings);
     // echo $result->debugDumpParams();
+    $selected = null;
 
     if($fetchOne) {
       if($result->rowCount() > 1) {
