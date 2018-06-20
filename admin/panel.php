@@ -1,6 +1,9 @@
 <div class='flex-row center add-comic'>
   <form action='/php/addNewComic.php' method='POST' enctype='multipart/form-data'>
-    <h1>Add a new comic</h1>
+    <input type='hidden' name='_method' id="_method" value='POST' />
+    <input type='hidden' name='comicID' id="comicID" value=''/>
+
+    <h1 id="naslov">Add a new comic</h1>
     <div class='input-group'>
       <label>Name of the comic</label>
       <input type='text' name='comicName' id='comicName' />
@@ -54,6 +57,20 @@
     ?>
   </form>
 </div>
+<div class="flex-row center add-comic update-comic">
+  <h1>Choose a comic</h1>
+  <?php $stripovi = selectMultipleRows($conn, "select id, name from comics") ?>
+  <select id='izbor-stripa'>
+    <option value='0'>Izaberite...</option>
+    <?php foreach($stripovi as $strip): ?>
+      <option value='<?= $strip->id ?>'><?= $strip->name ?></option>
+    <?php endforeach ?>
+  </select>
+  <button disabled class='disabled'>
+    Delete
+  </button>
+  <img id="preview" />
+</div>
 <script>
   window.addEventListener('DOMContentLoaded', () => {
      $(".dial").knob({
@@ -62,6 +79,31 @@
       width: 100,
       height: 100
     });
-    $(".multipleSelect").fastselect();
+    let select = $(".multipleSelect").fastselect().data('fastselect');
+
+
+    $("#izbor-stripa").change(function() {
+      ajaxPost("ajax/getComic.php", {id: $(this).val()}, (data) => {
+        let comic = data.comic;
+        let filterIds = data.filters.map((filter) => filter.id_sub_filter + "");
+        var options = $(".multipleSelect option").filter(function() {
+          return filterIds.includes($(this).val());
+        }).toArray();
+        $("#comicName").val(comic.name);
+        $("#desc").val(comic.description);
+        $(".dial").val(comic.issues);
+
+        $(".multipleSelect option").each(function() {
+          select.removeSelectedOption(this);
+        });
+        options.forEach((option) => select.setSelectedOption(option));
+
+        $("#preview").attr("src", comic.path);
+        $("#naslov").text("Updating a comic");
+        $("#insertComic").text("Update");
+        $("#_method").val("UPDATE");
+        $("#comicID").val(comic.id);
+      })
+    });
   });
 </script>

@@ -72,3 +72,7 @@
 .fstMultipleMode .fstQueryInput {
   font-size: 1em !important;
 }
+
+.update-comic button.disabled {
+  cursor: not-allowed;
+}
