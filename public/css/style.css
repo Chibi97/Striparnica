@@ -95,10 +95,8 @@
   margin: 0 1.5em 1em;
 }
 
-.links {
-  display:block;
-  margin: 0 0 1em 2em ;
-  font-size:1em;
+.links-lr a {
+  font-size: 2rem;
 }
 
 /* ----- LAST ADDED ----- */
