@@ -5,9 +5,12 @@ $(document).ready(function() {
 
 var myList = (function() {
   function init() {
-    $(".add").click(handleAdd);
-    $(".remove").click(handleRemove);
+    var add = $(".add");
+    var remove = $(".remove");
+    add.click(handleAdd);
+    remove.click(handleRemove);
   }
+
 
   function handleRemove(e) {
     e.preventDefault();
@@ -134,14 +137,18 @@ var filters = (function() {
     }
   }
 
-  function iscrtajJednog(comic) {
+  function iscrtajJednog(comic, loggedIn) {
     var remove = "";
     var add = "";
-    if (comic.flag == null) {
-      add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list add'>ADD</a>`;
-    } else {
-      remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list remove'>REMOVE</a>`;
+    console.log("ID: " + comic.id + " je: " + comic.flag);
+    if (loggedIn) {
+      if (!comic.flag) {
+        add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list add'>ADD</a>`;
+      } else {
+        remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list remove'>REMOVE</a>`;
+      }
     }
+    
     return `<div class='comic'>
               <img src='${comic.path}' alt='${comic.alt}' />
               <h2>${comic.name}</h2>
@@ -159,8 +166,9 @@ var filters = (function() {
 
   function iscrtajSve(resp) {
     var html = "";
+    var loggedIn = resp.loggedIn;
     resp.data.forEach((comic) => {
-      html += iscrtajJednog(comic);
+      html += iscrtajJednog(comic, loggedIn);
     });
     $(".comics").html(html);
   }

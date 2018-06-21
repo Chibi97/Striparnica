@@ -37,7 +37,7 @@
         </figure>
        <?php endforeach ?>
       </article>
-      <span class='the-rest'>You can see the rest <a href='../index.php?page=browse'>here</a>.</span>
+      <span class='the-rest'>You can vote <a href='../index.php?page=contact'>here</a>.</span>
     </section>
    
 <?php else: ?>

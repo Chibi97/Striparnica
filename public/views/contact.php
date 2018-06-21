@@ -14,5 +14,7 @@
     <span class='form-error'><?= error_for("description", "comicErrors"); ?></span>
 
     <button class='change-btn' name='contact'>Contact us</button>
-</form>
+  </form>
+
+
 </div>

@@ -9,6 +9,7 @@
 
   $status = 200;
   $userId = isset($_SESSION['user']) ? $_SESSION['user']->id : 0;
+  $loggedIn = isset($_SESSION['user']) ? true : false;
 
   // PAGINACIJA
   $page = 1;
@@ -18,19 +19,15 @@
   $od = ($page-1) * PER_PAGE;
   $koliko = PER_PAGE;
 
-  //$count_query = "SELECT COUNT(*) AS num FROM comics";
-  
-  //$count_query = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
-
-  // SELECT COUNT(*) AS num FROM comics c INNER JOIN comics_sub_filters csf ON c.id = csf.id_comic WHERE csf.id_sub_filter IN (SELECT id FROM sub_filters WHERE id=)
-  // SELECT COUNT(*) AS num FROM comics
-  
   $limit = "LIMIT :od, $koliko";
-  $base_query = "SELECT DISTINCT c.*,p.path, p.alt, ( CASE WHEN l.id_user=$userId THEN 1 WHEN l.id_user <> $userId THEN NULL END ) AS flag FROM comics c LEFT JOIN list l ON c.id = l.id_comic INNER JOIN pictures p ON c.id = p.id_comic LEFT JOIN comics_sub_filters cf ON c.id = cf.id_comic WHERE (l.id_user=$userId OR l.id_user IS NULL OR l.id_comic IS NOT NULL)";
-
-  // FILTRIRANJE - proslednjeni ID-evi
+  
+  $base_query = "SELECT DISTINCT c.*,p.path, p.alt, l.id_user FROM comics c 
+  LEFT JOIN list l ON c.id = l.id_comic AND l.id_user=$userId
+  JOIN pictures p ON c.id = p.id_comic 
+  JOIN comics_sub_filters cf ON c.id = cf.id_comic";
+   
   if(isset($_POST['ids'])) {
-    $ids = $_POST['ids'];
+    $ids = $_P7OST['ids'];
     $page = 1;
     if(isset($_POST['page'])) {
       $page = $_POST['page'];
@@ -47,11 +44,10 @@
       }
     }
     $array .= ")";
-
     $stmt = $conn->prepare("SELECT COUNT(*) AS num FROM comics c INNER JOIN comics_sub_filters csf ON c.id = csf.id_comic WHERE csf.id_sub_filter IN (SELECT id FROM sub_filters WHERE id IN $array)");
     foreach($bindings as $index => &$val) {
-        $stmt->bindParam("$index", $val, PDO::PARAM_INT);
-      }
+      $stmt->bindParam("$index", $val, PDO::PARAM_INT);
+    }
     $stmt->execute();
     $count = $stmt->fetch()->num;
     $pages = ceil($count / PER_PAGE);
@@ -63,32 +59,74 @@
         $stmt->bindParam("$index", $val, PDO::PARAM_INT);
       }
       $stmt->execute();
-      $svi = $stmt->fetchAll();
-      
+      $result = $stmt->fetchAll();
+
+      $final = [];
+      foreach($result as $row) {
+        $novi = [];
+        $novi["id"] = $row->id;
+        $novi["name"] = $row->name;
+        $novi["description"] = $row->description;
+        $novi["issues"] = $row->issues;
+        $novi["votes"] = $row->votes;
+        $novi["path"] = $row->path;
+        $novi["alt"] = $row->alt;
+        $novi["flag"] = $row->id_user;
+
+        if($novi["flag"] == $userId) {
+          $novi["flag"] = true;
+        } else {
+          $novi["flag"] = false;
+        }
+        $final[] = (object) $novi;
+       }
+
       $resp = [
         "total" => $pages,
         "page"  => $page,
-        "data" => $svi
+        "data" => $final,
+        "loggedIn" => $loggedIn
       ];
       echo json_encode($resp);
     } catch (Exception $e) {
       $status = 500;
     }
   } else {
-    
+
     $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
     $pages = ceil($count / PER_PAGE);
-    
+
     try {
       $stmt = $conn->prepare($base_query . " " . $limit);
       $stmt->bindParam(":od", $od, PDO::PARAM_INT);
       $stmt->execute();
-      $svi = $stmt->fetchAll();
+      $result = $stmt->fetchAll();
+
+      $final = [];
+      foreach($result as $row) {
+        $novi = [];
+        $novi["id"] = $row->id;
+        $novi["name"] = $row->name;
+        $novi["description"] = $row->description;
+        $novi["issues"] = $row->issues;
+        $novi["votes"] = $row->votes;
+        $novi["path"] = $row->path;
+        $novi["alt"] = $row->alt;
+        $novi["flag"] = $row->id_user;
+
+        if($novi["flag"] == $userId) {
+          $novi["flag"] = true;
+        } else {
+          $novi["flag"] = false;
+        }
+        $final[] = $novi;
+       }
 
       $resp = [
-      "total" => $pages,
-      "page"  => $page,
-      "data" => $svi
+        "total" => $pages,
+        "page"  => $page,
+        "data" => $final,
+        "loggedIn" => $loggedIn
       ];
       echo json_encode($resp);
     } catch (Exception $e) {
