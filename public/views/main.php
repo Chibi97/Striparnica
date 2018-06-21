@@ -54,8 +54,8 @@
             <option value='<?= $comic->id ?>'><?= $comic->name ?></option>
           <?php endforeach ?>
         </select>
-        <span class='already-voted'></span>
-        <span class='vote-msg'> Click <a href=''>here</a> to remove your vote.</span>
+        <span class='vote-msg'></span>
+        <span class='click-here'> Click <a href=''>here</a> to remove your vote.</span>
       </article>
     </section>
    

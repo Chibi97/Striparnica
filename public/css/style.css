@@ -167,11 +167,11 @@
   margin-top: 2em;
 }
 
-.vote-msg {
+.click-here, .vote-msg {
   margin-top: 1em;
 }
 
-.vote-msg a {
+.click-here a {
   color: #666A86;
   font-weight: 900;
 }

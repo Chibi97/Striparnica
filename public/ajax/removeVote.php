@@ -18,8 +18,12 @@
           $conn->query($query);
 
           $upit = "SELECT c.name,p.path, p.alt, COUNT(*) AS votes FROM votes v JOIN comics c ON v.id_comic = c.id JOIN pictures p ON c.id = p.id_comic GROUP BY c.name, p.path, p.alt ORDER BY votes DESC LIMIT 0,3";
-          $results = selectMultipleRows($conn, $upit);
-          echo json_encode($results);
+          $result = selectMultipleRows($conn, $upit);
+          $resp = [
+                "results" => $result,
+                "poruka" => "You can vote again!"
+          ];
+          echo json_encode($resp);
         } catch(PDOException $e) {
           echo json_encode(["poruka" => "Something went wrong"]);
         } 
