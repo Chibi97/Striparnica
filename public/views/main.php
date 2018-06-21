@@ -55,7 +55,7 @@
           <?php endforeach ?>
         </select>
         <span class='already-voted'></span>
-        <span class='vote-msg'> Click <a href='ajax/removeVote.php'>here</a> to remove your vote.</span>
+        <span class='vote-msg'> Click <a href=''>here</a> to remove your vote.</span>
       </article>
     </section>
    

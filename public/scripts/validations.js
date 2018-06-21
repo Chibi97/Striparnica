@@ -148,17 +148,16 @@ function handleVote() {
   });
 
   $(".vote-msg a").click(function (e) {
-    if(value > 0) {
-      ajaxGet("ajax/removeVote.php",
-      (resp) => {
-        console.log(resp);
-      },
-      (status, responseText) => {
-        console.log(responseText);
-      });
-    } else {
-      e.preventDefault();
-    }
+    $(".already-voted").html("");
+    $(".vote-msg").hide();
+    e.preventDefault();
+    ajaxGet("ajax/removeVote.php",
+    (resp) => {
+      results(resp);
+    },
+    (status, responseText) => {
+       console.log(responseText);
+    });
   });
 }
 
