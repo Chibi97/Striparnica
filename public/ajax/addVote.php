@@ -27,7 +27,6 @@
               $results = selectMultipleRows($conn, $upit);
               echo json_encode($results);
             } catch(PDOException $e) {
-              $status = 500;
               echo json_encode(["poruka" => "You already voted."]);
             }    
           }
