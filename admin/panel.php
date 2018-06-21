@@ -79,7 +79,9 @@
       width: 100,
       height: 100
     });
-    let select = $(".multipleSelect").fastselect().data('fastselect');
+    // let select = $(".multipleSelect").fastselect().data('fastselect');
+  $(".multipleSelect").select2();
+  $("#izbor-stripa").select2();
 
     $("#delete").click(function() {
       var id = $("#izbor-stripa").val();
@@ -94,17 +96,18 @@
       ajaxPost("ajax/getComic.php", {id: $(this).val()}, (data) => {
         let comic = data.comic;
         let filterIds = data.filters.map((filter) => filter.id_sub_filter + "");
-        var options = $(".multipleSelect option").filter(function() {
-          return filterIds.includes($(this).val());
-        }).toArray();
+        var options = $(".multipleSelect option")
+          .filter(function() {
+            return filterIds.includes($(this).val());
+          })
+          .map(function() { return $(this).val(); })
+          .toArray();
         $("#comicName").val(comic.name);
         $("#desc").val(comic.description);
         $(".dial").val(comic.issues);
 
-        $(".multipleSelect option").each(function() {
-          select.removeSelectedOption(this);
-        });
-        options.forEach((option) => select.setSelectedOption(option));
+        $(".multipleSelect").val(null).trigger('change');
+        $(".multipleSelect").val(options).trigger('change');
 
         $("#preview").attr("src", comic.path);
         $("#naslov").text("Updating a comic");

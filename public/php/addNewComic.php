@@ -90,13 +90,11 @@
       $errors['issues'] = $issuesError;
     }
 
+    if(empty($tags)) {
+      $errors['tags'] = $tagsError;
+    }
+
     if($method == "POST") {
-      // Validiramo zato sto jquery plugin ima bag koji
-      // salje prazan string prilikom UPDATE
-      // treba samo validirati tokom POST, tako da stavljamo ovde.
-      if(empty($tags)) {
-        $errors['tags'] = $tagsError;
-      }
       validatePicture($picPor, $errors, "comic-por-pic");
     }
 
