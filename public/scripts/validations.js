@@ -1,6 +1,7 @@
 $(document).ready(function() {
   loginValidation();
   registerValidation();
+  handleVote();
 });
 
 function loginValidation() {
@@ -103,5 +104,23 @@ function prikazGresaka(errors, forma) {
     forma.find('.errConfirm').html("");
     forma.find(".fa-unlock").css("color", "#333");
   }
+}
+
+function handleVote() {
+  $("#vote").change(function() {
+    var value = Number($(this).val());
+    if(value > 0) {
+      ajaxPost("ajax/vote.php", {
+        votedFor: value
+      },
+      (poruka) => {
+       $(".vote").append("Success");
+       
+      },
+      (status) => {
+        console.log(status);
+      });
+    }
+  });
 }
 

@@ -194,6 +194,7 @@
   .l3-item {
     width: 250px;
     -moz-height: auto;
+    height:auto;
     margin-bottom: 1em;
   }
 }
@@ -511,4 +512,10 @@ textarea {
 /* ----- VOTE ----- */
 .vote {
   align-self:flex-start;
+  margin-left: 5em;
+  width:30rem;
+}
+
+#izbor-stripa {
+  width: 300px;
 }

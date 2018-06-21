@@ -118,7 +118,6 @@ var filters = (function() {
   }
  
   function iscrtajNav(resp) {
-    console.log(resp.total);
     var div = $(".comics-control");
     div.html("");
     for(let i=0; i<resp.total;i++) {
@@ -140,7 +139,6 @@ var filters = (function() {
   function iscrtajJednog(comic, loggedIn) {
     var remove = "";
     var add = "";
-    console.log("ID: " + comic.id + " je: " + comic.flag);
     if (loggedIn) {
       if (!comic.flag) {
         add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list add'>ADD</a>`;

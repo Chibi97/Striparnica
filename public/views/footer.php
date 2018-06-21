@@ -83,6 +83,7 @@
   </footer>
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="scripts/jquery.selectBox.min.js" type="text/javascript"></script>
   <script>
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
@@ -96,11 +97,21 @@
     <?php else: ?>
       window.modalOpen = false;
     <?php endif ?>
+
+    $('#vote').selectBox({
+    mobile: true,
+    menuSpeed: 'fast'
+   });
+
+   $('#izbor-stripa').selectBox({
+      mobile: true,
+      menuSpeed: 'fast'
+     });
   </script>
   <script src='scripts/utils.js'></script>
   <script src='scripts/fastselect.min.js'></script>
   <script src='scripts/jquery.knob.min.js'></script>
-  <script src='scripts/logRegValidate.js'></script>
+  <script src='scripts/validations.js'></script>
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
   <script src='scripts/comics.js'></script>
