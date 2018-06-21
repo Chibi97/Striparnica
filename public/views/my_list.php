@@ -30,7 +30,6 @@
     <p class='scroll'><?= $myComic->description ?></p>
     <div class='info'>
       <p><strong>Issues/Chapters: </strong><?= $myComic->issues ?></p>
-      <p><strong>Number of votes: </strong><?= $myComic->votes ?></p>
     </div>
   </div>
   <?php endforeach ?>

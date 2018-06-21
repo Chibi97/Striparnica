@@ -38,6 +38,7 @@
             <img src='<?= $comic->path ?>' alt='<?= $comic->alt ?>' />
             <figcaption class='l3-desc'>
               <p><?= $comic->name ?></p>
+              <p>Votes: <?= $comic->votes ?></p>
             </figcaption>
           </figure>
        <?php endforeach ?>

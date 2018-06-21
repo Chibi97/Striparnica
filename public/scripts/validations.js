@@ -108,12 +108,18 @@ function prikazGresaka(errors, forma) {
 function results(resp) {
   var html = "";
   $(".vote-msg").html(resp.poruka);
-  $(".click-here").show();
-  resp.results.forEach((result) => {
-    html += iscrtajSliku(result);
-  });
-  $(".last-added").html(html);
- 
+  console.log(resp.poruka);
+  if (resp.poruka == "You already voted.") {
+    $(".click-here").show();
+  } else {
+    $(".click-here").hide();
+  }
+  if(resp.results) {
+    resp.results.forEach((result) => {
+      html += iscrtajSliku(result);
+    });
+    $(".last-added").html(html);
+  }
 }
 
 function iscrtajSliku(jedna) {
@@ -121,6 +127,7 @@ function iscrtajSliku(jedna) {
             <img src='${jedna.path}' alt='${jedna.alt}' />
           <figcaption class='l3-desc'>
             <p>${jedna.name}</p>
+            <p>Votes: ${jedna.votes}</p>
           </figcaption>
         </figure>`;
 }
@@ -134,7 +141,6 @@ function handleVote() {
         votedFor: value
       },
       (resp) => {
-        console.log(resp);
         results(resp);
       },
       (status, responseText) => {
