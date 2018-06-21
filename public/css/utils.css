@@ -396,6 +396,20 @@ footer {
   cursor: not-allowed;
 }
 
+.select2-container {
+  width:100% !important;
+  margin: .5em 0;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #666A86 !important;
+  color:white !important;
+}
+
+.select2-results__options li {
+  font-size: 1.7rem;
+}
+
 @media only screen and (max-width: 475px) {
   .disclaimer {
     margin: 1em 2.5em;
