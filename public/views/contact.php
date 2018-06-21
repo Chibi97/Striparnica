@@ -16,5 +16,10 @@
     <button class='change-btn' name='contact'>Contact us</button>
   </form>
 
-
+  <div class='vote'>
+    <h1>Vote for your favorite comic</h1>
+    <select name='vote'>
+    
+    </select>
+  </div>
 </div>

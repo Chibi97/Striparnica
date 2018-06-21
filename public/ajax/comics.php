@@ -20,14 +20,14 @@
   $koliko = PER_PAGE;
 
   $limit = "LIMIT :od, $koliko";
-  
+
   $base_query = "SELECT DISTINCT c.*,p.path, p.alt, l.id_user FROM comics c 
   LEFT JOIN list l ON c.id = l.id_comic AND l.id_user=$userId
   JOIN pictures p ON c.id = p.id_comic 
   JOIN comics_sub_filters cf ON c.id = cf.id_comic";
    
   if(isset($_POST['ids'])) {
-    $ids = $_P7OST['ids'];
+    $ids = $_POST['ids'];
     $page = 1;
     if(isset($_POST['page'])) {
       $page = $_POST['page'];
