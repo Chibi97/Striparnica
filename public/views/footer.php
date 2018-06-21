@@ -84,7 +84,6 @@
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-  <script src="scripts/jquery.selectBox.min.js" type="text/javascript"></script>
   <script>
     <?php if(isset($_SESSION['greske'])): ?>
       window.modalOpen = true;
@@ -99,16 +98,8 @@
       window.modalOpen = false;
     <?php endif ?>
 
-    $('#vote').selectBox({
-    mobile: true,
-    menuSpeed: 'fast'
-   });
+    $('#vote').select2();
 
-    /*
-   $('#izbor-stripa').selectBox({
-      mobile: true,
-      menuSpeed: 'fast'
-     }); */
   </script>
   <script src='scripts/utils.js'></script>
   <script src='scripts/jquery.knob.min.js'></script>
