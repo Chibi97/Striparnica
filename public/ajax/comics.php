@@ -44,7 +44,9 @@
       }
     }
     $array .= ")";
-    $stmt = $conn->prepare("SELECT COUNT(*) AS num FROM comics c INNER JOIN comics_sub_filters csf ON c.id = csf.id_comic WHERE csf.id_sub_filter IN (SELECT id FROM sub_filters WHERE id IN $array)");
+    $stmt = $conn->prepare("SELECT COUNT(distinct csf.id_comic) AS num FROM comics c
+    JOIN comics_sub_filters csf ON c.id = csf.id_comic 
+    WHERE csf.id_sub_filter IN $array");
     foreach($bindings as $index => &$val) {
       $stmt->bindParam("$index", $val, PDO::PARAM_INT);
     }
@@ -68,7 +70,6 @@
         $novi["name"] = $row->name;
         $novi["description"] = $row->description;
         $novi["issues"] = $row->issues;
-        $novi["votes"] = $row->votes;
         $novi["path"] = $row->path;
         $novi["alt"] = $row->alt;
         $novi["flag"] = $row->id_user;
@@ -92,7 +93,6 @@
       $status = 500;
     }
   } else {
-
     $count = $conn->query("SELECT COUNT(*) AS num FROM comics")->fetch()->num;
     $pages = ceil($count / PER_PAGE);
 
@@ -109,7 +109,6 @@
         $novi["name"] = $row->name;
         $novi["description"] = $row->description;
         $novi["issues"] = $row->issues;
-        $novi["votes"] = $row->votes;
         $novi["path"] = $row->path;
         $novi["alt"] = $row->alt;
         $novi["flag"] = $row->id_user;

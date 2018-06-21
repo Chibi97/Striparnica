@@ -46,7 +46,6 @@ function validateRegistrationParams(errors, validno) {
   validations.push(validatePassword(password, errors, validno));
 
   return !validations.includes(false);
-  // ako nadje bilo koje false u nizu, vratice true, sto znaci da moramo sa ! da kazemo da to bude false -- neuspesno
 }
 
 function validateEmail(email, errors, validno) {
@@ -106,20 +105,59 @@ function prikazGresaka(errors, forma) {
   }
 }
 
+function results(resp) {
+  var html = "";
+  if(resp.poruka) {
+    var response = resp.poruka;
+    $(".already-voted").html(response);
+    $(".vote-msg").show();
+  } else {
+    resp.forEach((result) => {
+      html += iscrtajSliku(result);
+    });
+    $(".last-added").html(html);
+  }
+ 
+}
+
+function iscrtajSliku(jedna) {
+  return `<figure class='l3-item'>
+            <img src='${jedna.path}' alt='${jedna.alt}' />
+          <figcaption class='l3-desc'>
+            <p>${jedna.name}</p>
+          </figcaption>
+        </figure>`;
+}
+
 function handleVote() {
-  $("#vote").change(function() {
+  $(".vote-msg").hide();
+  $("#vote").change(function () {
     var value = Number($(this).val());
-    if(value > 0) {
-      ajaxPost("ajax/vote.php", {
+    if (value > 0) {
+      ajaxPost("ajax/addVote.php", {
         votedFor: value
       },
-      (poruka) => {
-       $(".vote").append("Success");
-       
+      (resp) => {
+        console.log(resp);
+        results(resp);
       },
-      (status) => {
-        console.log(status);
+      (status, responseText) => {
+        console.log(responseText);
       });
+    }
+  });
+
+  $(".vote-msg a").click(function (e) {
+    if(value > 0) {
+      ajaxGet("ajax/removeVote.php",
+      (resp) => {
+        console.log(resp);
+      },
+      (status, responseText) => {
+        console.log(responseText);
+      });
+    } else {
+      e.preventDefault();
     }
   });
 }

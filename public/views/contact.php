@@ -15,17 +15,4 @@
 
     <button class='change-btn' name='contact'>Contact us</button>
   </form>
-
-  <div class='vote'>
-    <h1>Vote for your favorite comic</h1>
-    <select id='vote' name='vote'>
-      <?php
-        $upit = "SELECT id,name FROM comics";
-        $comics = selectMultipleRows($conn, $upit);
-        foreach($comics as $comic):
-      ?>
-        <option value='<?= $comic->id ?>'><?= $comic->name ?></option>
-      <?php endforeach ?>
-    </select>
-  </div>
 </div>

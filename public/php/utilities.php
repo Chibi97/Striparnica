@@ -39,7 +39,7 @@
     try {
       $result->execute();
     } catch (PDOException $e) {
-      var_dump($e->getMessage());
+      //var_dump($e->getMessage());
       return null;
     }
     return $result;
@@ -127,7 +127,7 @@
       ]);
       return $uploaded;
     } catch(Exception $e) {
-      echo "Slika nije u dobrom formatu";
+
     }
   }
 
@@ -169,8 +169,6 @@
 
   function resize_image($file, $target, Callable $callback) {
     list($originalWidth, $originalHeight) = getimagesize($file);
-    echo "Original width: $originalWidth <br>";
-    echo "Original height: $originalHeight <br>";
     $ratio = $originalWidth / $originalHeight;
 
     list($targetWidth, $targetHeight) = $callback($ratio, $target);

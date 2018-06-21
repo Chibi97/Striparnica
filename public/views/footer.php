@@ -10,7 +10,7 @@
               echo "<li><a href='$link->path'>$link->name</a></li>";  
             } 
           }
-          echo "<li><a href='#'>Dokumentacija</a></li>";
+          echo "<li><a href='https://github.com/Chibi97/Striparnica'>Dokumentacija</a></li>";
         ?>
       </ul>
 

@@ -157,7 +157,6 @@ var filters = (function() {
               <p class='scroll'>${comic.description}</p>
               <div class='info'>
                 <p><strong>Issues/Chapters: </strong>${comic.issues}</p>
-                <p><strong>Number of votes: </strong>${comic.votes}</p>
               </div>
             </div>`;
   }

@@ -15,7 +15,7 @@ function __ajax(url, cbSuccess, cbFailure, verb, data) {
     success: cbSuccess,
     data: data,
     error: function(xhr) {
-      cbFailure(xhr.status);
+      cbFailure(xhr.status, xhr.responseText);
     }
   })
 }

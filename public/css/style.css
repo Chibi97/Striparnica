@@ -95,7 +95,7 @@
   margin: 0 1.5em 1em;
 }
 
-.list-adv a {
+.links {
   display:block;
   margin: 0 0 1em 2em ;
   font-size:1em;
@@ -152,6 +152,7 @@
 }
 
 .the-rest {
+  font-family: 'Raleway', sans-serif;
   margin-top:.7em;
   font-size:1.8rem;
 }
@@ -162,6 +163,19 @@
   display:inline;
   color:#666A86;
   font-weight: 700;
+}
+
+.vote {
+  margin-top: 2em;
+}
+
+.vote-msg {
+  margin-top: 1em;
+}
+
+.vote-msg a {
+  color: #666A86;
+  font-weight: 900;
 }
 
 @media only screen and (max-width: 810px) {
@@ -507,15 +521,4 @@ textarea {
     min-height: 80vmax;
     min-width: 50vmax;
   }
-}
-
-/* ----- VOTE ----- */
-.vote {
-  align-self:flex-start;
-  margin-left: 5em;
-  width:30rem;
-}
-
-#izbor-stripa {
-  width: 300px;
 }
