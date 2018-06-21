@@ -342,6 +342,11 @@ textarea {
   font-size: 1em !important;
 }
 
+.panel-navigation a {
+  font-size: 2.5rem;
+  margin: .5em 1em;
+}
+
 /* -------- BROWSE ------- */
 
 .browse-container {
