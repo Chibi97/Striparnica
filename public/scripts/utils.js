@@ -14,7 +14,7 @@ function __ajax(url, cbSuccess, cbFailure, verb, data) {
     method: verb,
     success: cbSuccess,
     data: data,
-    error: function(xhr) {
+    error: function(xhr, statusText, msg) {
       cbFailure(xhr.status, xhr.responseText);
     }
   })

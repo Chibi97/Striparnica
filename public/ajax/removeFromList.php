@@ -11,7 +11,7 @@
 
       if(isset($_POST['stripId'])) {
         $idStrip = $_POST['stripId'];
-        $status = 200;
+        $status = 204;
 
         if(!empty($idUser)) {
           $query = "DELETE FROM list WHERE id_user = :id_user AND id_comic = :id_comic";

@@ -11,7 +11,7 @@
 
       if(isset($_POST['stripId'])) {
         $idStrip = $_POST['stripId'];
-        $status = 200;
+        $status = 201;
 
         if(!empty($idUser)) {
           $query = "INSERT INTO list(id_user, id_comic) 
@@ -20,6 +20,7 @@
           $stmt->bindParam(":id_kor", $idUser);
           $stmt->bindParam(":id_com", $idStrip);
           $stmt->execute();
+          echo json_encode(["success" => true]);
         } 
 
       }

@@ -3,6 +3,15 @@ $(document).ready(function() {
   filters.getAllComics();
 });
 
+function addLink(id) {
+  return `<a href='#' data-id='${id}' class='btn-style bs-white add-to-list add'>ADD</a>`;
+}
+
+function deleteLink(id) {
+  return `<a href='#' data-id='${id}' class='btn-style bs-white add-to-list remove'>REMOVE</a>`;
+}
+
+
 var myList = (function() {
   function init() {
     var add = $(".add");
@@ -19,7 +28,9 @@ var myList = (function() {
           stripId: id
         },
       () => {
-        console.log("uspeh");
+        var insertNode = $(addLink(id));
+        insertNode.click(handleAdd);
+        $(this).replaceWith(insertNode);
       },
       (status) => {
         console.log(status);
@@ -33,7 +44,9 @@ var myList = (function() {
           stripId: id
         },
       () => {
-        console.log("uspeh");
+        var deleteNode = $(deleteLink(id));
+        deleteNode.click(handleRemove);
+        $(this).replaceWith(deleteNode);
       },
       (status) => {
         console.log(status);
@@ -136,23 +149,16 @@ var filters = (function() {
     }
   }
 
+  function resolveFlag(flag, id) {
+    return flag ? deleteLink(id) : addLink(id);
+  }
+
   function iscrtajJednog(comic, loggedIn) {
-    var remove = "";
-    var add = "";
-    if (loggedIn) {
-      if (!comic.flag) {
-        add = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list add'>ADD</a>`;
-      } else {
-        remove = `<a href='#' data-id='${comic.id}' class='btn-style bs-white add-to-list remove'>REMOVE</a>`;
-      }
-    }
-    
     return `<div class='comic'>
               <img src='${comic.path}' alt='${comic.alt}' />
               <h2>${comic.name}</h2>
               <div class='aid ar-btn'>
-                ${add}
-                ${remove}
+                ${loggedIn ? resolveFlag(comic.flag, comic.id):''}
               </div>
               <p class='scroll'>${comic.description}</p>
               <div class='info'>
