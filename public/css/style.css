@@ -560,6 +560,7 @@ textarea {
   display: inline-block;
   margin: 1em 0;
   color: #666a86;
+  font-weight: 900;
 }
 
 @media only screen and (max-width: 770px) {
