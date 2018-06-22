@@ -103,7 +103,7 @@ function confirmPassword(password, confirm, errors) {
 
 function validateMessage(message, errors, validno) {
   if(message.length < 10) {
-    errors.message = "Your message must have at least 10 characters...";
+    errors.message = "Your message must have at least 10 characters";
     return false;
   } else {
     validno.message = message;
