@@ -107,4 +107,5 @@
   <script src='scripts/modal.js'></script>
   <script src='scripts/mainslider.js'></script>
   <script src='scripts/comics.js'></script>
+  <script src='scripts/chartist.min.js'></script>
   
