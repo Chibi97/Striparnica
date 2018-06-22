@@ -4,7 +4,7 @@
     <section class='list-adv flex-row center'>
       <article class='la-group'>
         <p><strong class='warning'>You need to login in order to see this page..</strong></p>
-        <p>Ever wanted to keep track of the comics that you are interested it? Well, we have a solution for you! We'll give you one list, so you decide what you'll keep track of -- favorites, currently reading, plan to read or anything else. Register now, and you can make your own list of comics for free, give your own ratings and decide what next to read.</p>
+        <p>Ever wanted to keep track of the comics that you are interested it? Well, we have a solution for you! We'll give you one list, so you decide what you'll keep track of -- favorites, currently reading, plan to read or anything else. Register now, and you can make your own list of comics for free, vote for a favorite comic and decide what next to read.</p>
       </article>
 
        <article class='links-lr'>
