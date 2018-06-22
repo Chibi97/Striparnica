@@ -83,7 +83,7 @@
       width: 100,
       height: 100
     });
-    // let select = $(".multipleSelect").fastselect().data('fastselect');
+    
   $(".multipleSelect").select2();
   $("#izbor-stripa").select2();
 
