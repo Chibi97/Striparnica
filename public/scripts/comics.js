@@ -16,6 +16,7 @@ var myList = (function() {
   function init() {
     var add = $(".add");
     var remove = $(".remove");
+    console.log("Reinit?");
     add.click(handleAdd);
     remove.click(handleRemove);
   }
@@ -102,6 +103,7 @@ var filters = (function() {
     ajaxPost("ajax/comics.php", data,
       (resp)    => {
         iscrtajSve(resp);
+        myList.init();
         iscrtajNav(resp);
       },
       (status)  => {
