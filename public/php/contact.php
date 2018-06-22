@@ -23,6 +23,7 @@
       $subject = "MyComicsList contact";
       $header = "From: $email";
       mail(TO, $subject, $message, $header);
+      $_SESSION['contactSuccess'] = ['success' => 'Administrator will respond as soon as possible'];
     } else {
       $_SESSION['contactErrors'] = $errors;
     }
