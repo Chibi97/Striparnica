@@ -556,6 +556,10 @@ textarea {
   width: 100px;
 }
 
+.contactSuccess {
+  margin: 1em 0;
+}
+
 @media only screen and (max-width: 770px) {
   .browse-container {
     display: flex;
