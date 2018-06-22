@@ -20,15 +20,13 @@
     }
 
     if(empty($errors)) {
-      echo "heree";
       $subject = "MyComicsList contact";
       $header = "From: $email";
       mail(TO, $subject, $message, $header);
       $_SESSION['contactSuccess'] = ['success' => 'Administrator will respond as soon as possible'];
     } else {
-      echo "ipak gresaka ima";
       $_SESSION['contactErrors'] = $errors;
     }
   }
 
-  //header("Location: /index.php?page=contact");
+  header("Location: /index.php?page=contact");
