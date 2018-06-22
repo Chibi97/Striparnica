@@ -12,9 +12,9 @@
       <textarea name='contact-message'  id='contact-message'></textarea>
     </div>
     <span class='form-error errContactMsg'><?= error_for("message", "contactErrors"); ?></span>
-    <?php unset($_SESSION['contactErrors']); ?>
     <button class='change-btn' name='contact'>Contact us</button>
     <span class='form-error '><?php error_for("success", "contactErrors"); ?></span>
+    <?php unset($_SESSION['contactErrors']); ?>
     <?php // unset($_SESSION['contactSuccess']); ?>
   </form>
 </div>
