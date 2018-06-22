@@ -317,6 +317,7 @@ textarea {
 }
 
 .change-btn {
+  display:block;
   padding: 1.4em;
   border: none;
   background-color: #666A86;
@@ -345,6 +346,8 @@ textarea {
 .panel-navigation a {
   font-size: 2.5rem;
   margin: .5em 1em;
+  color: #666a86;
+  padding: 1em;
 }
 
 .chart-container {

@@ -2,6 +2,7 @@ $(document).ready(function() {
   loginValidation();
   registerValidation();
   handleVote();
+  contactValidation();
 });
 
 function loginValidation() {
@@ -48,6 +49,27 @@ function validateRegistrationParams(errors, validno) {
   return !validations.includes(false);
 }
 
+function contactValidation() {
+  $('form[name="contact"]').submit(function (e) {
+    var errors = {};
+    var validno = {};
+    if(!validateContactParams(errors, validno)) {
+      e.preventDefault();
+      prikazGresaka(errors, $(this));
+    }
+  });
+}
+
+function validateContactParams(errors, validno) {
+  var validations = [];
+  var email = $("input[name='contact-email']").val();
+  var message = $("#contact-message").val();
+  validations.push(validateEmail(email, errors, validno));
+  validations.push(validateMessage(message, errors, validno));
+
+  return !validations.includes(false);
+}
+
 function validateEmail(email, errors, validno) {
   var reEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/;
   if(!reEmail.test(email)) {
@@ -79,6 +101,16 @@ function confirmPassword(password, confirm, errors) {
   }
 }
 
+function validateMessage(message, errors, validno) {
+  if(message.length < 10) {
+    errors.message = "Your message must have at least 10 characters...";
+    return false;
+  } else {
+    validno.message = message;
+    return true;
+  }
+}
+
 function prikazGresaka(errors, forma) {
   if (errors.password) {
     forma.find('.errPass').html(errors.password);
@@ -91,9 +123,11 @@ function prikazGresaka(errors, forma) {
   if (errors.email) {
     forma.find('.errEmail').html(errors.email);
     forma.find(".fa-at").css("color", "crimson");
+    forma.find('.errContactEmail').html(errors.email);
   } else {
     forma.find('.errEmail').html("");
     forma.find(".fa-at").css("color", "#333");
+    forma.find('.errContactEmail').html("");
   }
 
   if (errors.confirm) {
@@ -103,7 +137,13 @@ function prikazGresaka(errors, forma) {
     forma.find('.errConfirm').html("");
     forma.find(".fa-unlock").css("color", "#333");
   }
-}
+  
+  if (errors.message) {
+    forma.find('.errContactMsg').html(errors.message);
+  } else {
+    forma.find('.errContactMsg').html("");
+  }
+} 
 
 function results(resp) {
   var html = "";
