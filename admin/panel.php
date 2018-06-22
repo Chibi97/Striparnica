@@ -1,3 +1,7 @@
+<div class='flex-row center panel-navigation'>
+  <a href='index.php?page=panel'>Comics</a>
+  <a href='index.php?page=stats'>Stats</a>
+</div>
 <div class='flex-row center add-comic'>
   <form action='/php/addNewComic.php' method='POST' enctype='multipart/form-data'>
     <input type='hidden' name='_method' id="_method" value='POST' />

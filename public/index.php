@@ -21,15 +21,18 @@
           include_once "views/browse.php";
           break;
         case 'panel':
-          if(isset($_SESSION['user'])) {
-            if($_SESSION['user']->role == "administrator") {
-              include_once "../admin/panel.php";
-            } else {
-              include "views/main.php";
-            }
+          if(isset($_SESSION['user']) && $_SESSION['user']->role == "administrator") {
+            include_once "../admin/panel.php";
           } else {
-              include "views/main.php";
-            }
+            include "views/main.php";
+          }
+          break;
+        case 'stats':
+          if(isset($_SESSION['user']) && $_SESSION['user']->role == "administrator") {
+            include_once "../admin/stats.php";
+          } else {
+            include "views/main.php";
+          }
           break;
         case 'my_list':
           include "views/my_list.php";

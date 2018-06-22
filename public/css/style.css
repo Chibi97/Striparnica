@@ -342,6 +342,54 @@ textarea {
   font-size: 1em !important;
 }
 
+.panel-navigation a {
+  font-size: 2.5rem;
+  margin: .5em 1em;
+}
+
+.chart-container {
+  width: 80em;
+  height: 50em;
+  margin: 0 auto;
+}
+
+.ct-label {
+  font-size: 2rem;
+}
+
+.ct-series-a .ct-bar {
+  stroke: #6b0392 !important;
+}
+
+.ct-series-b .ct-bar {
+  stroke: #666a86 !important;
+}
+
+.series-a,
+.series-b {
+  position: relative;
+  font-size: 2.1rem;
+}
+
+.series-a:before,
+.series-b:before {
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+.series-a:before {
+  background: #6b0392;
+}
+
+.series-b:before {
+  background: #666A86;
+}
+
 /* -------- BROWSE ------- */
 
 .browse-container {
