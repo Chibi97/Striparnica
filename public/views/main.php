@@ -26,7 +26,7 @@
     $comics = selectMultipleRows($conn, $upit);
   ?>
     <section class='list-adv  flex-col center'>
-      <h2>Top by votes:</h2>
+      <h2>Top three by votes:</h2>
       <article class='last-added flex-row'>
         
         <?php
