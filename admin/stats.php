@@ -1,7 +1,4 @@
-<div class='flex-row center panel-navigation'>
-  <a href='index.php?page=panel'>Comics</a>
-  <a href='index.php?page=stats'>Stats</a>
-</div>
+<?php include_once "admin_nav.php" ?>
 <div class='flex-row center legend'>
   <ul>
     <li class='series-a'>Favorites</li>

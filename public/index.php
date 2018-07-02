@@ -34,6 +34,20 @@
             include "views/main.php";
           }
           break;
+        case 'list_category':
+          if(isset($_SESSION['user']) && $_SESSION['user']->role == "administrator") {
+            include_once "../admin/list_category.php";
+          } else {
+            include "views/main.php";
+          }
+          break;
+        case 'edit_category':
+          if(isset($_SESSION['user']) && $_SESSION['user']->role == "administrator") {
+            include_once "../admin/edit_category.php";
+          } else {
+            include "views/main.php";
+          }
+          break;
         case 'my_list':
           include "views/my_list.php";
           break;

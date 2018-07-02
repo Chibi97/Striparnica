@@ -410,6 +410,21 @@ footer {
   font-size: 1.7rem;
 }
 
+/* Tables */
+.my-table {
+  font-size: 2.2rem;
+  border-collapse: collapse;
+}
+
+.my-table th, .my-table tr, .my-table td {
+  padding: .33em .65em;
+  border: 1px solid #333333;
+}
+
+.my-table a {
+  color: #7680c9;
+}
+
 @media only screen and (max-width: 475px) {
   .disclaimer {
     margin: 1em 2.5em;
