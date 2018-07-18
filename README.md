@@ -1,6 +1,6 @@
 # MyComicsList platform
 College project for Web programming PHP 1 course on ICT College.
-This is my very first dynamic website and it includes: 
+### This is my very first dynamic website and it includes: 
 - PHP (pure, without frameworks)
 - JavaScript (with Chartist, select2 and KNOB librarires)
 - JQuery 
