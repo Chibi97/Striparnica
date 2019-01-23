@@ -4,7 +4,7 @@
   require_once "../php/utilities.php";
 
 
-  define("PER_PAGE", 8);
+  define("PER_PAGE", 6);
   header("Content-type: application/json");
 
   $status = 200;
