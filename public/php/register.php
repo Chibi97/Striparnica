@@ -9,7 +9,7 @@
     $confirm  = $_POST['reg-confirm'];
     $errors   = [];
 
-    $passwordMessage = "A password must have at least one digit, at least one uppercase char, lowercase chars and it should be at least 8 chars long";
+    $passwordMessage = "A password must have at least one digit, at least one uppercase char, lowercase chars, at least one special char and it should be at least 8 chars long";
     $emailMessage = "Your email must be of a valid format";
     $confirmMessage = "Your passwords are not matching";
     $uniqueMessage = "This email is taken";
@@ -17,7 +17,7 @@
     if($password !== $confirm) {
       $errors["reg_confirm"] = $confirmMessage;
     } else {
-        $rePassword = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/';
+        $rePassword = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-|?><,.`~:{}[\]~`;\'\"])[A-Za-z\d!@#$%^&*()_+=-|?><,.`~:{}[\]~`;\'\"]{8,}$/';
         if(!preg_match($rePassword, $password)) {
         $errors["reg_password"] = $passwordMessage;
       }

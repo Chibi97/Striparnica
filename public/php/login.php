@@ -8,9 +8,9 @@
     $password = $_POST['password'];
     $errors   = [];
 
-    $passwordMessage = "A password must have at least one digit, at least one uppercase char, lowercase chars and it should be at least 8 chars long";
+    $passwordMessage = "A password must have at least one digit, at least one uppercase char, lowercase chars, at least one special char and it should be at least 8 chars long";
     $emailMessage    = "You must enter a valid format for email address";
-    $rePassword = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/';
+    $rePassword = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-|?><,.`~:{}[\]~`;\'\"])[A-Za-z\d!@#$%^&*()_+=-|?><,.`~:{}[\]~`;\'\"]{8,}$/';
     if(!preg_match($rePassword, $password)) {
       $errors["password"] = $passwordMessage;
     }

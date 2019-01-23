@@ -82,9 +82,9 @@ function validateEmail(email, errors, validno) {
 }
 
 function validatePassword(password, errors, validno) {
-   var rePass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+  var rePass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-|?><,.`~:{}[\]~`;\'\"])[A-Za-z\d!@#$%^&*()_+=-|?><,.`~:{}[\]~`;\'\"]{8,}$/;
    if(!rePass.test(password)) {
-     errors.password = "A password must have at least one digit, at least one uppercase char, lowercase chars and it should be at least 8 chars long";
+     errors.password = "A password must have at least one digit, at least one uppercase char, lowercase chars, at least one special char and it should be at least 8 chars long";
     return false;
   } else {
     validno.password = password;
