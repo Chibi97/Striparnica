@@ -503,7 +503,8 @@ textarea {
 }
 
 .comic {
-  flex: 1 0 20%;
+  /* flex: 1 0 20%; */
+  width: 300px;
   margin: 0 1em;
 }
 
@@ -522,6 +523,7 @@ textarea {
   width: 100%;
   height: 15em;
   overflow: auto;
+  text-align: justify;
 }
 
 .info {
