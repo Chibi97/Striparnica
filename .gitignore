@@ -3,3 +3,6 @@ configuration.php
 
 # Ignore the .idea folder
 .idea
+
+# Ignore database backup
+comics_list.sql
